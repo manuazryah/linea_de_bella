@@ -1,0 +1,57 @@
+/*------------------------------------------------------------------
+ Project:		Gelli
+ Version:		1
+ Primary use:	Gelli Multi Purpose
+ -------------------------------------------------------------------*/
+.breadcrumbs-content {
+  background-image: url(../../inc/admin/settings/images/breadcrumbs.jpg);
+}
+.header.header-v4 .header-left {
+  background: url(../../inc/admin/settings/images/header4_bg.png) #fafafa no-repeat center center / cover;
+}
+.footer .widget-title {
+  font-family: Great Vibes, Georgia, serif;
+  font-weight: 400;
+}
+h1 {
+  font-size: 2.55em;
+  font-family: Lato;
+  line-height: 1.5em;
+  font-weight: 500;
+  color: #444;
+}
+h2 {
+  font-size: 2.25em;
+  font-family: Lato;
+  line-height: 1.5em;
+  font-weight: 500;
+  color: #444;
+}
+h3 {
+  font-size: 1.95em;
+  font-family: Lato;
+  line-height: 1.5em;
+  font-weight: 500;
+  color: #444;
+}
+h4 {
+  font-size: 1.65em;
+  font-family: Lato;
+  line-height: 1.5em;
+  font-weight: 500;
+  color: #444;
+}
+h5 {
+  font-size: 1.35em;
+  font-family: Lato;
+  line-height: 1.5em;
+  font-weight: 500;
+  color: #444;
+}
+h5 {
+  font-size: 1.15em;
+  font-family: Lato;
+  line-height: 1.5em;
+  font-weight: 500;
+  color: #444;
+}

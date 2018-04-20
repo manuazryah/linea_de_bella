@@ -1,0 +1,65 @@
+/* Color themes */
+
+[data-theme='default'] {
+  background: #7ac3c2;
+}
+[data-theme='awesome'] {
+  background: #ff1a56;
+} 
+[data-theme='banana'] {
+  background: #f1c40f;
+}  
+[data-theme='cherry'] {
+  background: #c0392b;
+}  
+[data-theme='di-serria'] {
+  background: #cea35f;
+}  
+[data-theme='leaf'] {
+  background: #27ae60;
+}  
+[data-theme='nightsky'] {
+  background: #2980b9;
+}  
+[data-theme='orange'] {
+  background: #f96015;
+} 
+[data-theme='pastel'] {
+  background: #ffb546;
+} 
+[data-theme='niagara'] {
+  background: #16a085;
+} 
+[data-theme='electric'] {
+  background: #0091ea;
+} 
+[data-theme='light-taupe'] {
+  background: #ad8368;
+} 
+[data-theme='pastel-red'] {
+  background: #ff6d6d;
+} 
+[data-theme='light-green'] {
+  background: #2ecc71;
+} 
+[data-theme='rodeo-dust'] {
+  background: #c7b29b;
+} 
+[data-theme='sunglo'] {
+  background: #d86d65;
+}  
+.controls{ 
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+li .controls:hover,
+li .controls[disabled] {
+	transform: scale(1.2); 
+	-moz-transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+} 
