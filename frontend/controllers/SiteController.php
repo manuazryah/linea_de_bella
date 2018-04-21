@@ -51,12 +51,12 @@ class SiteController extends Controller {
                 'class' => AccessControl::className(),
                 'only' => ['logout', 'signup', 'login-signup', 'blog', 'products', 'verification', 'send-response-mail'],
                 'rules' => [
-                    [
+                        [
                         'actions' => ['signup', 'login-signup', 'blog', 'products', 'verification', 'send-response-mail'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
-                    [
+                        [
                         'actions' => ['logout', 'signup', 'login-signup', 'blog', 'products', 'verification', 'send-response-mail'],
                         'allow' => true,
                         'roles' => ['@'],
@@ -203,7 +203,7 @@ class SiteController extends Controller {
      */
     public function actionSignup($go = NULL) {
         $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($user = $model->signup()) {
 
                 //$this->sendResponseMail($model);
@@ -641,12 +641,12 @@ class SiteController extends Controller {
         return $this->render('error');
     }
 
-   public function actionCategoryDetail(){
-		 return $this->render('mens-product');
-	}
-	
-	public function actionProductDetail(){
-		 return $this->render('product-detail');
-	}
+    public function actionCategoryDetail() {
+        return $this->render('mens-product');
+    }
+
+    public function actionProductDetail() {
+        return $this->render('product-detail');
+    }
 
 }

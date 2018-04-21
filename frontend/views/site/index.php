@@ -403,7 +403,7 @@ use common\components\ProductLinksWidget;
                                     <div class="headline_2" style="color: #FFFFFF;">DYNAMIC DUO</div>
                                     <div role="button" class="promo_btn notpropagate" data-wt-events="mousedown">SHOP NOW</div>
                                 </div>
-                                <img style="height: 100%;" src="/linea-de-bella/images/Bleu_de_Chanel_LP_single.jpg" alt="BACKGROUND IMAGE CTA LINK"> </div>
+                                <img style="height: 100%;" src="<?= yii::$app->homeUrl; ?>images/Bleu_de_Chanel_LP_single.jpg" alt="BACKGROUND IMAGE CTA LINK"> </div>
                         </a> </div>
                 </div>
                 <div class="axis-tile-box-s L-3">
@@ -414,7 +414,7 @@ use common\components\ProductLinksWidget;
                                     <div class="headline_2" style="color: #FFFFFF;">LET'S CHANCE</div>
                                     <div role="button" class="promo_btn notpropagate" data-wt-events="mousedown">SHOP NOW</div>
                                 </div>
-                                <img src="/linea-de-bella/images/Chance_Chanel_LP_SMALL.jpg" alt="BACKGROUND IMAGE CTA LINK"> </div>
+                                <img src="<?= yii::$app->homeUrl; ?>images/Chance_Chanel_LP_SMALL.jpg" alt="BACKGROUND IMAGE CTA LINK"> </div>
                         </a> </div>
                 </div>
                 <div class="axis-tile-box-d R-2-3">
@@ -425,7 +425,7 @@ use common\components\ProductLinksWidget;
                                     <div class="headline_2" style="color: #FFFFFF;">SPLASH SET</div>
                                     <div role="button" class="promo_btn notpropagate" data-wt-events="mousedown">SHOP NOW</div>
                                 </div>
-                                <img src="/linea-de-bella/images/Les-Exclusifs_de_Chanel_LP_Medium.jpg" alt="BACKGROUND IMAGE CTA LINK"> </div>
+                                <img src="<?= yii::$app->homeUrl; ?>images/Les-Exclusifs_de_Chanel_LP_Medium.jpg" alt="BACKGROUND IMAGE CTA LINK"> </div>
                         </a> </div>
                 </div>
             </div>
@@ -445,7 +445,7 @@ use common\components\ProductLinksWidget;
                                 <i>Linea De Bella</i>
                                 <h5>Aimer</h5>
                                 <span>PERFUME FOR WOMEN</span>
-                                <div class="offer-img"><img src="/linea-de-bella/images/resource/offer1.png" alt=""></div>
+                                <div class="offer-img"><img src="<?= yii::$app->homeUrl; ?>images/resource/offer1.png" alt=""></div>
                             </div><!-- Offer -->
                         </div>
                         <div class="col s12 m12 l6">
@@ -455,7 +455,7 @@ use common\components\ProductLinksWidget;
                                 <i>Aimer &amp; Bianchi ~ Get it now</i>
                                 <p>Magically evocative notes immediately awaken your deepest senses, giving you the impression of living life away from reality.</p>
                                 <span class="price">50%</span>
-                                <img src="/linea-de-bella/images/resource/offer-sign.png" alt="">
+                                <img src="<?= yii::$app->homeUrl; ?>images/resource/offer-sign.png" alt="">
                             </div><!-- Offers Details -->
                         </div>
                         <div class="col s12 m12 l3">
@@ -463,7 +463,7 @@ use common\components\ProductLinksWidget;
                                 <i>Linea De Bella</i>
                                 <h5>Bianchi</h5>
                                 <span>PERFUME FOR WOMEN</span>
-                                <div class="offer-img"><img src="/linea-de-bella/images/resource/offer2.png" alt=""></div>
+                                <div class="offer-img"><img src="<?= yii::$app->homeUrl; ?>images/resource/offer2.png" alt=""></div>
                             </div><!-- Offer -->
                         </div>
                     </div><!-- Special Offer -->
@@ -491,131 +491,13 @@ use common\components\ProductLinksWidget;
                                     <div class="beans-stepslider" data-rotate="true">
                                         <div class="beans-mask">
                                             <div class="beans-slideset">
-                                                <div class="beans-slide">
-                                                    <div class="padding-15">
-                                                        <li class="post-1108 product type-product status-publish has-post-thumbnail product_cat-bracelets first instock taxable shipping-taxable purchasable product-type-simple">
-                                                            <article class="product">
-                                                                <div class="item-product">
-                                                                    <div class="social-top ">
-                                                                        <div class="btn-share ">
-                                                                            <div class="quick-view add-to " data-toggle="tooltip"><a onclick="" href="#" class="yith-wcqv-button" data-product_id="1104" title="Quick View"><i class="fa fa-eye" aria-hidden="true"></i></a> </div>
-                                                                        </div>
-                                                                        <div class="btn-share">
-                                                                            <div class="add-to-wishlist yith-wcwl-add-to-wishlist add-to-wishlist-1104">
-                                                                                <div class="yith-wcwl-add-button show" style="display:block"> <span class="ajax-loading" style="visibility:hidden"></span> <a data-toggle="tooltip" title="Buynow" href="" rel="nofollow" data-product-id="1104" data-product-type="simple" class="add_to_wishlist"> <i class="fa fa-cart-plus"></i> </a> </div>
-                                                                                <div style="clear:both"></div>
-                                                                                <div class="yith-wcwl-wishlistaddresponse"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-img "> <a href="product-detail.php" title="Akanthos "><img  src="images/products/1.jpg" class="attachment-gelli-slide-product size-gelli-slide-product wp-post-image " alt="bracelets_large " /></a> </div>
-                                                                    <h2><a href="">AKANTHOS</a></h2>
-                                                                    <p>EAU DE PERFUME</p>
-                                                                </div>
-                                                            </article>
-                                                        </li>
-                                                    </div>
-                                                </div>
-                                                <div class="beans-slide ">
-                                                    <div class="padding-15 ">
-                                                        <li class="post-1104 product type-product status-publish has-post-thumbnail product_cat-bracelets instock taxable shipping-taxable purchasable product-type-simple ">
-                                                            <article class="product ">
-                                                                <div class="item-product ">
-                                                                    <div class="social-top ">
-                                                                        <div class="btn-share ">
-                                                                            <div class="quick-view add-to " data-toggle="tooltip"><a onclick="" href="#" class="yith-wcqv-button" data-product_id="1104" title="Quick View"><i class="fa fa-eye" aria-hidden="true"></i></a> </div>
-                                                                        </div>
-                                                                        <div class="btn-share">
-                                                                            <div class="add-to-wishlist yith-wcwl-add-to-wishlist add-to-wishlist-1104">
-                                                                                <div class="yith-wcwl-add-button show" style="display:block"> <span class="ajax-loading" style="visibility:hidden"></span> <a data-toggle="tooltip" title="Buynow" href="" rel="nofollow" data-product-id="1104" data-product-type="simple" class="add_to_wishlist"> <i class="fa fa-cart-plus"></i> </a> </div>
-                                                                                <div style="clear:both"></div>
-                                                                                <div class="yith-wcwl-wishlistaddresponse"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-img"> <a href="" title="AIMER"> <img  src="images/products/2.jpg" class="attachment-gelli-slide-product size-gelli-slide-product wp-post-image" alt="bracelets-2"  sizes="(max-width: 200px) 100vw, 200px" /> </a> </div>
-                                                                    <h2><a href="">AIMER</a></h2>
-                                                                    <p>EAU DE PERFUME</p>
-                                                                    </span> </div>
-                                                            </article>
-                                                        </li>
-                                                    </div>
-                                                </div>
-                                                <div class="beans-slide">
-                                                    <div class="padding-15">
-                                                        <li class="post-1102 product type-product status-publish has-post-thumbnail product_cat-earrings  instock taxable shipping-taxable purchasable product-type-simple">
-                                                            <article class="product">
-                                                                <div class="item-product">
-                                                                    <div class="social-top ">
-                                                                        <div class="btn-share ">
-                                                                            <div class="quick-view add-to " data-toggle="tooltip"><a onclick="" href="#" class="yith-wcqv-button" data-product_id="1104" title="Quick View"><i class="fa fa-eye" aria-hidden="true"></i></a> </div>
-                                                                        </div>
-                                                                        <div class="btn-share">
-                                                                            <div class="add-to-wishlist yith-wcwl-add-to-wishlist add-to-wishlist-1104">
-                                                                                <div class="yith-wcwl-add-button show" style="display:block"> <span class="ajax-loading" style="visibility:hidden"></span> <a data-toggle="tooltip" title="Buynow" href="" rel="nofollow" data-product-id="1104" data-product-type="simple" class="add_to_wishlist"> <i class="fa fa-cart-plus"></i> </a> </div>
-                                                                                <div style="clear:both"></div>
-                                                                                <div class="yith-wcwl-wishlistaddresponse"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-img "> <a href="" title="D'A BRUZZO"><img  src="images/products/3.jpg" class="attachment-gelli-slide-product size-gelli-slide-product wp-post-image " alt="earrings_large "  sizes="(max-width: 200px) 100vw, 200px " /></a> </div>
-                                                                    <h2><a href=" ">D'A BRUZZO</a></h2>
-                                                                    <p>EAU DE PERFUME</p>
-                                                                </div>
-                                                            </article>
-                                                        </li>
-                                                    </div>
-                                                </div>
-                                                <div class="beans-slide ">
-                                                    <div class="padding-15 ">
-                                                        <li class="post-1097 product type-product status-publish has-post-thumbnail product_cat-earrings last instock taxable shipping-taxable purchasable product-type-simple">
-                                                            <article class="product ">
-                                                                <div class="item-product ">
-                                                                    <div class="social-top ">
-                                                                        <div class="btn-share ">
-                                                                            <div class="quick-view add-to " data-toggle="tooltip"><a onclick="" href="#" class="yith-wcqv-button" data-product_id="1104" title="Quick View"><i class="fa fa-eye" aria-hidden="true"></i></a> </div>
-                                                                        </div>
-                                                                        <div class="btn-share">
-                                                                            <div class="add-to-wishlist yith-wcwl-add-to-wishlist add-to-wishlist-1104">
-                                                                                <div class="yith-wcwl-add-button show" style="display:block"> <span class="ajax-loading" style="visibility:hidden"></span> <a data-toggle="tooltip" title="Buynow" href="" rel="nofollow" data-product-id="1104" data-product-type="simple" class="add_to_wishlist"> <i class="fa fa-cart-plus"></i> </a> </div>
-                                                                                <div style="clear:both"></div>
-                                                                                <div class="yith-wcwl-wishlistaddresponse"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-img"> <a href="" title="AZURE"> <img  src="images/products/4.jpg" class="attachment-gelli-slide-product size-gelli-slide-product wp-post-image" alt="12" sizes="(max-width: 200px) 100vw, 200px" /> </a> </div>
-                                                                    <h2><a href="">AZURE</a></h2>
-                                                                    <p>VELVET COLLECTION</p>
-                                                                </div>
-                                                            </article>
-                                                        </li>
-                                                    </div>
-                                                </div>
-                                                <div class="beans-slide">
-                                                    <div class="padding-15">
-                                                        <li class="post-1093 product type-product status-publish has-post-thumbnail product_filter-acessories product_filter-flower product_filter-home-living product_filter-jewerly product_filter-knitting product_filter-prints-pictures product_cat-rings first instock taxable shipping-taxable purchasable product-type-simple">
-                                                            <article class="product">
-                                                                <div class="item-product">
-                                                                    <div class="social-top ">
-                                                                        <div class="btn-share ">
-                                                                            <div class="quick-view add-to " data-toggle="tooltip"><a onclick="" href="#" class="yith-wcqv-button" data-product_id="1104" title="Quick View"><i class="fa fa-eye" aria-hidden="true"></i></a> </div>
-                                                                        </div>
-                                                                        <div class="btn-share">
-                                                                            <div class="add-to-wishlist yith-wcwl-add-to-wishlist add-to-wishlist-1104">
-                                                                                <div class="yith-wcwl-add-button show" style="display:block"> <span class="ajax-loading" style="visibility:hidden"></span> <a data-toggle="tooltip" title="Buynow" href="" rel="nofollow" data-product-id="1104" data-product-type="simple" class="add_to_wishlist"> <i class="fa fa-cart-plus"></i> </a> </div>
-                                                                                <div style="clear:both"></div>
-                                                                                <div class="yith-wcwl-wishlistaddresponse"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-img "> <a href="" title="BIANCHI"> <img  src="images/products/5.jpg" class="attachment-gelli-slide-product size-gelli-slide-product wp-post-image " alt="1 " sizes="(max-width: 200px) 100vw, 200px " /></a> </div>
-                                                                    <h2><a href="">BIANCHI</a></h2>
-                                                                    <p>LUXURY EAU DE PERFUME</p>
-                                                                </div>
-                                                            </article>
-                                                        </li>
-                                                    </div>
-                                                </div>
+                                                <?php
+                                                $products = common\models\Product::find()->all();
+                                                $class = '';
+                                                foreach ($products as $prdct) {
+                                                    ?>
+                                                    <?= ProductLinksWidget::widget(['id' => $prdct->id, 'div_id' => $class]) ?>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                         <div class="beans-pagination ">

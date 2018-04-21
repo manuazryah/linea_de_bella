@@ -35,13 +35,14 @@ $country_codes = ArrayHelper::map(\common\models\CountryCode::find()->where(['st
                                 <h3 class="title2">New Customer</h3>
                                 <p><strong>Register Account</strong></p>
                                 <p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>
-                                <a href="<?= yii::$app->homeUrl . 'signup?go=' . $go ?>" class="btn shadowbtn">Continue</a></div>
+                                <?= Html::a('Continue', ['site/signup', 'go' => $go], ['class' => 'btn shadowbtn']) ?>
+                            </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="well bg-white">
                                 <h3 class="title2">Returning Customer</h3>
                                 <p><strong>I am a returning customer</strong></p>
-                                <?php $form = ActiveForm::begin(['action' => Yii::$app->homeUrl . 'site/login?go=' . $go]); ?>
+                                <?php $form = ActiveForm::begin(['action' => ['site/login', 'go' => $go], 'options' => ['method' => 'post']]) ?>
                                 <div class="form-group">
                                     <label class="control-label" for="input-email">E-Mail Address</label>
                                     <?= $form->field($model_login, 'email')->textInput(['placeholder' => 'Email Id'])->label(FALSE) ?>

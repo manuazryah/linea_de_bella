@@ -22,7 +22,7 @@ $cart_count = common\components\Cartcount::Count();
     <head>
         <meta charset="<?= Yii::$app->charset ?>">
         <link rel="shortcut icon" href="<?= yii::$app->homeUrl; ?>images/fav.png" type="image/png" />
-       <meta name='robots' content='noindex,nofollow' />
+        <meta name='robots' content='noindex,nofollow' />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
         <script>
@@ -60,7 +60,7 @@ $cart_count = common\components\Cartcount::Count();
                 s.parentNode.insertBefore(wf, s);
             })();
         </script>
-        
+
         <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
         <link rel='dns-prefetch' href='http://s.w.org/' />
         <link rel="alternate" type="application/rss+xml" title="Gelli &raquo; Feed" href="" />
@@ -114,7 +114,7 @@ $cart_count = common\components\Cartcount::Count();
         <script type='text/javascript' src='<?= yii::$app->homeUrl; ?>wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.minad79.js?ver=5.2.5.3'></script>
         <script type='text/javascript' src='<?= yii::$app->homeUrl; ?>wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min0226.js?ver=3.1.2'></script>
         <script type='text/javascript' src='<?= yii::$app->homeUrl; ?>wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart0147.js?ver=4.12'></script>
-        <script type='text/javascript' src='<?= yii::$app->homeUrl; ?>js/custom.js'></script>   
+        <script type='text/javascript' src='<?= yii::$app->homeUrl; ?>js/custom.js'></script>
         <meta name="generator" content="WordPress 4.6.1" />
         <meta name="generator" content="WooCommerce 3.1.2" />
         <link rel="canonical" href="index.html" />
@@ -274,7 +274,7 @@ $cart_count = common\components\Cartcount::Count();
                                                         </button>
                                                         <ul class="dropdown-menu">
                                                             <?php if (!empty(Yii::$app->user->identity)) { ?>
-                                                                <li class="first"><a href="<?= yii::$app->homeUrl.'my-account'?>" title="My Account">My Account</a>
+                                                                <li class="first"><a href="<?= yii::$app->homeUrl . 'my-account' ?>" title="My Account">My Account</a>
                                                                 </li>
                                                                 <li class="first"><a href="wishlist.php" title="My Wishlist">My Wishlist</a>
                                                                 </li>
@@ -288,7 +288,8 @@ $cart_count = common\components\Cartcount::Count();
                                                                 . '</li>';
                                                                 ?>
                                                             <?php } else { ?>
-                                                                <li class="last"> <a href="<?= yii::$app->homeUrl . 'login-signup'; ?>" title="Login">Login</a>
+                                                                <li class="last">
+                                                                    <?= Html::a('Login', ['/site/login-signup'], ['class' => '']) ?>
                                                                 </li>
                                                             <?php } ?>
                                                         </ul>
@@ -336,7 +337,7 @@ $cart_count = common\components\Cartcount::Count();
                                                             </button>
                                                             <ul class="dropdown-menu">
                                                                 <?php if (!empty(Yii::$app->user->identity)) { ?>
-                                                                    <li class="first"><a href="<?= yii::$app->homeUrl.'my-account'?>" title="My Account">My Account</a>
+                                                                    <li class="first"><a href="<?= yii::$app->homeUrl . 'my-account' ?>" title="My Account">My Account</a>
                                                                     </li>
                                                                     <li class="first"><a href="wishlist.php" title="My Wishlist">My Wishlist</a>
                                                                     </li>
@@ -350,7 +351,8 @@ $cart_count = common\components\Cartcount::Count();
                                                                     . '</li>';
                                                                     ?>
                                                                 <?php } else { ?>
-                                                                    <li class="last"> <a href="<?= yii::$app->homeUrl . 'login-signup'; ?>" title="Login">Login</a>
+                                                                    <li class="last">
+                                                                        <?= Html::a('Login', ['/site/login-signup'], ['class' => '']) ?>
                                                                     </li>
                                                                 <?php } ?>
                                                             </ul>

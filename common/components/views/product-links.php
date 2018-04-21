@@ -28,9 +28,7 @@ use yii\helpers\Html;
                             $image_src = Yii::$app->homeUrl . 'uploads/product/gallery_dummy.png';
                         }
                         ?>
-                        <a href="<?= Yii::$app->homeUrl . 'product-detail/' . $product_details->canonical_name ?>" title="Akanthos ">
-                            <img  src="<?= $image_src ?>" alt="bracelets_large " />
-                        </a>
+                        <?= Html::a('<img  src="' . $image_src . '" alt="' . $product_details->canonical_name . '" />', ['product/product-detail', 'product' => $product_details->canonical_name], ['title' => $product_details->product_name]) ?>
                     </div>
                     <h2>
                         <?= Html::a(strlen($product_details->product_name) > 22 ? substr(strtoupper($product_details->product_name), 0, 22) . ".." : strtoupper($product_details->product_name), ['product/product-detail', 'product' => $product_details->canonical_name], ['title' => $product_details->product_name]) ?>
