@@ -6,8 +6,8 @@
 
 use yii\helpers\Html;
 
-$this->title = 'error';
+$this->title = $name;
 ?>
-<section style="overflow: hidden;" bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-        <a href="<?= Yii::$app->homeUrl ?>"><img src="<?= Yii::$app->homeUrl; ?>images/404.jpg" width="100%" height="auto" alt=""></a>
-</section>
+<div class="page-error centered">
+    <img src="<?= yii::$app->homeUrl; ?>images/errors.jpg" style="width: 100%"/>
+</div>
