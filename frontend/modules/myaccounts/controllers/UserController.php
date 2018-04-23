@@ -54,7 +54,14 @@ class UserController extends Controller {
      * @return mixed
      */
     public function actionIndex() {
-        return $this->render('index');
+        $id = Yii::$app->user->identity->id;
+        $model = User::find()->where(['id' => $id])->one();
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
+
+        }
+        return $this->render('index', [
+                    'model' => $model,
+        ]);
     }
 
     public function actionMyOrders() {
@@ -69,6 +76,25 @@ class UserController extends Controller {
         return $this->render('reviews-ratings', [
                     'searchModel' => $searchModel,
                     'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionBillingAddress() {
+        $model = new UserAddress();
+        $user_address = UserAddress::find()->where(['user_id' => Yii::$app->user->identity->id])->all();
+        $country_codes = ArrayHelper::map(\common\models\CountryCode::find()->where(['status' => 1])->orderBy(['id' => SORT_ASC])->all(), 'id', 'country_code');
+        if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model)) {
+            if (empty($user_address)) {
+                $model->status = 1;
+            }
+            $model->user_id = Yii::$app->user->identity->id;
+            $model->save();
+            return $this->redirect(['user/user-address']);
+        }
+        return $this->render('billing-address', [
+                    'model' => $model,
+                    'user_address' => $user_address,
+                    'country_codes' => $country_codes,
         ]);
     }
 
@@ -227,6 +253,7 @@ class UserController extends Controller {
                     'country_codes' => $country_codes,
         ]);
     }
+
     public function actionNewAddress() {
         $model = new UserAddress();
 //        $user_address = UserAddress::find()->where(['user_id' => Yii::$app->user->identity->id])->all();

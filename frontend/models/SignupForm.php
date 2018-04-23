@@ -43,6 +43,7 @@ class SignupForm extends Model {
             [['first_name', 'last_name', 'mobile_no'], 'required'],
 //            ['rules', 'required', 'requiredValue' => 1, 'message' => 'Please agree the terms and conditions'],
             ['password_repeat', 'compare', 'compareAttribute' => 'password', 'message' => "Passwords don't match"],
+            ['rules', 'required', 'requiredValue' => 1, 'message' => 'Please agree the terms and conditions'],
         ];
     }
 
@@ -51,8 +52,7 @@ class SignupForm extends Model {
      */
     public function attributeLabels() {
         return [
-            'rules' => 'By checking this box and clicking "Register" below, I acknowledge that I have read and agree to the Terms & Conditions and Privacy Policy',
-            'notification' => 'Yes, sign me up! I want to receive news, style tips and more, including by email, phone and mail, from Coral Perfumes.',
+            'rules' => 'I have read and agree to the Privacy Policy',
         ];
     }
 
@@ -81,10 +81,11 @@ class SignupForm extends Model {
             $user->email_verification = 0;
             $user->setPassword($this->password);
             $user->generateAuthKey();
-            if($user->save()){
-                
-            }else{
-                var_dump($user->getErrors());exit;
+            if ($user->save()) {
+
+            } else {
+                var_dump($user->getErrors());
+                exit;
             }
 
             return $user->save() ? $user : null;

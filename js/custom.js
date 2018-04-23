@@ -394,6 +394,19 @@ jQuery('.ordqnty').on('change keyup', function () {
         jQuery('#quantity_' + id).val('1');
     }
 });
+jQuery('#sign_up_form').on('submit', function (e) {
+    alert('res');
+//    var res = grecaptcha.getResponse();
+//    alert(res);
+//    if (res == "" || res == undefined || res.length == 0)
+//    {
+//        e.preventDefault();
+//        if (jQuery("#g-recaptcha-private-label").next(".validation").length == 0) // only add if not added
+//        {
+//            jQuery("#g-recaptcha-private-label").after("<div class='validation' style='color:#c54040;text-align: center;font-size: 13px;margin-bottom: 14px;'>Please verify that you are not a robot</div>");
+//        }
+//    }
+});
 
 
 //////////////////////  my order continue order  ends!  ///////////////

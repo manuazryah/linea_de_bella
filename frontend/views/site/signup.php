@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <div id="content" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                 <p>If you already have an account with us, please login at the <a href="<?= yii::$app->homeUrl . 'login-signup' ?>">login page</a>.</p>
-                <?php $form = ActiveForm::begin(); ?>
+                <?php $form = ActiveForm::begin(['id' => 'sign_up_form']); ?>
                 <fieldset id="account">
                     <h3 class="title2">Your Personal Details</h3>
 
@@ -78,7 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <?php }
                                 ?>
                             </select>
-                            <input style="padding-left: 70px;"type="tel" name="SignupForm[mobile_no]" value="" placeholder="Mobile" id="input-telephone" class="form-control mobile">
+                            <?= $form->field($model, 'mobile_no')->textInput(['placeholder' => 'Mobile No', 'style' => 'padding-left: 70px;'])->label(FALSE) ?>
                         </div>
                     </div>
                 </fieldset>
@@ -97,22 +97,24 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= $form->field($model, 'password_repeat')->passwordInput()->label('Confirm Password*')->label(FALSE) ?>
                         </div>
                     </div>
-                </fieldset>
-                <fieldset>
-                    <div class="form-group required pull-right">
+                    <div class="form-group required">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-10">
+                            <div class="g-recaptcha"  data-sitekey="6LfASkMUAAAAAKb0YThDF1KSdEFtkltDfiBI9_iI"></div>
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-10">
+                            <?= $form->field($model, 'rules')->checkbox() ?>
+                        </div>
+                    </div>
+                    <div class="form-group required">
                         <div class="col-sm-12">
-                            <div class="g-recaptcha" style="padding-left: 25px; margin-top: 10px;" data-sitekey="6LfASkMUAAAAAKb0YThDF1KSdEFtkltDfiBI9_iI"></div>
+                            <?= Html::submitButton('submit', ['class' => 'btn btn-primary shadowbtn signup_submit', 'style' => 'float:right;']) ?>
                         </div>
                     </div>
                 </fieldset>
-                <div class="buttons submit-btn">
-                    <div class="pull-right">
-                        I have read and agree to the <a href="#modal-agree" class="agree" data-toggle="modal" data-target="#modal-agree"><b>Privacy Policy</b></a>                       
-                        <input type="checkbox" name="agree" class="signup_checkbox" value="1">
-                        &nbsp;
-                        <?= Html::submitButton('submit', ['class' => 'btn btn-primary shadowbtn signup_submit']) ?>
-                    </div>
-                </div>
                 <?php ActiveForm::end(); ?>
             </div>
         </div>

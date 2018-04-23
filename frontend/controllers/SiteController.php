@@ -51,12 +51,12 @@ class SiteController extends Controller {
                 'class' => AccessControl::className(),
                 'only' => ['logout', 'signup', 'login-signup', 'blog', 'products', 'verification', 'send-response-mail'],
                 'rules' => [
-                        [
+                    [
                         'actions' => ['signup', 'login-signup', 'blog', 'products', 'verification', 'send-response-mail'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
-                        [
+                    [
                         'actions' => ['logout', 'signup', 'login-signup', 'blog', 'products', 'verification', 'send-response-mail'],
                         'allow' => true,
                         'roles' => ['@'],
@@ -205,9 +205,7 @@ class SiteController extends Controller {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($user = $model->signup()) {
-
                 //$this->sendResponseMail($model);
-
                 if (Yii::$app->getUser()->login($user)) {
                     $this->Emailregister($user);
                     $this->Emailverification($user);
@@ -217,8 +215,6 @@ class SiteController extends Controller {
                         return $this->goHome();
                     }
                 }
-                //Yii::$app->session->setFlash('success', 'Please Verify Your Email Id.');
-//					return $this->redirect(Yii::$app->request->referrer);
             }
         }
         return $this->render('signup', [
@@ -521,7 +517,7 @@ class SiteController extends Controller {
                 $token_model->user_id = $check_exists->id;
                 $token_model->token = $token_value;
                 $token_model->save();
-//                $this->sendMail($val, $check_exists);
+                $this->sendMail($val, $check_exists);
                 Yii::$app->getSession()->setFlash('success', 'A verification email has been sent to ' . $check_exists->email . ', please check the spam box if you cannot find the mail in your inbox. ');
             } else {
                 Yii::$app->getSession()->setFlash('error', 'Invalid Email');
@@ -546,7 +542,12 @@ class SiteController extends Controller {
     }
 
     public function sendMail($val, $model) {
-
+        $message = $this->renderPartial('forgot_mail', [
+            'model' => $model,
+            'val' => $val,
+        ]);
+        echo $message;
+        exit;
         $message = Yii::$app->mailer->compose('forgot_mail', ['model' => $model, 'val' => $val]) // a view rendering result becomes the message body here
                 ->setFrom('no-replay@coralperfumes.com')
                 ->setTo($model->email)

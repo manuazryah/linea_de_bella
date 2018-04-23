@@ -10,23 +10,6 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
 ?>
 
 <aside id="column-left" class="col-lg-3 col-md-3 col-sm-3">
-    <div class="box">
-        <div class="box-heading"><span>ACCOUNT</span>
-        </div>
-        <div class="list-group"> 
-            <?= Html::a('My Account', [''], ['class' => 'list-group-item']) ?>
-            <!--<a class="list-group-item" href="my-account.php">My Account</a>-->
-            <?= Html::a('Login', ['login-signup'], ['class' => '' . $action == 'site/login-signup' ? 'list-group-item active' : 'list-group-item']) ?>
-            <!--<a class="list-group-item active" href="login-up.php">Login</a>-->
-            <?= Html::a('Register', ['signup'], ['class' => '' . $action == 'site/signup' ? 'list-group-item active' : 'list-group-item']) ?>
-            <!--<a class="list-group-item" href="">Register</a>-->
-            <?= Html::a('Forgotten Password', ['/forgot-password'], ['class' => '' . $action == 'site/forgot' ? 'list-group-item active' : 'list-group-item']) ?>
-           <a class="list-group-item" href="address.php">Address Book</a>
-            <a class="list-group-item" href="wishlist.php">Wish List</a>
-            <a class="list-group-item" href="order-history.php">Order History</a>
-            <a class="list-group-item" href="">Logout</a>
-        </div>
-    </div>
     <div class="box hidden-xs" id="latest">
         <div class="box-heading"><span>Latest</span>
         </div>
@@ -38,8 +21,8 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
                             <div class="image">
                                 <a href="">
                                     <img src="images/products/1.jpg" alt="White Diamonds" title="White Diamonds" width="60" height="82" class="img-responsive">
-                                </a> 
-                                <span class="saleicon sale">Sale</span> 
+                                </a>
+                                <span class="saleicon sale">Sale</span>
                             </div>
                             <div class="caption">
                                 <h4><a href="">Akanthos</a></h4>
@@ -61,8 +44,8 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
                             <div class="image">
                                 <a href="">
                                     <img src="images/products/2.jpg" alt="White Diamonds" title="White Diamonds" width="60" height="82" class="img-responsive">
-                                </a> 
-                                <span class="saleicon sale">Sale</span> 
+                                </a>
+                                <span class="saleicon sale">Sale</span>
                             </div>
                             <div class="caption">
                                 <h4><a href="">Aimer</a></h4>
@@ -84,8 +67,8 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
                             <div class="image">
                                 <a href="">
                                     <img src="images/products/3.jpg" alt="White Diamonds" title="White Diamonds" width="60" height="82" class="img-responsive">
-                                </a> 
-                                <span class="saleicon sale">Sale</span> 
+                                </a>
+                                <span class="saleicon sale">Sale</span>
                             </div>
                             <div class="caption">
                                 <h4><a href="">D'A bruzzo</a></h4>
@@ -104,4 +87,4 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
             </div>
         </div>
     </div> <span class="latest_default_width" style="display:none; visibility:hidden"></span>
-</aside>  
+</aside>

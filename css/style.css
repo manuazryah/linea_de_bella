@@ -566,7 +566,7 @@ textarea:focus, input:focus, .search-form input.search-field:focus, .woocommerce
     color: #d2a904;
 }
 .btn-share:hover a i{
-    color: #d5be61 !important; 
+    color: #d5be61 !important;
 }
 .btn-share, .btn-cart-in {
     border-color: #d2a904;
@@ -935,7 +935,7 @@ section {
 .offer-img {
     width: 100%;
     margin-top:30px;
-	text-align:center;
+    text-align:center;
 }
 .offer-img img {
     max-width: 100%;
@@ -1007,7 +1007,7 @@ section {
     float: left;
     margin: 30px 0;
     width: 100%;
-	font-family: 'Montserrat';
+    font-family: 'Montserrat';
 }
 .offers-details .price {
     font-size: 60px;
@@ -1015,8 +1015,8 @@ section {
     margin-bottom: 30px;
     clear: both;
     display: block;
-	font-family: 'Montserrat';
-	font-weight:600;
+    font-family: 'Montserrat';
+    font-weight:600;
 }
 @media only screen and (min-width: 993px){
     .row .col.l3 {
@@ -1302,7 +1302,7 @@ section {
     margin-bottom: 12px;
     padding: 15px 0px;
     box-sizing: border-box;
-	font-family: 'Montserrat';
+    font-family: 'Montserrat';
 }
 
 .axisTiles .axis-tile-box-s .image_layer, .axisTiles .axis-tile-box-d .image_layer {
@@ -1495,7 +1495,7 @@ section {
 .axisTiles .axis_tile_image .image_layer img, .axisTiles .axis_tile_video .image_layer img{
     transform: translate3d(0px, 0px, 0px);
     opacity: 1;
-    
+
 }
 .axisTiles .axis_tile_image:hover .image_layer img, .axisTiles .axis_tile_video:hover .image_layer img{
     transform: translate3d(0px, 0px, 0px);
@@ -1546,7 +1546,7 @@ section {
     color: #d5be61;
     text-align: center;
     font-weight: 500;
-	font-family: 'Montserrat';
+    font-family: 'Montserrat';
 }
 .gelli-news .info p{
     font-size: 14px;
@@ -1555,7 +1555,7 @@ section {
     line-height: 24px;
     color: #a8a8a8;
     text-align: center;
-	font-family: 'Montserrat';
+    font-family: 'Montserrat';
 }
 .gelli-news .link-area{
     text-align: center;
@@ -1569,7 +1569,7 @@ section {
     font-weight: 500;
     margin: 0 10px;
     position: relative;
-	font-family: 'Montserrat';
+    font-family: 'Montserrat';
 }
 .gelli-news .link-area a:before{
     content: '';
@@ -1870,7 +1870,8 @@ select.form-control, textarea.form-control, input[type="text"].form-control, inp
     color: #666;
 }
 .g-recaptcha{
-    float: right;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 .buttons {
     margin: 1em 0;
@@ -3299,7 +3300,7 @@ select option{
     border: 2px solid #514825;
     border-radius: 3px;
     display: block;
-    background: #000; 
+    background: #000;
 }
 .black-bg article.product h2 a{
     color: #d5be61;
@@ -3339,8 +3340,8 @@ a[data-zoom-id], .mz-thumb, .mz-thumb:focus{
 .black-bg .item-product, .black-bg article.product .item-product{
     background: #101010;
     border: 1px solid #96791361;
-	padding:15px;
-	transition:.5s;
+    padding:15px;
+    transition:.5s;
 }
 .black-bg .item-product, .black-bg article.product .item-product:hover{
     background: transparent;
@@ -3355,7 +3356,7 @@ a[data-zoom-id], .mz-thumb, .mz-thumb:focus{
     color: white;
 }
 .products-page{
-	padding:75px 0px;
+    padding:75px 0px;
 }
 .black-bg .axisTiles .axis_tile_image .top_header, .black-bg .axisTiles .axis_tile_video .top_header{
     background-color: #000000;
@@ -3552,7 +3553,7 @@ a[data-zoom-id], .mz-thumb, .mz-thumb:focus{
     margin: auto;
     margin-bottom: 1.1em;
     text-align: center;
-    line-height: 1.3em;    
+    line-height: 1.3em;
     opacity: 0.8;
     font-family: montserrat;
 }
@@ -3787,7 +3788,7 @@ label.header span {
     transform: rotate(45deg);
 }
 
-.feedback-form .signature .much-heart::before, 
+.feedback-form .signature .much-heart::before,
 .feedback-form .signature .much-heart::after {
     display: block;
     content: '';
@@ -4091,62 +4092,62 @@ input[type="checkbox"] {
 }
 /*home section page style*/
 .home-sub-banner-section{
-	    background: #fff;
-		padding:75px 0px;
+    background: #fff;
+    padding:75px 0px;
 }
 .home-sub-banner-section .gelli-headingtitle .layout1{
-	margin-bottom:30px;
+    margin-bottom:30px;
 }
 .home-sub-banner-section .sub-text{
-	text-align:center;
-	margin-bottom:50px;
-	font-size:16px;
+    text-align:center;
+    margin-bottom:50px;
+    font-size:16px;
 }
 .main-head-section{
-	text-align:center;
-	background: url(../images/line-border-golden.png) no-repeat;
-	background-position: bottom center;
-	padding-bottom:20px;
-	margin-bottom:45px;
+    text-align:center;
+    background: url(../images/line-border-golden.png) no-repeat;
+    background-position: bottom center;
+    padding-bottom:20px;
+    margin-bottom:45px;
 }
 .main-head-section small{
-	font-family: 'Great Vibes', cursive;
-	color:#c49630;
-	font-size:20px;
+    font-family: 'Great Vibes', cursive;
+    color:#c49630;
+    font-size:20px;
 }
 .main-head-section h2{
-	font-family: 'Montserrat';
-	color:#f1f1f1;
-	font-size:26px;
-	font-weight:600;
-	text-transform:uppercase;
+    font-family: 'Montserrat';
+    color:#f1f1f1;
+    font-size:26px;
+    font-weight:600;
+    text-transform:uppercase;
 }
 .home-new-products{
-	background:url(../images/product-bg-home.jpg) no-repeat;
-	padding:55px 0px;
-	background-size:cover;
-	background-position:right 0px;
+    background:url(../images/product-bg-home.jpg) no-repeat;
+    padding:55px 0px;
+    background-size:cover;
+    background-position:right 0px;
 }
 .home-new-products2{
-	background:url(../images/product-bg-home2.jpg) no-repeat;
-	padding:55px 0px;
-	background-size:cover;
+    background:url(../images/product-bg-home2.jpg) no-repeat;
+    padding:55px 0px;
+    background-size:cover;
 }
 .home-sub-main-product-section{
-	padding:75px 0px 0px 0px;
+    padding:75px 0px 0px 0px;
 }
 .home-blog-section .gelli-headingtitle .default{
-	padding-top:5px;
-	margin-bottom: 30px;
+    padding-top:5px;
+    margin-bottom: 30px;
 }
 
 .home-sub-main-product-section .gelli-headingtitle .layout1{
-	margin-bottom:45px;
+    margin-bottom:45px;
 }
 
 .home-founder-setion{
-	margin-bottom:50px !important
-	;
+    margin-bottom:50px !important
+        ;
 }
 .footer-v1 .bottom-footer {
     border-top: 1px solid #3f3f40;
@@ -4154,41 +4155,45 @@ input[type="checkbox"] {
 /*in-page-style*/
 
 .in-main-page{
-	padding:100px 0px;
+    padding:100px 0px;
 }
-.main-breadcrumb{	
-	border-bottom:1px solid #272727;
-	background:#000000;
+.main-breadcrumb{
+    border-bottom:1px solid #272727;
+    background:#000000;
 }
 
 /*in-products-page*/
 .in-products-page .producct-header{
-	margin-bottom:40px ;
-	color:#3c3c3c;
-	font-size:25px;
-	font-family: 'Montserrat';
-	font-weight:400;
-	background:url(../images/icons/dot2.png);
-	border-right:5px solid #d5be61
+    margin-bottom:40px ;
+    color:#3c3c3c;
+    font-size:25px;
+    font-family: 'Montserrat';
+    font-weight:400;
+    background:url(../images/icons/dot2.png);
+    border-right:5px solid #d5be61
 }
 .in-products-page .producct-header h2{
-	color:#3c3c3c;
-	font-size:25px;
-	font-family: 'Montserrat';
-	font-weight:400;
-	background:rgba(255,255,255,1);
-	display:inline-block;
-	margin:0px;
-	padding-right:15px;
+    color:#3c3c3c;
+    font-size:25px;
+    font-family: 'Montserrat';
+    font-weight:400;
+    background:rgba(255,255,255,1);
+    display:inline-block;
+    margin:0px;
+    padding-right:15px;
 }
 .in-products-page .product h2 a{
-	color:#d2a904 !important;
+    color:#d2a904 !important;
 }
 .in-products-page .product-img{
-	padding-top:0px;
+    padding-top:0px;
 }
 .in-related-products{
-	padding:55px 0px;
+    padding:55px 0px;
+}
+.customer-name{
+    font-weight: 600;
+    color: #333;
 }
 
 

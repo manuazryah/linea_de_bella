@@ -54,20 +54,20 @@ use yii\bootstrap\ActiveForm;
                         <?php endif; ?>
                         <fieldset id="address">
                             <div class="form-group required">
-                                <label class="col-sm-2 control-label" for="input-firstname">Old Password</label>
-                                <div class="col-sm-10">
+                                <label class="col-sm-3 control-label" for="input-firstname">Old Password</label>
+                                <div class="col-sm-9">
                                     <input type="password" name="old-password" class="form-control"  placeholder="********" id="change-old-password">
                                 </div>
                             </div>
                             <div class="form-group required">
-                                <label class="col-sm-2 control-label" for="input-lastname">New Password</label>
-                                <div class="col-sm-10">
+                                <label class="col-sm-3 control-label" for="input-lastname">New Password</label>
+                                <div class="col-sm-9">
                                     <input type="password" class="form-control" name="new-password"  placeholder="********" id="change-new-password">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="input-company">Confirm Password</label>
-                                <div class="col-sm-10">
+                            <div class="form-group required">
+                                <label class="col-sm-3 control-label" for="input-company">Confirm Password</label>
+                                <div class="col-sm-9">
                                     <input type="password" class="form-control"  name="confirm-password" placeholder="********" id="change-confirm-password">
                                 </div>
                             </div>
@@ -152,7 +152,7 @@ use yii\bootstrap\ActiveForm;
                                 return true;
 
                             } else {
-                                 console.log(data);
+                                console.log(data);
                                 e.preventDefault();
                                 return false;
                             }

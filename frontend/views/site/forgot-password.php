@@ -42,21 +42,19 @@ $country_codes = ArrayHelper::map(\common\models\CountryCode::find()->where(['st
                 <fieldset>
                     <h3 class="title2">Your E-Mail Address</h3>
                     <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-email">E-Mail Address</label>
+                        <label class="col-sm-2 control-label" for="input-email">E-Mail</label>
                         <div class="col-sm-10">
                             <?= $form->field($model, 'email')->textInput(['class' => 'form-control', 'id' => 'forgot-email', 'placeholder' => "E-Mail Address", 'autocomplete' => 'off', 'autofocus' => true, 'required' => 'required'])->label(false) ?>
-                            <!--<input type="text" name="email" value="" placeholder="E-Mail Address" id="input-email" class="form-control">-->
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="buttons clearfix submit-btn">
+                            <div class="pull-right">
+                                <input class="btn btn-primary shadowbtn" type="submit" value="CONTINUE">
+                            </div>
                         </div>
                     </div>
                 </fieldset>
-                <div class="buttons clearfix submit-btn">
-                    <!--                        <div class="pull-left">
-                                                <a href="" class="btn shadowbtn">Back</a>
-                                            </div>-->
-                    <div class="pull-right">
-                        <input class="btn btn-primary shadowbtn" type="submit" value="CONTINUE">
-                    </div>
-                </div>
 
                 <?php ActiveForm::end(); ?>
             </div>
