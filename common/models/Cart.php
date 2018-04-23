@@ -100,20 +100,19 @@ class Cart extends \yii\db\ActiveRecord {
                   <input type="hidden" value="0" id="cart_number">
                   <div  class="blockcart">
                    <ul>' . $cart_content .
-                     
-                    '</ul>
+            '</ul>
                     <div class="price_content">
-                                                                        
+
                       <div class="cart-total price_inline">
                         <span class="label">Total</span>
-                        <span class="value">AED '.sprintf("%0.2f", $cart_total).'</span>
+                        <span class="value">AED ' . sprintf("%0.2f", $cart_total) . '</span>
                       </div>
                     </div>
                     <div class="checkout">
-                        <a href="'. Yii::$app->homeUrl.'cart/mycart" class="btn btn-primary">View Cart</a>
+                        <a href="' . Yii::$app->homeUrl . 'cart/mycart" class="btn btn-primary">View Cart</a>
                     </div>
                     <div class="checkout">
-                        <a href="'. Yii::$app->homeUrl.'cart/proceed" class="btn btn-primary">Checkout</a>
+                        <a href="' . Yii::$app->homeUrl . 'cart/proceed" class="btn btn-primary">Checkout</a>
                     </div>
                   </div>';
         }
@@ -133,7 +132,7 @@ class Cart extends \yii\db\ActiveRecord {
             }
             $product_image = Yii::$app->basePath . '/../uploads/product/' . $prod_details->id . '/profile/' . $prod_details->canonical_name . '.' . $prod_details->profile;
             if (file_exists($product_image)) {
-                $image = '<img class="product-image img-responsive" src="'.yii::$app->homeUrl.'uploads/product/' . $prod_details->id . '/profile/' . $prod_details->canonical_name . '_thumb.' . $prod_details->profile . '" alt="" title="" width="100" height="100">';
+                $image = '<img class="product-image img-responsive" src="' . yii::$app->homeUrl . 'uploads/product/' . $prod_details->id . '/profile/' . $prod_details->canonical_name . '_thumb.' . $prod_details->profile . '" alt="" title="" width="100" height="100">';
 //                $image = '<img src="' . Yii::$app->homeUrl . 'uploads/product/' . $prod_details->id . '/profile/' . $prod_details->canonical_name . '_thumb.' . $prod_details->profile . '" alt="' . $prod_details->canonical_name . '" />';
             } else {
                 $image = '<img src="' . Yii::$app->homeUrl . 'uploads/product/profile_thumb.png" alt=""/>';
@@ -145,19 +144,19 @@ class Cart extends \yii\db\ActiveRecord {
                 $str = $product_name;
             }
             $content .= '<li><div class="img_content">
-                <a href="' . Yii::$app->homeUrl . 'product-detail/' . $prod_details->canonical_name . '" title="' . $product_name . '">'.$image.'</a>
-                         
-                         <span class="product-quantity">'. $cart_content->quantity.'x</span>
+                <a href="' . Yii::$app->homeUrl . 'product-detail/' . $prod_details->canonical_name . '" title="' . $product_name . '">' . $image . '</a>
+
+                         <span class="product-quantity">' . $cart_content->quantity . 'x</span>
                          </div>
                         <div class="right_block">
-                        <a href="' . Yii::$app->homeUrl . 'product-detail/' . $prod_details->canonical_name . '" title="' . $product_name . '"><span class="product-name">'.$str.'</span></a>
-                        
+                        <a href="' . Yii::$app->homeUrl . 'product-detail/' . $prod_details->canonical_name . '" title="' . $product_name . '"><span class="product-name">' . $str . '</span></a>
+
                         <span class="product-price">AED ' . sprintf("%0.2f", $price) . '</span>
                         <a class="remove-from-cart remove_cart_product" rel="nofollow" href="" data-product_id="' . yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_content->id) . '" data-link-action="remove-from-cart" title="Remove from cart">
                         <i class="fa fa-remove"></i>
                         </a>
                             <div class="attributes_content">
-                            <span><strong>Size</strong>: '.$prod_details->size.' '.$unit.'</span><br>
+                            <span><strong>Size</strong>: ' . $prod_details->size . ' ' . $unit . '</span><br>
                             </div>
                         </div>
                      </li>';

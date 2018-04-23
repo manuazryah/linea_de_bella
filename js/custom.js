@@ -56,7 +56,7 @@ jQuery(document).ready(function () {
 
                 jQuery('.option_errors').html('<p>Invalid Product.Please try again</p>').show();
             } else {
-                 window.location.href = homeUrl + "cart/mycart";
+                window.location.href = homeUrl + "cart/mycart";
                 if (list_id) {
                     removewishlist(list_id, canname);
                 }
@@ -118,10 +118,7 @@ jQuery(document).ready(function () {
         var answer = confirm("Are you sure want to remove?");
         if (answer)
         {
-//            showLoader();
-            var $id = $(this).attr('data-product_id');
-//            var $count = $('#cart_count_').val();
-////            jQuery('.error_' + $id).html('');
+            var $id = jQuery(this).attr('data-product_id');
             jQuery.ajax({
                 url: homeUrl + 'cart/remove_cart',
                 type: "post",
@@ -134,6 +131,7 @@ jQuery(document).ready(function () {
                 }
             });
         } else {
+            alert('else');
             e.preventDefault();
         }
     });

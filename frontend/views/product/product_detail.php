@@ -29,9 +29,9 @@ $this->title = $product_details->canonical_name;
         <div class="container">
             <div class="row">
                 <div id="content">
-                    <div class="alert alert-success">
+                    <div class="alert alert-success alert_<?= $product_details->canonical_name ?> hide">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <a href="cart.php" class="button wc-forward">View Cart</a> “Akanthos“ has been added to your cart.
+                        <a href="<?= yii::$app->homeUrl . 'cart/mycart' ?>" class="button wc-forward">View Cart</a> “<?= $product_details->product_name ?>“ has been added to your cart.
                     </div>
                     <div itemscope="" itemtype="h" id="product-113" class="product-info post-113 product type-product status-publish has-post-thumbnail product_cat-men product_cat-shirt product_cat-top product_tag-dummy featured shipping-taxable product-type-external product-cat-men product-cat-shirt product-cat-top product-tag-dummy instock">
                         <div id="single-product" class="row">

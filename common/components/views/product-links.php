@@ -9,11 +9,15 @@ use yii\helpers\Html;
                 <div class="item-product">
                     <div class="social-top ">
                         <div class="btn-share ">
-                            <div class="quick-view add-to " data-toggle="tooltip"><a onclick="" href="#" class="yith-wcqv-button" data-product_id="1104" title="Quick View"><i class="fa fa-eye" aria-hidden="true"></i></a> </div>
+                            <div class="quick-view add-to " data-toggle="tooltip">
+                                <?= Html::a('<i class="fa fa-eye" aria-hidden="true"></i>', ['product/product-detail', 'product' => $product_details->canonical_name], ['title' => $product_details->product_name, 'class' => '']) ?>
+                            </div>
                         </div>
                         <div class="btn-share">
                             <div class="add-to-wishlist yith-wcwl-add-to-wishlist add-to-wishlist-1104">
-                                <div class="yith-wcwl-add-button show" style="display:block"> <span class="ajax-loading" style="visibility:hidden"></span> <a data-toggle="tooltip" title="Buynow" href="" rel="nofollow" data-product-id="1104" data-product-type="simple" class="add_to_wishlist"> <i class="fa fa-cart-plus"></i> </a> </div>
+                                <div class="yith-wcwl-add-button show" style="display:block"> <span class="ajax-loading" style="visibility:hidden"></span>
+                                    <a data-toggle="tooltip" title="Buynow" href="" rel="nofollow" data-product-id="1104" data-product-type="simple" class="add_to_wishlist add-cart" pro_id="<?= $product_details->canonical_name ?>"> <i class="fa fa-cart-plus"></i></a>
+                                </div>
                                 <div style="clear:both"></div>
                                 <div class="yith-wcwl-wishlistaddresponse"></div>
                             </div>
