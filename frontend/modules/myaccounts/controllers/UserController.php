@@ -15,6 +15,7 @@ use common\models\WishList;
 use common\models\WishListSearch;
 use common\models\OrderDetails;
 use yii\helpers\ArrayHelper;
+use yii\data\ArrayDataProvider;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -65,7 +66,23 @@ class UserController extends Controller {
     }
 
     public function actionMyOrders() {
-        return $this->render('my-orders');
+        $orders = \common\models\OrderMaster::find()->where(['user_id' => Yii::$app->user->identity->id])->all();
+        $pending_orders = \common\models\OrderMaster::find()->where(['user_id' => Yii::$app->user->identity->id])->andWhere(['shipping_status' => 0])->andWhere(['<>', 'status', '5'])->all();
+        $cancel_orders = \common\models\OrderMaster::find()->where(['user_id' => Yii::$app->user->identity->id])->andWhere(['status' => 5])->all();
+        $dataProvider = new ArrayDataProvider([
+            'allModels' => $orders,
+        ]);
+        $dataProvider1 = new ArrayDataProvider([
+            'allModels' => $pending_orders,
+        ]);
+        $dataProvider2 = new ArrayDataProvider([
+            'allModels' => $cancel_orders,
+        ]);
+        return $this->render('my-orders', [
+                    'dataProvider' => $dataProvider,
+                    'dataProvider1' => $dataProvider1,
+                    '$dataProvider' => $dataProvider2,
+        ]);
     }
 
     public function actionMyReviews() {
@@ -79,22 +96,29 @@ class UserController extends Controller {
         ]);
     }
 
-    public function actionBillingAddress() {
-        $model = new UserAddress();
-        $user_address = UserAddress::find()->where(['user_id' => Yii::$app->user->identity->id])->all();
-        $country_codes = ArrayHelper::map(\common\models\CountryCode::find()->where(['status' => 1])->orderBy(['id' => SORT_ASC])->all(), 'id', 'country_code');
-        if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model)) {
-            if (empty($user_address)) {
-                $model->status = 1;
-            }
+    public function actionUserAddress() {
+        $model = UserAddress::find()->where(['user_id' => Yii::$app->user->identity->id])->one();
+        if (empty($model)) {
+            $model = new UserAddress();
+        }
+        return $this->render('addresses', [
+                    'model' => $model,
+        ]);
+    }
+
+    public function actionAddress() {
+        $model = UserAddress::find()->where(['user_id' => Yii::$app->user->identity->id])->one();
+        if (empty($model)) {
+            $model = new UserAddress();
+        }
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->status = 1;
             $model->user_id = Yii::$app->user->identity->id;
             $model->save();
             return $this->redirect(['user/user-address']);
         }
         return $this->render('billing-address', [
                     'model' => $model,
-                    'user_address' => $user_address,
-                    'country_codes' => $country_codes,
         ]);
     }
 
@@ -232,26 +256,6 @@ class UserController extends Controller {
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-    }
-
-    public function actionUserAddress() {
-        $model = new UserAddress();
-        $user_address = UserAddress::find()->where(['user_id' => Yii::$app->user->identity->id])->all();
-        $country_codes = ArrayHelper::map(\common\models\CountryCode::find()->where(['status' => 1])->orderBy(['id' => SORT_ASC])->all(), 'id', 'country_code');
-        if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model)) {
-            if (empty($user_address)) {
-                $model->status = 1;
-            }
-            $model->user_id = Yii::$app->user->identity->id;
-            $model->save();
-            $model = new UserAddress();
-            return $this->redirect(Yii::$app->request->referrer);
-        }
-        return $this->render('addresses', [
-                    'model' => $model,
-                    'user_address' => $user_address,
-                    'country_codes' => $country_codes,
-        ]);
     }
 
     public function actionNewAddress() {

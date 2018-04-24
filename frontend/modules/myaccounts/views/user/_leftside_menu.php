@@ -17,7 +17,6 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
             <?= Html::a('My Account', ['/myaccounts/user/index'], ['class' => '' . $action == 'user/index' ? 'list-group-item active' : 'list-group-item']) ?>
             <?= Html::a('Change Password', ['/myaccounts/user/change-password'], ['class' => '' . $action == 'user/change-password' ? 'list-group-item active' : 'list-group-item']) ?>
             <?= Html::a('Address Book', ['/myaccounts/user/user-address'], ['class' => '' . $action == 'user/user-address' ? 'list-group-item active' : 'list-group-item']) ?>
-            <?= Html::a('Wish List', ['/myaccounts/user/wish-list'], ['class' => '' . $action == 'user/wish-list' ? 'list-group-item active' : 'list-group-item']) ?>
             <?= Html::a('My Orders', ['/myaccounts/user/my-orders'], ['class' => '' . $action == 'user/my-orders' ? 'list-group-item active' : 'list-group-item']) ?>
             <a class="list-group-item" href="">Logout</a>
         </div>

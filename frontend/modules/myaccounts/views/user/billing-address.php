@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use common\models\Emirates;
 use yii\helpers\ArrayHelper;
+use common\models\CountryCode;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
@@ -15,9 +16,12 @@ use yii\helpers\ArrayHelper;
         <div class="container">
             <!--<h1 class="page-title">Contact Us</h1>-->
             <ul class="breadcrumb">
-                <li><a href="index.php"><i class="fa fa-home"></i></a></li>
-                <li><a href="my-account.php">Account</a></li>
-                <li><a href="address.php">Address</a></li>
+                <li>
+                    <?= Html::a('<i class="fa fa-home"></i>', ['/site/index']) ?>
+                </li>
+                <li>
+                    <?= Html::a('Address', ['/myaccounts/user/user-address']) ?>
+                </li>
                 <li class="active"><a>Billing Address</a></li>
             </ul>
         </div>
@@ -63,12 +67,34 @@ use yii\helpers\ArrayHelper;
                                     <?= $form->field($model, 'emirate')->dropDownList(ArrayHelper::map(Emirates::find()->all(), 'id', 'name'), ['prompt' => 'select'])->label(FALSE); ?>
                                 </div>
                             </div>
-                            <div class="buttons submit-btn">
-                                <div class="pull-right">
-                                    <?= Html::submitButton('Save Address', ['class' => 'btn btn-primary shadowbtn']) ?>
+                            <div class="form-group required">
+                                <label class="col-sm-2 control-label" for="input-telephone">Post Code</label>
+                                <div class="col-sm-10">
+                                    <?= $form->field($model, 'post_code')->textInput(['maxlength' => true])->label(FALSE) ?>
                                 </div>
                             </div>
-
+                            <div class="form-group required">
+                                <label class="col-sm-2 control-label" for="input-telephone">Mobile</label>
+                                <div class="col-sm-10">
+                                    <?php $countrie_code = ArrayHelper::map(CountryCode::findAll(['status' => 1]), 'id', 'country_code'); ?>
+                                    <select class="day" id="cntry_code_id"style="position: absolute; border-right: 1px solid #d1d2d0;padding-top: 7px;padding-bottom: 6px;" name="SignupForm[country_code]">
+                                        <?php
+                                        foreach ($countrie_code as $key => $countrie_cod) {
+                                            ?>
+                                            <option value="<?= $key ?>"><?= $countrie_cod ?></option>
+                                        <?php }
+                                        ?>
+                                    </select>
+                                    <?= $form->field($model, 'mobile_number')->textInput(['placeholder' => 'Mobile No', 'style' => 'padding-left: 70px;'])->label(FALSE) ?>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <div class="col-sm-12">
+                                    <div class="pull-right">
+                                        <?= Html::submitButton('Save Address', ['class' => 'btn btn-primary shadowbtn']) ?>
+                                    </div>
+                                </div>
+                            </div>
                         </fieldset>
                         <?php ActiveForm::end(); ?>
                     </div>
