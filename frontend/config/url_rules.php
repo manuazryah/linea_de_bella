@@ -2,7 +2,7 @@
 
 return [
     '' => 'site/index',
-    'login' => 'site/login-signup',
+//    'login' => 'site/login-signup',
     '<product>' => 'product/product-detail',
-    '<go>' => 'site/signup',
+//    '<go>' => 'site/signup',
 ];

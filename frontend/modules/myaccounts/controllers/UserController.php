@@ -66,7 +66,7 @@ class UserController extends Controller {
     }
 
     public function actionMyOrders() {
-        $orders = \common\models\OrderMaster::find()->where(['user_id' => Yii::$app->user->identity->id])->all();
+        $orders = \common\models\OrderMaster::find()->where(['user_id' => Yii::$app->user->identity->id])->andWhere(['<>', 'status', '5'])->all();
         $pending_orders = \common\models\OrderMaster::find()->where(['user_id' => Yii::$app->user->identity->id])->andWhere(['shipping_status' => 0])->andWhere(['<>', 'status', '5'])->all();
         $cancel_orders = \common\models\OrderMaster::find()->where(['user_id' => Yii::$app->user->identity->id])->andWhere(['status' => 5])->all();
         $dataProvider = new ArrayDataProvider([
@@ -81,7 +81,7 @@ class UserController extends Controller {
         return $this->render('my-orders', [
                     'dataProvider' => $dataProvider,
                     'dataProvider1' => $dataProvider1,
-                    '$dataProvider' => $dataProvider2,
+                    'dataProvider2' => $dataProvider2,
         ]);
     }
 
@@ -379,6 +379,26 @@ class UserController extends Controller {
             }
             return $val;
         }
+    }
+
+    /*
+     * This function will cancel order
+     */
+
+    public function actionCancelOrder($id) {
+        echo $id;
+        $order_master = \common\models\OrderMaster::find()->where(['order_id' => $id])->one();
+        $order_master->status = 5;
+        $order_master->admin_status = 5;
+        if ($order_master->save()) {
+//            $mail = \common\models\User::findOne($order_master->user_id);
+//            $message = Yii::$app->mailer->compose('order-cancel', ['orderid' => $order_master->order_id, 'user' => $mail])
+//                    ->setFrom('no-replay@linea_debella.com')
+//                    ->setTo($mail->email)
+//                    ->setSubject('Order Cancelled');
+//            $message->send();
+        }
+        return $this->redirect(['user/my-orders']);
     }
 
 }

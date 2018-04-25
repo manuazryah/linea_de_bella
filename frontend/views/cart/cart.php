@@ -59,12 +59,12 @@ $this->title = 'Shopping Cart';
                                             <tr class="cart_item tr_<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_item->id); ?>">
 
                                                 <td class="product-remove">
-                                                    <a class="remove remove_cart" title="Remove this item" data-product_id="<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_item->id); ?>">×</a> 
+                                                    <a class="remove remove_cart" title="Remove this item" data-product_id="<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_item->id); ?>">×</a>
                                                 </td>
 
                                                 <td class="product-thumbnail">
-                                                    <a href="<?= Yii::$app->homeUrl . 'product-detail/' . $product_details->canonical_name ?>"><?= $image ?></a> 
-                                                    <!--<a href=""><img src="images/products/1.jpg" class="attachment-shop_thumbnail wp-post-image" alt="product16"></a>--> 
+                                                    <a href="<?= Yii::$app->homeUrl . 'product-detail/' . $product_details->canonical_name ?>"><?= $image ?></a>
+                                                    <!--<a href=""><img src="images/products/1.jpg" class="attachment-shop_thumbnail wp-post-image" alt="product16"></a>-->
                                                 </td>
 
                                                 <td class="product-name">
@@ -95,13 +95,13 @@ $this->title = 'Shopping Cart';
 
                                                 <div class="coupon">
 
-                                                    <label for="coupon_code">Coupon:</label> 
+                                                    <label for="coupon_code">Coupon:</label>
                                                     <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code"> <input type="submit" class="btn btn-default" name="apply_coupon" value="Apply Coupon">
 
 
                                                 </div>
 
-                                                <input type="submit" class="btn btn-default" name="update_cart" value="Update Cart"> 
+                                                <input type="submit" class="btn btn-default" name="update_cart" value="Update Cart">
                                                 <!--<input type="submit" class="checkout-button btn btn-default alt wc-forward" name="proceed" value="Proceed to Checkout">-->
 
 
@@ -177,8 +177,10 @@ $this->title = 'Shopping Cart';
 
 
                                     <div class="wc-proceed-to-checkout">
-                                        <?php if (empty(Yii::$app->user->identity)) { ?>
-                                            <a href="<?= Yii::$app->homeUrl . 'login-signup?go=' . Yii::$app->request->hostInfo . Yii::$app->request->url ?>" class="checkout-button button alt wc-forward">Login to Checkout</a>
+                                        <?php
+                                        if (empty(Yii::$app->user->identity)) {
+                                            ?>
+                                            <a href="<?= Yii::$app->homeUrl . 'site/login-signup?go=' . Yii::$app->request->hostInfo . Yii::$app->homeUrl . Yii::$app->controller->id . '/' . Yii::$app->controller->action->id ?>" class="checkout-button button alt wc-forward">Login to Checkout</a>
                                         <?php } else { ?>
                                             <a href="<?= Yii::$app->homeUrl . 'cart/proceed' ?>" class="checkout-button button alt wc-forward">Proceed to Checkout</a>
                                         <?php } ?>
