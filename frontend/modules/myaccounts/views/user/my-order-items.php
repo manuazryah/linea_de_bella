@@ -70,7 +70,7 @@ $order_products = OrderDetails::find()->where(['order_id' => $model->order_id])-
                 </div>
                 <div class="col-xs-6">
                     <?php $name = $order_product->item_type == 1 ? 'Custom Perfume' : $product_detail->product_name; ?>
-                    <?= Html::a('<h6 class="product-title">' . $name . '</h6>', $order_product->item_type == 1 ? ['#'] : ['/product-detail/' . $product_detail->canonical_name], ['target' => '_blank']) ?>
+                    <?= Html::a('<h6 class="product-title">' . $name . '</h6>', $order_product->item_type == 1 ? ['#'] : ['/product/product-detail', 'product' => $product_detail->canonical_name], ['target' => '_blank']) ?>
                     <?php
                     $label1 = '';
                     $label2 = '';
@@ -155,10 +155,17 @@ $order_products = OrderDetails::find()->where(['order_id' => $model->order_id])-
     <div class="box-footer">
         <div class="col-xs-12">
             <?php if ($model->payment_status != 1) { ?>
-                <?= Html::a('Continue', ['/checkout/continue', 'id' => $model->order_id], ['class' => 'btn shadowbtn bt-right'])
-                ?>
+                <?= Html::a('Continue', ['/checkout/continue', 'id' => $model->order_id], ['class' => 'btn shadowbtn bt-right']) ?>
             <?php } ?>
-            <?= Html::a('Cancel', ['/myaccounts/user/cancel-order', 'id' => $model->order_id], ['class' => 'btn shadowbtn bt-right']) ?>
+            <?php if ($model->admin_status != 4 && $model->admin_status != 5 && $model->payment_status == 1 && $model->status != 5) { ?>
+                <?= Html::a('Cancel', ['/myaccounts/user/cancel-order', 'id' => $model->order_id], ['class' => 'btn shadowbtn bt-right']) ?>
+            <?php
+            } elseif ($model->admin_status == 4) {
+                echo '<span class="order-deliver-stat">Order Delivered</span>';
+            } elseif ($model->admin_status == 5 || $model->status == 5) {
+                echo '<span class="order-cancel-stat">Order Cancelled</span>';
+            }
+            ?>
         </div>
     </div>
 </div>

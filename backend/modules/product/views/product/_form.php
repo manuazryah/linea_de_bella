@@ -128,7 +128,9 @@ use common\models\Tax;
                     <?= $form->field($model, 'stock_availability')->dropDownList(['1' => 'Available', '0' => 'Not Available']) ?>
                 </div>
                 <div class='col-md-4 col-sm-6 col-xs-12 '>
-<?php    if ($model->isNewRecord) { $model->tax=1;} ?>
+                    <?php if ($model->isNewRecord) {
+                        $model->tax = 1;
+                    } ?>
 
                     <?= $form->field($model, 'tax')->dropDownList(ArrayHelper::map(Tax::find()->all(), 'id', 'name'), ['prompt' => '--Select--']) ?>
                 </div>
@@ -136,7 +138,7 @@ use common\models\Tax;
                     <?= $form->field($model, 'free_shipping')->dropDownList(['1' => 'Yes', '0' => 'No'], ['prompt' => 'Select']) ?>
                 </div>
                 <div class='col-md-4 col-sm-6 col-xs-12 '>
-                    <?= $form->field($model, 'product_type')->dropDownList(ArrayHelper::map(Fregrance::find()->all(), 'id', 'name'), ['prompt' => 'select']) ?>
+<?= $form->field($model, 'product_type')->dropDownList(ArrayHelper::map(Fregrance::find()->all(), 'id', 'name'), ['prompt' => 'select']) ?>
                     <label onclick="jQuery('#modal-6').modal('show', {backdrop: 'fade'});" class="btn btn-icon btn-white extra_btn add_fragrance" attr_id="product-stock_unit">Add Fragrance</label>
                 </div>
                 <div class='col-md-4 col-sm-6 col-xs-12 '>
@@ -148,7 +150,7 @@ use common\models\Tax;
                         $model->size_unit = 5;
                     }
                     ?>
-                    <?= $form->field($model, 'size_unit')->dropDownList(ArrayHelper::map(Unit::find()->all(), 'id', 'unit_name')) ?>
+<?= $form->field($model, 'size_unit')->dropDownList(ArrayHelper::map(Unit::find()->all(), 'id', 'unit_name')) ?>
                     <label onclick="jQuery('#modal-3').modal('show', {backdrop: 'fade'});" class="btn btn-icon btn-white extra_btn add_unit" attr_id="product-size_unit">Add Unit</label>
                 </div>
                 <div class='col-md-4 col-sm-6 col-xs-12 '>
@@ -162,14 +164,14 @@ use common\models\Tax;
                         }
                     }
                     ?>
-                    <?= $form->field($model, 'related_product')->dropDownList(ArrayHelper::map(Product::find()->where(['status' => '1'])->all(), 'id', 'product_name'), ['class' => 'form-control', 'id' => 'product-related_product', 'multiple' => 'multiple']) ?>
+<?= $form->field($model, 'related_product')->dropDownList(ArrayHelper::map(Product::find()->where(['status' => '1'])->all(), 'id', 'product_name'), ['class' => 'form-control', 'id' => 'product-related_product', 'multiple' => 'multiple']) ?>
 
                 </div>
                 <div class='col-md-4 col-sm-6 col-xs-12 '>
                     <?= $form->field($model, 'sort')->textInput(); ?>
                 </div>
                 <div class='col-md-12 col-sm-6 col-xs-12 '>
-                    <?= $form->field($model, 'main_description')->textArea(['rows' => '6'], ['maxlength' => '453']); ?>
+<?= $form->field($model, 'main_description')->textArea(['rows' => '6'], ['maxlength' => '453']); ?>
 
                 </div>
                 <div class='col-md-12 col-sm-6 col-xs-12 '>
@@ -185,7 +187,7 @@ use common\models\Tax;
                     <?= $form->field($model, 'featured_product')->dropDownList(['0' => 'No', '1' => 'Yes']) ?>
                 </div>
                 <div class='col-md-12 col-sm-6 col-xs-12 '>
-                    <?= $form->field($model, 'status')->dropDownList(['1' => 'Enable', '0' => 'Disable']) ?>
+<?= $form->field($model, 'status')->dropDownList(['1' => 'Enable', '0' => 'Disable']) ?>
                 </div>
                 <!--Meta--->
                 <div class='col-md-4 col-sm-6 col-xs-12 '>
@@ -196,7 +198,7 @@ use common\models\Tax;
                         }
                     }
                     ?>
-                    <?= $form->field($model, 'search_tag')->dropDownList(ArrayHelper::map(MasterSearchTag::find()->where(['status' => '1'])->all(), 'id', 'tag_name'), ['class' => 'form-control', 'id' => 'product-search_tag', 'multiple' => 'multiple']) ?>
+<?= $form->field($model, 'search_tag')->dropDownList(ArrayHelper::map(MasterSearchTag::find()->where(['status' => '1'])->all(), 'id', 'tag_name'), ['class' => 'form-control', 'id' => 'product-search_tag', 'multiple' => 'multiple']) ?>
                     <label onclick="jQuery('#modal-4').modal('show', {backdrop: 'fade'});" class="btn btn-icon btn-white extra_btn add_tag">Add Search Tag</label>
                 </div>
                 <div class='col-md-4 col-sm-6 col-xs-12 '>
@@ -206,19 +208,19 @@ use common\models\Tax;
                     <?= $form->field($model, 'meta_description')->textArea(['rows' => '6'], ['maxlength' => true]) ?>
                 </div>
                 <div class='col-md-12 col-sm-6 col-xs-12 '>
-                    <?= $form->field($model, 'meta_keywords')->textArea(['rows' => '6'], ['maxlength' => true]) ?>
+<?= $form->field($model, 'meta_keywords')->textArea(['rows' => '6'], ['maxlength' => true]) ?>
 
                 </div>
                 <!--Image-->
                 <div class='col-md-4 col-sm-6 col-xs-12 '>
-                    <?= $form->field($model, 'profile_alt')->textInput(['maxlength' => true]) ?>
+<?= $form->field($model, 'profile_alt')->textInput(['maxlength' => true]) ?>
                 </div>
 
                 <div class='col-md-4 col-sm-6 col-xs-12 '>
                     <?= $form->field($model, 'gallery_alt')->textInput(['maxlength' => true]) ?>
                 </div>
                 <div class='col-md-6 col-sm-6 col-xs-12 '>
-                    <?= $form->field($model, 'profile')->fileInput()->label('profile Picture<i> (300*350)</i>') ?>
+                    <?= $form->field($model, 'profile')->fileInput()->label('profile Picture<i> (775*900)</i>') ?>
                     <?php
                     if (!$model->isNewRecord) {
                         echo "<hr class='appoint_history'/> <h4 class='sub-heading'>Profile Image</h4>";
@@ -232,9 +234,9 @@ use common\models\Tax;
                     <?php } ?>
                 </div>
                 <div class='col-md-6 col-sm-6 col-xs-12 '>
-                    <?= $form->field($model, 'other_image[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label('Gallery Images<i> (300*350)</i>') ?>
-                    <?php if (!$model->isNewRecord) { ?>
-                                                                                                                                                                                                                    <!--<a href=''><img src="<?= yii::$app->homeUrl ?>/../../uploads/product/1/dasda_0.jpg" width="100" alt="Delete"></a>-->
+<?= $form->field($model, 'other_image[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label('Gallery Images<i> (775*900)</i>') ?>
+                        <?php if (!$model->isNewRecord) { ?>
+                                                                                                                                                                                                                        <!--<a href=''><img src="<?= yii::$app->homeUrl ?>/../../uploads/product/1/dasda_0.jpg" width="100" alt="Delete"></a>-->
                         <div class="row">
                             <?php
                             $path = Yii::getAlias('@paths') . '/product/' . $model->id . '/gallery_thumb';
@@ -276,13 +278,13 @@ use common\models\Tax;
 
     </div>
     <div style="float: right;">
-        <?= Html::submitButton($model->isNewRecord ? '<i class="fa fa-plus" style="margin-right: 9px;"></i><span style="padding-right: 9px;">Create</span>' : '<i class="glyphicon glyphicon-pencil" style="margin-right: 9px;"></i><span style="padding-right: 9px;">Update</span>', ['class' => 'btn btn-success  btn-icon ']) ?>
+<?= Html::submitButton($model->isNewRecord ? '<i class="fa fa-plus" style="margin-right: 9px;"></i><span style="padding-right: 9px;">Create</span>' : '<i class="glyphicon glyphicon-pencil" style="margin-right: 9px;"></i><span style="padding-right: 9px;">Update</span>', ['class' => 'btn btn-success  btn-icon ']) ?>
 
     </div>
 
 
 
-    <?php ActiveForm::end(); ?>
+<?php ActiveForm::end(); ?>
 
 </div>
 <div class="modal fade" id="modal-1">
@@ -295,16 +297,16 @@ use common\models\Tax;
             </div>
 
             <div class="modal-body">
-                <?php $form = ActiveForm::begin(['id' => 'add_category']); ?>
+<?php $form = ActiveForm::begin(['id' => 'add_category']); ?>
                 <label  for="subcategory-category">Category</label>
                 <input type="text" id="subcategory-category" autocomplete="off" class="form-control" >
                 <label class="control-label" for="subcategory-category">Category code</label>
                 <input type="text" id="subcategory-categorycode" readonly="readonly" class="form-control" >
                 <div class="form-group" style="float: right;">
-                    <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'margin-top: 18px; height: 36px; width:100px;']) ?>
+                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'margin-top: 18px; height: 36px; width:100px;']) ?>
                 </div>
 
-                <?php ActiveForm::end(); ?>
+<?php ActiveForm::end(); ?>
             </div>
 
             <div class="modal-footer">
@@ -322,15 +324,15 @@ use common\models\Tax;
             </div>
 
             <div class="modal-body">
-                <?php $form = ActiveForm::begin(['id' => 'add_subcategory']); ?>
-                <?= $form->field($model, 'category')->dropDownList(ArrayHelper::map(Category::find()->all(), 'id', 'category'), ['prompt' => 'select', 'id' => 'product-prcat']) ?>
+<?php $form = ActiveForm::begin(['id' => 'add_subcategory']); ?>
+<?= $form->field($model, 'category')->dropDownList(ArrayHelper::map(Category::find()->all(), 'id', 'category'), ['prompt' => 'select', 'id' => 'product-prcat']) ?>
                 <label class="control-label">Sub Category</label>
                 <input type="text" id="product_subcat" autocomplete="off" class="form-control" >
                 <div class="form-group" style="float: right;">
-                    <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'margin-top: 18px; height: 36px; width:100px;']) ?>
+                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'margin-top: 18px; height: 36px; width:100px;']) ?>
                 </div>
 
-                <?php ActiveForm::end(); ?>
+<?php ActiveForm::end(); ?>
             </div>
 
             <div class="modal-footer">
@@ -348,13 +350,13 @@ use common\models\Tax;
             </div>
 
             <div class="modal-body">
-                <?php $form = ActiveForm::begin(['id' => 'add_unit']); ?>
+<?php $form = ActiveForm::begin(['id' => 'add_unit']); ?>
                 <label class="control-label">Unit</label>
                 <input type="text" id="product_unit" autocomplete="off" class="form-control" >
                 <div class="form-group" style="float: right;">
-                    <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'margin-top: 18px; height: 36px; width:100px;']) ?>
+                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'margin-top: 18px; height: 36px; width:100px;']) ?>
                 </div>
-                <?php ActiveForm::end(); ?>
+<?php ActiveForm::end(); ?>
             </div>
 
             <div class="modal-footer">
@@ -373,14 +375,14 @@ use common\models\Tax;
             </div>
 
             <div class="modal-body">
-                <?php $form = ActiveForm::begin(['id' => 'add_searchtag']); ?>
+<?php $form = ActiveForm::begin(['id' => 'add_searchtag']); ?>
                 <label class="control-label" for="Search-tag">Tag name</label>
                 <input type="text" id="search-tag" autocomplete="off" class="form-control" >
                 <div class="form-group" style="float: right;">
-                    <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'margin-top: 18px; height: 36px; width:100px;']) ?>
+                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'margin-top: 18px; height: 36px; width:100px;']) ?>
                 </div>
 
-                <?php ActiveForm::end(); ?>
+<?php ActiveForm::end(); ?>
             </div>
 
             <div class="modal-footer">
@@ -398,14 +400,14 @@ use common\models\Tax;
             </div>
 
             <div class="modal-body">
-                <?php $form = ActiveForm::begin(['id' => 'add_brand']); ?>
+<?php $form = ActiveForm::begin(['id' => 'add_brand']); ?>
                 <label class="control-label" for="Brand">Brand name</label>
                 <input type="text" id="brand-name" autocomplete="off" class="form-control" >
                 <div class="form-group" style="float: right;">
-                    <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'margin-top: 18px; height: 36px; width:100px;']) ?>
+                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'margin-top: 18px; height: 36px; width:100px;']) ?>
                 </div>
 
-                <?php ActiveForm::end(); ?>
+<?php ActiveForm::end(); ?>
             </div>
 
             <div class="modal-footer">
@@ -423,14 +425,14 @@ use common\models\Tax;
             </div>
 
             <div class="modal-body">
-                <?php $form = ActiveForm::begin(['id' => 'add_fragrance']); ?>
+<?php $form = ActiveForm::begin(['id' => 'add_fragrance']); ?>
                 <label class="control-label" for="Fragrance">Name</label>
                 <input type="text" id="fragrance-name" autocomplete="off" class="form-control" >
                 <div class="form-group" style="float: right;">
-                    <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'margin-top: 18px; height: 36px; width:100px;']) ?>
+                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'margin-top: 18px; height: 36px; width:100px;']) ?>
                 </div>
 
-                <?php ActiveForm::end(); ?>
+<?php ActiveForm::end(); ?>
             </div>
 
             <div class="modal-footer">

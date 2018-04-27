@@ -25,7 +25,7 @@ use common\components\EmptyDataWidget;
     <div class="container">
         <div class="row">
             <?= Yii::$app->controller->renderPartial('_leftside_menu'); ?>
-            <div id="content" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+            <div id="content" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 content-myaccount">
                 <h3 class="title2">My Order History</h3>
                 <div class="acordion-tab">
                     <ul class="nav md-pills nav-justified pills-secondary">

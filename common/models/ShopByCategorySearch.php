@@ -10,13 +10,12 @@ use common\models\ShopByCategory;
 /**
  * ShopByCategorySearch represents the model behind the search form about `common\models\ShopByCategory`.
  */
-class ShopByCategorySearch extends ShopByCategory
-{
+class ShopByCategorySearch extends ShopByCategory {
+
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['id', 'status', 'CB', 'UB'], 'integer'],
             [['title', 'link', 'image', 'DOC', 'DOU'], 'safe'],
@@ -26,8 +25,7 @@ class ShopByCategorySearch extends ShopByCategory
     /**
      * @inheritdoc
      */
-    public function scenarios()
-    {
+    public function scenarios() {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
@@ -39,8 +37,7 @@ class ShopByCategorySearch extends ShopByCategory
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
-    {
+    public function search($params) {
         $query = ShopByCategory::find();
 
         // add conditions that should always apply here
@@ -68,9 +65,10 @@ class ShopByCategorySearch extends ShopByCategory
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'link', $this->link])
-            ->andFilterWhere(['like', 'image', $this->image]);
+                ->andFilterWhere(['like', 'link', $this->link])
+                ->andFilterWhere(['like', 'image', $this->image]);
 
         return $dataProvider;
     }
+
 }

@@ -51,7 +51,7 @@ if (!empty($cart_contents)) {
                         <?= Html::a('<span class="product-name">' . $str . '</span>', ['product/product-detail', 'product' => $prod_details->canonical_name], ['title' => $product_name, 'class' => '']) ?>
 
                         <span class="product-price">AED <?= sprintf("%0.2f", $price) ?></span>
-                        <a class="remove-from-cart remove_cart_product" rel="nofollow" href="" data-product_id="' . yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_content->id) . '" data-link-action="remove-from-cart" title="Remove from cart">
+                        <a class="remove-from-cart remove_cart_product" rel="nofollow" href="" data-product_id="<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_content->id) ?>" data-link-action="remove-from-cart" title="Remove from cart">
                             <i class="fa fa-remove"></i>
                         </a>
                         <div class="attributes_content">

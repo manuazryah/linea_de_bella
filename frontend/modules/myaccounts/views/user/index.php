@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row">
             <?= Yii::$app->controller->renderPartial('_leftside_menu'); ?>
 
-            <div id="content" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+            <div id="content" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 content-myaccount">
                 <p class="customer-name">Hello, <?= ucwords(Yii::$app->user->identity->first_name); ?>!</p>
                 <p>From  My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account
                     information. Select a link  to view or edit information.</p>

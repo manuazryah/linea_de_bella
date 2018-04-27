@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             },
                             'columns' => [
                                 ['class' => 'yii\grid\SerialColumn'],
-                                 [
+                                [
                                     'class' => 'yii\grid\ActionColumn',
                                     'header' => 'Action',
 //          'headerOptions' => ['style' => 'color:#337ab7'],
@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     ],
                                     'urlCreator' => function ($action, $model, $key, $index) {
                                         if ($action === 'preview') {
-                                            $url = Yii::$app->homeUrl . '../product/product_detail?product=' . $model->canonical_name;
+                                            $url = Yii::$app->homeUrl . '../product/product-detail?product=' . $model->canonical_name;
                                             return $url;
                                         }
 //
@@ -82,7 +82,7 @@ $this->params['breadcrumbs'][] = $this->title;
 //                                'category',
                                 [
                                     'attribute' => 'category',
-                                   'filter' => ArrayHelper::map(Category::find()->orderBy(['category' => SORT_ASC])->all(), 'id', 'category'),
+                                    'filter' => ArrayHelper::map(Category::find()->orderBy(['category' => SORT_ASC])->all(), 'id', 'category'),
                                     'value' => function($data) {
                                         return Category::findOne($data->category)->category;
                                     }
@@ -114,7 +114,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'format' => 'raw',
                                     'value' => function ($data) {
                                         return \yii\helpers\Html::textInput('offer_price', $data->offer_price, ['class' => 'form-control product_form', 'id' => 'product_offerprice_' . $data->id])
-                                                .'<label id="offer_price_' . $data->id . '" style="color:#cc3f44"class="hide">Offer price must be less than price</label>';
+                                                . '<label id="offer_price_' . $data->id . '" style="color:#cc3f44"class="hide">Offer price must be less than price</label>';
                                     },
                                 ],
                                 // 'offer_price',
@@ -212,35 +212,35 @@ $this->params['breadcrumbs'][] = $this->title;
             var id = res['2'];
             if (price > '0' && offerprice >= '0') {
                 if (price > offerprice) {
-                $('#offer_price_' + res['2']).addClass('hide');
-            $.ajax({
-                url: homeUrl + 'product/product/ajaxchange_product',
-                type: "post",
-                data: {price: price, offerprice: offerprice, stock: stock, availablity: availablity, id: id, featured: featured, sort: sort},
-                success: function (data) {
-                    var $data = JSON.parse(data);
-                    if ($data.msg === "success") {
-                        alert($data.title);
+                    $('#offer_price_' + res['2']).addClass('hide');
+                    $.ajax({
+                        url: homeUrl + 'product/product/ajaxchange_product',
+                        type: "post",
+                        data: {price: price, offerprice: offerprice, stock: stock, availablity: availablity, id: id, featured: featured, sort: sort},
+                        success: function (data) {
+                            var $data = JSON.parse(data);
+                            if ($data.msg === "success") {
+                                alert($data.title);
 //                    $('#' + form).append($('<option value="' + $data.id + '" >' + $data.tag + '</option>'));
 //                    $('#modal-4').modal('toggle');
-                    } else {
-                        alert($data.title);
-                    }
+                            } else {
+                                alert($data.title);
+                            }
 //
-                }, error: function () {
+                        }, error: function () {
 //
+                        }
+                    });
+                } else {
+                    $('#offer_price_' + res['2']).removeClass('hide');
                 }
-            });
-            } else {
-                $('#offer_price_' + res['2']).removeClass('hide');
             }
-           }
         });
     });
 </script>
 
 <style>
-td a{
-padding: 4px !important;
-}
+    td a{
+        padding: 4px !important;
+    }
 </style>

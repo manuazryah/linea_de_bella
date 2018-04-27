@@ -33,6 +33,7 @@ class Slider extends \yii\db\ActiveRecord {
      */
     public function rules() {
         return [
+            [['alt_tag_content'], 'required'],
             [['content'], 'string'],
             [['status', 'CB', 'UB'], 'integer'],
             [['img'], 'required', 'on' => 'create'],
@@ -56,6 +57,7 @@ class Slider extends \yii\db\ActiveRecord {
             'slider_first_tittle' => 'Slider First Tittle',
             'slider_second_tittle' => 'Slider Second Tittle',
             'slider_link' => 'Slider Link',
+            'alt_tag_content' => 'Alt Tag',
             'status' => 'Status',
             'CB' => 'Cb',
             'UB' => 'Ub',

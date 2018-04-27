@@ -28,8 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <div class="container">
         <div class="row">
-            <?= Yii::$app->controller->renderPartial('_leftside_menu'); ?>
-            <div id="content" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+            <div id="content" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="panel">
                     <div class="row contact-info">
 
@@ -80,15 +79,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
+                                        <?= $form->field($model, 'rules')->checkBox() ?>
                                         <div class="g-recaptcha" style="" data-sitekey="6LfASkMUAAAAAKb0YThDF1KSdEFtkltDfiBI9_iI"></div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <?= $form->field($model, 'rules')->checkBox() ?>
-                                    </div>
-                                </div>
-                                <div class="buttons submit-btn">
-                                    <div class="pull-right">
-                                        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary shadowbtn', 'style' => 'margin-top: 20px;']) ?>
+                                        <div class="pull-right">
+                                            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary shadowbtn', 'style' => 'margin-top: 82px;']) ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <?php ActiveForm::end(); ?>

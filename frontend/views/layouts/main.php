@@ -277,9 +277,6 @@ $cart_count = common\components\Cartcount::Count();
                                                                 <li class="first">
                                                                     <?= Html::a('My Account', ['/myaccounts/user/index'], ['title' => 'My Account']) ?>
                                                                 </li>
-                                                                <li class="first">
-                                                                    <?= Html::a('My Wishlist', ['/site/wishlist'], ['title' => 'My Wishlist']) ?>
-                                                                </li>
                                                                 <?php
                                                                 echo '<li class="first">'
                                                                 . Html::beginForm(['/site/logout'], 'post') . '<a>'
@@ -339,9 +336,8 @@ $cart_count = common\components\Cartcount::Count();
                                                             </button>
                                                             <ul class="dropdown-menu">
                                                                 <?php if (!empty(Yii::$app->user->identity)) { ?>
-                                                                    <li class="first"><a href="<?= yii::$app->homeUrl . 'my-account' ?>" title="My Account">My Account</a>
-                                                                    </li>
-                                                                    <li class="first"><a href="wishlist.php" title="My Wishlist">My Wishlist</a>
+                                                                    <li class="first">
+                                                                        <?= Html::a('My Account', ['/myaccounts/user/index'], ['title' => 'My Account']) ?>
                                                                     </li>
                                                                     <?php
                                                                     echo '<li class="first">'
@@ -353,7 +349,8 @@ $cart_count = common\components\Cartcount::Count();
                                                                     . '</li>';
                                                                     ?>
                                                                 <?php } else { ?>
-                                                                    <li class="last"> <a href="<?= yii::$app->homeUrl . 'login-signup'; ?>" title="Login">Login</a>
+                                                                    <li class="last">
+                                                                        <?= Html::a('Login', ['/site/login-signup'], ['title' => 'Login']) ?>
                                                                     </li>
                                                                 <?php } ?>
                                                             </ul>

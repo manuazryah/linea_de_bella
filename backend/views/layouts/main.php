@@ -203,7 +203,15 @@ AppAsset::register($this);
                                 </li>
 
                                 <li>
-                                    <?= Html::a('Shop By Category', ['/cms/shop-by-category/index'], ['class' => 'title']) ?>
+                                    <?= Html::a('Our Collections', ['/cms/shop-by-category/index'], ['class' => 'title']) ?>
+                                </li>
+
+                                <li>
+                                    <?= Html::a('Latest Updates', ['/cms/latest-updates/index'], ['class' => 'title']) ?>
+                                </li>
+
+                                <li>
+                                    <?= Html::a('Shop Collections', ['/cms/shop-collections/index'], ['class' => 'title']) ?>
                                 </li>
 
                                 <li>

@@ -97,12 +97,22 @@ class UserController extends Controller {
     }
 
     public function actionUserAddress() {
-        $model = UserAddress::find()->where(['user_id' => Yii::$app->user->identity->id])->one();
-        if (empty($model)) {
+        $model = new UserAddress();
+        $user_address = UserAddress::find()->where(['user_id' => Yii::$app->user->identity->id])->all();
+        $country_codes = ArrayHelper::map(\common\models\CountryCode::find()->where(['status' => 1])->orderBy(['id' => SORT_ASC])->all(), 'id', 'country_code');
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if (empty($user_address)) {
+                $model->status = 1;
+            }
+            $model->user_id = Yii::$app->user->identity->id;
+            $model->save();
             $model = new UserAddress();
+            return $this->redirect(Yii::$app->request->referrer);
         }
         return $this->render('addresses', [
                     'model' => $model,
+                    'user_address' => $user_address,
+                    'country_codes' => $country_codes,
         ]);
     }
 

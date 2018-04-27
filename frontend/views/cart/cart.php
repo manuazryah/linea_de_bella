@@ -14,9 +14,8 @@ $this->title = 'Shopping Cart';
         <div class="container">
             <!--<h1 class="page-title">Contact Us</h1>-->
             <ul class="breadcrumb">
-                <li><a href="index.php"><i class="fa fa-home"></i></a></li>
-                <!--<li><a href="my-account.php">Account</a></li>-->
-                <li class="active"><a>My Cart</a></li>
+                <li><?= Html::a('<span>Home</span>', ['/site/index'], ['class' => '']) ?></li>
+                <li class="active">My Cart</li>
             </ul>
         </div>
     </div>
@@ -90,24 +89,6 @@ $this->title = 'Shopping Cart';
                                                     <span class="amount" id="total_<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_item->id) ?>">AED <?= sprintf("%0.2f", $total) ?></span> </td>
                                             </tr>
                                         <?php } ?>
-                                        <tr>
-                                            <td colspan="6" class="actions">
-
-                                                <div class="coupon">
-
-                                                    <label for="coupon_code">Coupon:</label>
-                                                    <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code"> <input type="submit" class="btn btn-default" name="apply_coupon" value="Apply Coupon">
-
-
-                                                </div>
-
-                                                <input type="submit" class="btn btn-default" name="update_cart" value="Update Cart">
-                                                <!--<input type="submit" class="checkout-button btn btn-default alt wc-forward" name="proceed" value="Proceed to Checkout">-->
-
-
-                                                <input type="hidden" id="_wpnonce" name="_wpnonce" value="e5604b90fe"><input type="hidden" name="_wp_http_referer" value=""> </td>
-                                        </tr>
-
                                     </tbody>
                                 </table>
 

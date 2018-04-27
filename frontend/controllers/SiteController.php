@@ -34,6 +34,7 @@ use common\models\FromOurBlog;
 use common\models\CmsMetaTags;
 use common\models\AboutSisterConcern;
 use common\models\MapLocations;
+use common\models\LatestUpdates;
 
 /**
  * Site controller
@@ -93,7 +94,16 @@ class SiteController extends Controller {
      * @return mixed
      */
     public function actionIndex() {
+        Yii::$app->session['orderid'] = '';
+        $sliders = Slider::find()->where(['status' => 1])->all();
+        $our_collections = \common\models\ShopByCategory::find()->all();
+        $latest_updates = LatestUpdates::find()->orderBy(['id' => SORT_DESC])->limit(2)->all();
+        $shop_collections = \common\models\ShopCollections::find()->all();
         return $this->render('index', [
+                    'sliders' => $sliders,
+                    'our_collections' => $our_collections,
+                    'latest_updates' => $latest_updates,
+                    'shop_collections' => $shop_collections,
         ]);
     }
 

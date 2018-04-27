@@ -99,8 +99,10 @@ $this->title = $product_details->canonical_name;
                                         <p><?= $product_details->main_description != '' ? $product_details->main_description : '' ?></p>
                                     </div>
                                     <div class="product_meta">
-                                        <div class="posted_in">Categories: <a href="" rel="tag">Men</a>, <a href="" rel="tag">Top</a>, <a href="" rel="tag">Fragrance</a>.</div>
-                                        <div class="tagged_as">Tag: <a href="" rel="tag">Dummy</a>.</div>
+                                        <?php $unit = Unit::findOne($product_details->size_unit); ?>
+                                        <?php $fregrance = \common\models\Fregrance::findOne($product_details->product_type); ?>
+                                        <div class="posted_in">sizes: <a href="" rel="tag"><?= $product_details->size . $unit->unit_name ?></a></div>
+                                        <div class="tagged_as">Fragrance Type: <a href="" rel="tag"><?= $fregrance->name; ?></a>.</div>
                                     </div>
                                     <div class="clear"></div>
                                     <div class="col-xs-6 pad0 pull-left">

@@ -20,7 +20,7 @@ use yii\bootstrap\ActiveForm;
     <div class="container">
         <div class="row">
             <?= Yii::$app->controller->renderPartial('_leftside_menu'); ?>
-            <div id="content" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+            <div id="content" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 content-myaccount">
                 <div class="u-columns woocommerce-Addresses col2-set addresses">
                     <div class="u-column1 col-1 woocommerce-Address">
                         <header class="woocommerce-Address-title title">

@@ -19,41 +19,43 @@ use Yii;
  */
 class ShopByCategory extends \yii\db\ActiveRecord {
 
-        /**
-         * @inheritdoc
-         */
-        public static function tableName() {
-                return 'shop_by_category';
-        }
+    /**
+     * @inheritdoc
+     */
+    public static function tableName() {
+        return 'shop_by_category';
+    }
 
-        /**
-         * @inheritdoc
-         */
-        public function rules() {
-                return [
-                        [['link'], 'required'],
-                        [['status', 'CB', 'UB'], 'integer'],
-                        [['DOC', 'DOU'], 'safe'],
-                        [['title', 'link', 'image'], 'string', 'max' => 250],
-                        [['image'], 'file', 'extensions' => 'png, jpg, jpeg'],
-                ];
-        }
+    /**
+     * @inheritdoc
+     */
+    public function rules() {
+        return [
+            [['link', 'description', 'title'], 'required'],
+            [['image'], 'required', 'on' => 'create'],
+            [['status', 'CB', 'UB'], 'integer'],
+            [['DOC', 'DOU', 'description'], 'safe'],
+            [['title', 'link', 'image'], 'string', 'max' => 250],
+            [['image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
+        ];
+    }
 
-        /**
-         * @inheritdoc
-         */
-        public function attributeLabels() {
-                return [
-                    'id' => 'ID',
-                    'title' => 'Title',
-                    'link' => 'Link',
-                    'image' => 'Image',
-                    'status' => 'Status',
-                    'CB' => 'Cb',
-                    'UB' => 'Ub',
-                    'DOC' => 'Doc',
-                    'DOU' => 'Dou',
-                ];
-        }
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels() {
+        return [
+            'id' => 'ID',
+            'title' => 'Title',
+            'link' => 'Link',
+            'image' => 'Image',
+            'status' => 'Status',
+            'description' => 'Description',
+            'CB' => 'Cb',
+            'UB' => 'Ub',
+            'DOC' => 'Doc',
+            'DOU' => 'Dou',
+        ];
+    }
 
 }

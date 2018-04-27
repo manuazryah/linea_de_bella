@@ -39,6 +39,20 @@ use yii\helpers\Html;
                     </h2>
                     <?php $fragrance = \common\models\Fregrance::findOne($product_details->product_type)->name ?>
                     <p><?= $fragrance ?></p>
+                    <ul class="gp_products_caption_rating">
+                        <?php
+                        if ($product_details->offer_price != "0" && isset($product_details->offer_price)) {
+                            $percentage = round(100 - (($product_details->offer_price / $product_details->price) * 100));
+                            ?>
+                            <li>AED <?= $product_details->offer_price; ?></li>
+                            <li class="center">AED <?= $product_details->price; ?></li>
+
+                            <?php
+                        } else {
+                            ?>
+                            <li class="center">AED <?= $product_details->price; ?></li>
+                            <?php } ?>
+                    </ul>
                 </div>
             </article>
         </li>
