@@ -437,14 +437,15 @@ class Cart extends \yii\db\ActiveRecord {
         $model1->bill_address_id = $bill_address;
         $model1->status = 2;
         $model1->save();
-        if (isset(Yii::$app->request->post()['UserAddress']['check'])) {
-            $model1->ship_address_id = $bill_address;
-            $model1->status = 3;
-            $model1->save();
-            Yii::$app->response->redirect(['checkout/confirm-order'])->send();
-        } else {
-            Yii::$app->response->redirect(['checkout/shipping'])->send();
-        }
+//        if (isset(Yii::$app->request->post()['UserAddress']['check'])) {
+//            $model1->ship_address_id = $bill_address;
+//            $model1->status = 3;
+//            $model1->save();
+//            Yii::$app->response->redirect(['checkout/confirm-order'])->send();
+//        } else {
+//            Yii::$app->response->redirect(['checkout/shipping'])->send();
+//        }
+        Yii::$app->response->redirect(['checkout/confirm-order'])->send();
     }
 
     public static function ordershipping($bill_address) {

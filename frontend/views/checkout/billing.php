@@ -75,10 +75,7 @@ $this->title = 'Checkout';
                                 <!--<input style="padding-left: 70px;" type="phone" id="user-mobile_number" class="form-control" name="UserAddress[mobile_number]" value="<?= $model->mobile_number ?>" maxlength="15" aria-invalid="false" data-format="+1 (ddd) ddd-dddd">-->
                             </div>
                         </div>
-                        <div class="form-group login-group-checkbox margin-auto col-md-12">
-                            
-                            <label> <input type="checkbox" value='1' id="lg_remember" name="UserAddress[check]">My delivery and billing addresses are the same.</label>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 lit-blue" style="padding: 0 30px;padding-right: 55px; padding-bottom: 30px; margin-bottom: 5px;">
