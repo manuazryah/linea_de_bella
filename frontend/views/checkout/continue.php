@@ -85,7 +85,7 @@ $this->title = 'Continue Cart';
                                                     <td class="product-quantity">
                                                         <div class="quantity-adder">
                                                             <div class="quantity">
-                                                                <input type="number" min="1" max="<?= $prod_details->stock ?>" step="1" value="<?= $cart_item->quantity ?>" id="quantity_<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_item->id); ?>" class="cart_quantity">
+                                                                <input type="number" min="1" max="<?= $prod_details->stock ?>" step="1" value="<?= $cart_item->quantity ?>" id="quantity_<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_item->id); ?>" class="ordqnty">
                                                             </div>
                                                             <!--                                                        <div class="quantity buttons_added"><input type="button" value="-" class="minus">
                                                                                                                         <input type="number" step="1" min="1" max="<?= $prod_details->stock ?>" name="cart[7f6ffaa6bb0b408017b62254211691b5][qty]" value="<?= $cart_item->quantity ?>" title="Qty" class="input-text qty cart_quantity text" id="quantity_<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_item->id); ?> size="4">

@@ -66,9 +66,9 @@ class UserController extends Controller {
     }
 
     public function actionMyOrders() {
-        $orders = \common\models\OrderMaster::find()->where(['user_id' => Yii::$app->user->identity->id])->andWhere(['<>', 'status', '5'])->all();
-        $pending_orders = \common\models\OrderMaster::find()->where(['user_id' => Yii::$app->user->identity->id])->andWhere(['shipping_status' => 0])->andWhere(['<>', 'status', '5'])->all();
-        $cancel_orders = \common\models\OrderMaster::find()->where(['user_id' => Yii::$app->user->identity->id])->andWhere(['status' => 5])->all();
+        $orders = \common\models\OrderMaster::find()->where(['user_id' => Yii::$app->user->identity->id])->andWhere(['<>', 'status', '5'])->andWhere(['<>', 'admin_status', '5'])->all();
+        $pending_orders = \common\models\OrderMaster::find()->where(['user_id' => Yii::$app->user->identity->id])->andWhere(['payment_status' => 1])->andWhere(['<>', 'status', '5'])->andWhere(['<>', 'admin_status', '0'])->andWhere(['<>', 'admin_status', '5'])->all();
+        $cancel_orders = \common\models\OrderMaster::find()->where(['user_id' => Yii::$app->user->identity->id])->andWhere(['status' => 5])->orWhere(['admin_status'=> 5])->all();
         $dataProvider = new ArrayDataProvider([
             'allModels' => $orders,
         ]);

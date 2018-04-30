@@ -7,6 +7,8 @@ use common\models\OrderDetails;
 use common\models\Product;
 use common\models\Fregrance;
 use common\models\Settings;
+use common\models\UserAddress;
+use common\models\Emirates;
 
 $order_products = OrderDetails::find()->where(['order_id' => $model->order_id])->all();
 ?>
@@ -31,7 +33,9 @@ $order_products = OrderDetails::find()->where(['order_id' => $model->order_id])-
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Customer Name  <b class="fa fa-angle-down"></b></a>
                         <ul class="dropdown-menu">
-                            <address>Company name<br>First name Last name<br>House number<br>Apartment<br>Somewhere - 682703<br>Kerala, India</address>
+                            <?php $address = UserAddress::findOne($model->bill_address_id);
+                            $emirates = Emirates::findOne($address->emirate)->name?>
+                            <address><?= $address->name?><br><?= $address->address?><br><?= $address->landmark?><br><?= $address->location?><br><?= $emirates?> - <?= $address->post_code?></address>
                         </ul>
                     </li>
                 </ul>
@@ -157,7 +161,7 @@ $order_products = OrderDetails::find()->where(['order_id' => $model->order_id])-
             <?php if ($model->payment_status != 1) { ?>
                 <?= Html::a('Continue', ['/checkout/continue', 'id' => $model->order_id], ['class' => 'btn shadowbtn bt-right']) ?>
             <?php } ?>
-            <?php if ($model->admin_status != 4 && $model->admin_status != 5 && $model->payment_status == 1 && $model->status != 5) { ?>
+            <?php if ($model->admin_status != 4 && $model->admin_status != 5  && $model->status != 5) { ?>
                 <?= Html::a('Cancel', ['/myaccounts/user/cancel-order', 'id' => $model->order_id], ['class' => 'btn shadowbtn bt-right']) ?>
             <?php
             } elseif ($model->admin_status == 4) {

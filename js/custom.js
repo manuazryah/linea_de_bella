@@ -1,5 +1,20 @@
 jQuery(document).ready(function () {
 //    $('.yith_magnifier_thumbnail').addClass('product_gallery_thumb');
+
+    jQuery('.ordqnty').on('change keyup', function () {
+        showLoader();
+        var quantity = this.value
+        var $ids = jQuery(this).attr('id');
+        var ids = $ids.split('_');
+        var id = ids['1'];
+        var $count = jQuery('#cart_count').val();
+        if (quantity != '' && parseInt(quantity) > '0') {
+            findorderstock(id, quantity);
+            updatedetail(id, quantity, $count);
+        } else if (quantity != '') {
+            jQuery('#quantity_' + id).val('1');
+        }
+    });
     jQuery(".add-cart").click(function () {
         showLoader();
         jQuery('.alert-success').addClass('hide');
@@ -379,20 +394,7 @@ jQuery('body').on('click', '.remove_order', function () {
     }
 });
 
-jQuery('.ordqnty').on('change keyup', function () {
-    showLoader();
-    var quantity = this.value
-    var $ids = jQuery(this).attr('id');
-    var ids = $ids.split('_');
-    var id = ids['1'];
-    var $count = jQuery('#cart_count').val();
-    if (quantity != '' && parseInt(quantity) > '0') {
-        findorderstock(id, quantity);
-        updatedetail(id, quantity, $count);
-    } else if (quantity != '') {
-        jQuery('#quantity_' + id).val('1');
-    }
-});
+
 jQuery('#sign_up_form').on('submit', function (e) {
     alert('res');
 //    var res = grecaptcha.getResponse();
