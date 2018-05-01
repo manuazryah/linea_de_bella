@@ -4400,3 +4400,63 @@ button.green2 {
     color: red;
     font-weight: 600;
 }
+.left-accordation{
+    padding: 0px;
+}
+.pull-right {
+    float: right!important;
+}
+.mg-icon {
+    font-size: 10px;
+    line-height: 20px;
+}
+#products .list-group-item.active {
+    background: transparent;
+    border: none;
+    color: #7ba324;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+#products .list-group-item.active span {
+    color: #d5be61;
+}
+.search-dropdown {
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    background: white;
+    top: 35px;
+    z-index: 10;
+    border: 1px solid #dfdfdf;
+    border-top: 0;
+    max-height: 250px;
+    overflow-y: auto;
+}
+.search-dropdown .search-selected {
+    background-color: rgba(232, 232, 232, 0.5);
+}
+.search-dropdown li {
+    font-size: 14px;
+    padding: 5px 15px;
+    text-transform: capitalize;
+}
+.search-dropdown li:hover {
+   background-color: rgba(232, 232, 232, 0.5);
+    cursor: pointer;
+}
+.fa.pull-left {
+    margin-right: 1.3em;
+    margin-top: 3px;
+}
+.list-group-item {
+    border: none;
+}
+a.list-group-item:hover, button.list-group-item:hover, a.list-group-item:focus, button.list-group-item:focus {
+    background-color: #ffffff;
+}
+.list-group-item .fa-chevron-down{
+    font-size: 12px;
+}

@@ -222,15 +222,18 @@ $cart_count = common\components\Cartcount::Count();
                                                         <button class="dropdown-toggle btn btn-default" type="button" data-toggle="dropdown"><i class="fa fa-search"></i>
                                                         </button>
                                                         <div class="dropdown-menu">
-                                                            <form role="search" method="post" class="woocommerce-product-search search-form" action="">
-                                                                <label> <span class="screen-reader-text">Search for:</span>
-                                                                    <input type="search" autocomplete="off" id="woocommerce-product-search-field" class="search-field" placeholder="Search for products" value="" name="s" title="Search for products">
-                                                                </label>
-                                                                <button type="submit" class="search-submit"><span class="screen-reader-text">Search</span>
-                                                                </button>
-                                                                <input type="hidden" name="post_type" value="product">
-                                                                <input type="hidden" name="product_cat" value="">
-                                                            </form>
+                                                            <?= Html::beginForm(['/product/index'], 'get', ['id' => 'serach-formm', 'class' => 'woocommerce-product-search search-form', 'role' => 'search']) ?>
+                                                            <label> <span class="screen-reader-text">Search for:</span>
+                                                                <input id="" type="text" class="SearchBar search-field search-keyword" placeholder="Search for products" name="keyword" autocomplete="off" required="" value="<?php
+                                                                if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
+                                                                    echo $_GET['keyword'];
+                                                                }
+                                                                ?>">
+                                                            </label>
+                                                            <div class="search-keyword-dropdown">
+                                                            </div>
+                                                            <?= Html::submitButton('<span class="screen-reader-text">Search</span>', ['class' => 'search-submit', 'name' => 'search_keyword-send']) ?>
+                                                            <?= Html::endForm() ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -247,7 +250,7 @@ $cart_count = common\components\Cartcount::Count();
                                                         <?= Html::a('About', ['/site/about'], ['class' => '']) ?>
                                                     </li>
                                                     <li id="menu-item-997" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-997 megamenu image_pos_left page_item_has_children  <?= $action == 'site/products' || $action == 'site/mens-product' ? 'active' : '' ?>">
-                                                        <?= Html::a('Shop', ['/site/products'], ['class' => '']) ?>
+                                                        <?= Html::a('Shop', ['/product/index'], ['class' => '']) ?>
                                                     </li>
                                                     <li class="logo logo-scrol">
                                                         <div class="logo">

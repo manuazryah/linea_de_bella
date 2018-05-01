@@ -16,6 +16,11 @@ use common\models\CmsMetaTags;
 
 class ProductController extends \yii\web\Controller {
 
+    public function beforeAction($action) {
+        $this->enableCsrfValidation = false;
+        return parent::beforeAction($action);
+    }
+
     /**
      * Displays a Products based on category.
      * @param category_code $id
