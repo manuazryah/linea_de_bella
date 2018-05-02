@@ -22,9 +22,10 @@ $this->title = 'Checkout';
     </div>
     <div id="checkout" class="my-account">
         <div class="container">
-            <div class="col-lg-7 col-md-7 col-sm-12 left-accordation">
+            <div class="col-lg-7 col-md-7 col-sm-12 left-accordation checkout-billing">
 
                 <h3>Billing Address</h3>
+                <div class="horizontal-line"></div>
                 <div class="content lit-blue">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <?php $form = ActiveForm::begin(); ?>

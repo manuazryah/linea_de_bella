@@ -7,6 +7,13 @@ use yii\helpers\Html;
         <li class="post-1108 product type-product status-publish has-post-thumbnail product_cat-bracelets first instock taxable shipping-taxable purchasable product-type-simple">
             <article class="product">
                 <div class="item-product">
+                    <?php
+                    if ($product_details->offer_price != "0" && isset($product_details->offer_price)) {
+                        $percentage = round(100 - (($product_details->offer_price / $product_details->price) * 100));
+                        ?>
+                        <div class="off-tag"><b><?= $percentage ?>%</b><br /><span>off</span></div>
+                    <?php }
+                    ?>
                     <div class="social-top ">
                         <div class="btn-share ">
                             <div class="quick-view add-to " data-toggle="tooltip">

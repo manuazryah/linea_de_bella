@@ -45,12 +45,12 @@ $this->title = $product_details->canonical_name;
                                             <img src="<?= Yii::$app->homeUrl . 'uploads/product/' . $product_details->id . '/profile/' . $product_details->canonical_name . '_big.' . $product_details->profile ?>?scale.height=200" alt=""/>
                                         </a>
 
-                                    <?php } else { ?>
+<?php } else { ?>
                                         <a id="Zoom-1" class="MagicZoom" title="" href="<?= Yii::$app->homeUrl . 'uploads/product/gallery_dummy.png' ?>">
                                             <img src="<?= Yii::$app->homeUrl . 'uploads/product/gallery_dummy.png' ?>?scale.height=200" alt=""/>
                                         </a>
 
-                                    <?php } ?>
+                                        <?php } ?>
                                     <div class="selectors">
                                         <?php
                                         $k = 0;
@@ -92,7 +92,7 @@ $this->title = $product_details->canonical_name;
                                     <h1 itemprop="name" class="heading_title product_title entry-title product-main-head"><?= $product_details->product_name ?></h1>
 
                                     <div class="col-xs-12 pad0">
-                                        <?php $price = !empty($product_details->offer_price) ? $product_details->offer_price : $product_details->price ?>
+<?php $price = !empty($product_details->offer_price) ? $product_details->offer_price : $product_details->price ?>
                                         <p class="price"><b><span class="amount">AED <?= $price ?></span></b></p>
                                     </div>
                                     <div itemprop="description" class="description">
@@ -100,7 +100,7 @@ $this->title = $product_details->canonical_name;
                                     </div>
                                     <div class="product_meta">
                                         <?php $unit = Unit::findOne($product_details->size_unit); ?>
-                                        <?php $fregrance = \common\models\Fregrance::findOne($product_details->product_type); ?>
+<?php $fregrance = \common\models\Fregrance::findOne($product_details->product_type); ?>
                                         <div class="posted_in">sizes: <a href="" rel="tag"><?= $product_details->size . $unit->unit_name ?></a></div>
                                         <div class="tagged_as">Fragrance Type: <a href="" rel="tag"><?= $fregrance->name; ?></a>.</div>
                                     </div>
@@ -125,12 +125,15 @@ $this->title = $product_details->canonical_name;
                                                 }
                                                 ?>
                                             </select>
-                                        <?php } ?>
+<?php } ?>
                                     </div>
 
 
                                     <div class="col-xs-4 pad0 pull-right">
-                                        <?= Html::a('Add to cart', '#', ['class' => 'btn shadowbtn add-cart', 'pro_id' => $product_details->canonical_name]) ?>
+                                        <?php if ($product_details->stock > 0 && $product_details->stock_availability == 1) { ?>
+                                            <?= Html::a('Add to cart', '#', ['class' => 'btn shadowbtn add-cart', 'pro_id' => $product_details->canonical_name]) ?>
+                                        <?php }
+                                        ?>
                                     </div>
                                     <div class="clearfix"></div>
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
