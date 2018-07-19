@@ -454,7 +454,8 @@ class ProductController extends Controller {
                         if ($image) {
                                 $img = explode('@', $image);
                                 unlink(yii::$app->basepath . '/../uploads/product/' . $img['0'] . '/gallery/' . $img['1']);
-                                unlink(yii::$app->basepath . '/../uploads/product/' . $img['0'] . '/gallery_thumb/' . $img['1']);
+                                //unlink(yii::$app->basepath . '/../uploads/product/' . $img['0'] . '/gallery_thumb/' . $img['1']);
+                                unlink(yii::$app->basepath . '/../uploads/product/' . $img['0'] . '/gallery_large/' . $img['1']);
                                 echo json_encode(array('msg' => 'success', 'id' => $img['2']));
                         } else {
                                 echo json_encode(array('msg' => 'error', 'title' => 'Image Not Found'));

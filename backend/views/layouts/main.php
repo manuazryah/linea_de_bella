@@ -111,7 +111,7 @@ AppAsset::register($this);
                                             <?= Html::a('Search Tag', ['/product/master-search-tag/index'], ['class' => 'title']) ?>
                                         </li>
                                         <li>
-                                            <?= Html::a('Brand', ['/brand/index'], ['class' => 'title']) ?>
+                                            <?= Html::a('Collections', ['/brand/index'], ['class' => 'title']) ?>
                                         </li>
                                         <li>
                                             <?= Html::a('Fregrance', ['/fregrance/index'], ['class' => 'title']) ?>
@@ -121,9 +121,7 @@ AppAsset::register($this);
                                 <li>
                                     <?= Html::a('Product', ['/product/product/index'], ['class' => 'title']) ?>
                                 </li>
-                                <li>
-                                    <?= Html::a('Product Mapping', ['/product/product-mapping/index'], ['class' => 'title']) ?>
-                                </li>
+                                
                             </ul>
                         </li>
                         <li>
@@ -162,35 +160,11 @@ AppAsset::register($this);
                                 <li>
                                     <?= Html::a('Users', ['/user/user/index'], ['class' => 'title']) ?>
                                 </li>
-                                <li>
-                                    <?= Html::a('Reviews', ['/user/customer-reviews/index'], ['class' => 'title']) ?>
-                                </li>
+                               
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="">
-                                <i class="fa fa-plus"></i>
-                                <span class="title">Create Your Own</span>
-                            </a>
-                            <ul>
-                                <li>
-                                    <?= Html::a('Gender', ['/create_your_own/gender/index'], ['class' => 'title']) ?>
-                                </li>
-                                <li>
-                                    <?= Html::a('Character', ['/create_your_own/characters/index'], ['class' => 'title']) ?>
-                                </li>
-                                <li>
-                                    <?= Html::a('Scent', ['/create_your_own/scent/index'], ['class' => 'title']) ?>
-                                </li>
-                                <li>
-                                    <?= Html::a('Notes', ['/create_your_own/notes/index'], ['class' => 'title']) ?>
-                                </li>
-                                <li>
-                                    <?= Html::a('Bottle', ['/create_your_own/bottle/index'], ['class' => 'title']) ?>
-                                </li>
-                            </ul>
-                        </li>
+                        
 
                         <li>
                             <a href="">
@@ -224,12 +198,7 @@ AppAsset::register($this);
                                 <li>
                                     <?= Html::a('Contact Page', ['/cms/contact-page/update?id=1'], ['class' => 'title']) ?>
                                 </li>
-                                <li>
-                                    <?= Html::a('Private Label Page', ['/cms/private-label-gallery/update?id=1'], ['class' => 'title']) ?>
-                                </li>
-                                <li>
-                                    <?= Html::a('Showrooms', ['/cms/showrooms/index'], ['class' => 'title']) ?>
-                                </li>
+                            
                                 <li>
                                     <?= Html::a('Others', ['/cms/cms-others/index'], ['class' => 'title']) ?>
                                 </li>
@@ -280,9 +249,7 @@ AppAsset::register($this);
                             <?= Html::a('<i class="fa fa-shopping-cart"></i><span class="title">Order</span>', ['/order/order-master/index'], ['class' => 'title']) ?>
                         </li>
 
-                        <li>
-                            <?= Html::a('<i class="fa fa-cube"></i><span class="title">Promotions</span>', ['/promotions/promotions/index'], ['class' => 'title']) ?>
-                        </li>
+                        
                         <li>
                             <a href="">
                                 <i class="fa fa-bars"></i>

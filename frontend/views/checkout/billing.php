@@ -8,16 +8,21 @@ use yii\helpers\ArrayHelper;
 
 $this->title = 'Checkout';
 ?>
+
+<section class="main-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><?= Html::a('<span>Home</span>', ['/site/index'], ['class' => '']) ?></li>
+                <li class="active">Checkout</li>
+        </ul>
+    </div>
+</section>
 <div class="cart-page pbtm40  anyflexbox woocommerce-cart">
     <div class="content_breadcum" style="background-position: 50% 0px;"></div>
     <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid  vc_custom_ vc_row-has-fill   vc_hidden" style="position: relative; left: 0px; box-sizing: border-box; width: 1349px; padding-left: 0px; padding-right: 0px; margin: 0 auto; margin-bottom: 35px; margin-top: 15px; background: #1a1a1a; opacity: 1; ">
         <div class="container">
             <!--<h1 class="page-title">Contact Us</h1>-->
-            <ul class="breadcrumb">
-                <li><a href="index.php"><i class="fa fa-home"></i></a></li>
-                <!--<li><a href="my-account.php">Cart</a></li>-->
-                <li class="active"><a>Billing</a></li>
-            </ul>
+           
         </div>
     </div>
     <div id="checkout" class="my-account">

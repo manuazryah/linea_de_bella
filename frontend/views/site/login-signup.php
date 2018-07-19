@@ -6,61 +6,48 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use common\models\CountryCode;
-?>
-<?php
-$country_codes = ArrayHelper::map(\common\models\CountryCode::find()->where(['status' => 1])->orderBy(['id' => SORT_ASC])->all(), 'id', 'country_code');
-?>
-<div class="information-contact pbtm40">
-    <div class="content_breadcum" style="background-position: 50% 0px;"></div>
-    <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid  vc_custom_ vc_row-has-fill   vc_hidden" style="position: relative; left: 0px; box-sizing: border-box; width: 1349px; padding-left: 0px; padding-right: 0px; margin: 0 auto; margin-bottom: 35px; margin-top: 15px; background: #1a1a1a; opacity: 1; ">
-        <div class="container">
-            <!--<h1 class="page-title">Contact Us</h1>-->
-            <ul class="breadcrumb">
-                <li><a href="index.php"><i class="fa fa-home"></i></a></li>
-                <li><a href="my-account.php">Account</a></li>
-                <li class="active"><a>Login & Signup</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div id="content" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="panel">
-                    <div class="row contact-info">
 
-                        <div class="col-sm-6">
-                            <div class="well bg-white">
-                                <h3 class="title2">New Customer</h3>
-                                <p><strong>Register Account</strong></p>
-                                <p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>
-                                <?= Html::a('Continue', ['site/signup', 'go' => $go], ['class' => 'btn shadowbtn']) ?>
-                            </div>
+if (isset($meta_title) && $meta_title != '')
+        $this->title = $meta_title;
+else
+        $this->title = 'Linea De Bella';
+?>
+
+<section class="in-login-section"><!--in-login-section-->
+        <div class="container">
+                <div class="main-login-box">
+                        <div class="top-head-login">
+                                <h3 class="head">Login</h3>
+                                <?= Html::a('New to linea de bella?', ['/site/signup'], ['class' => 'link']) ?>
+                                <div class="clear"></div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="well bg-white">
-                                <h3 class="title2">Returning Customer</h3>
-                                <p><strong>I am a returning customer</strong></p>
-                                <?php $form = ActiveForm::begin(['action' => ['site/login', 'go' => $go], 'options' => ['method' => 'post']]) ?>
+                        <div class="main-form-box">
+                                <!--<form class="in-main-form">-->
+                                <?php $form = ActiveForm::begin(['action' => ['site/login', 'go' => $go], 'options' => ['method' => 'post', 'class' => 'in-main-form']]) ?>
                                 <div class="form-group">
-                                    <label class="control-label" for="input-email">E-Mail Address</label>
-                                    <?= $form->field($model_login, 'email')->textInput(['placeholder' => 'Email Id'])->label(FALSE) ?>
+                                        <label>Email</label>
+                                        <?= $form->field($model_login, 'email')->textInput(['class' => 'form-control'])->label(FALSE) ?>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="input-password">Password</label>
-                                    <?= $form->field($model_login, 'password')->passwordInput(['placeholder' => '********'])->label(FALSE) ?>
-                                    <?= Html::a('Forgotten Password', ['/forgot-password'], ['class' => 'fblack']) ?>
+                                        <label>Password</label>
+                                        <?= $form->field($model_login, 'password')->passwordInput(['class' => 'form-control'])->label(FALSE) ?>
                                 </div>
-                                <div class="buttons submit-btn">
-                                    <div class="pull-left">
-                                        <input class="btn btn-primary shadowbtn" type="submit" value="Login">
-                                    </div>
+
+                                <!--                                <div class="form-group">
+                                                                        <div class="checkbox">
+                                                                                <input type="checkbox"  value="" checked=""> <label >Remember Me</label>
+
+                                                                        </div>
+                                                                </div>-->
+
+                                <div class="form-group">
+                                        <input name="" type="submit" value="Login" class="submit">
                                 </div>
+                                <?= Html::a('Forgot Password?', ['/forgot-password'], ['class' => 'forgot-link']) ?>
+                                <!--</form>-->
                                 <?php ActiveForm::end(); ?>
-                            </div>
                         </div>
-                    </div>
                 </div>
-            </div>
         </div>
-    </div>
-</div>
+</section><!--in-login-section-->
+

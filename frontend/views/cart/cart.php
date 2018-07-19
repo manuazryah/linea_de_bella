@@ -8,15 +8,21 @@ use common\models\User;
 
 $this->title = 'Shopping Cart';
 ?>
+<section class="main-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><?= Html::a('<span>Home</span>', ['/site/index'], ['class' => '']) ?></li>
+                <li class="active">My Cart</li>
+        </ul>
+    </div>
+</section>
+
 <div class="cart-page pbtm40  anyflexbox woocommerce-cart">
     <div class="content_breadcum" style="background-position: 50% 0px;"></div>
     <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid  vc_custom_ vc_row-has-fill   vc_hidden" style="position: relative; left: 0px; box-sizing: border-box; width: 1349px; padding-left: 0px; padding-right: 0px; margin: 0 auto; margin-bottom: 35px; margin-top: 15px; background: #1a1a1a; opacity: 1; ">
         <div class="container">
             <!--<h1 class="page-title">Contact Us</h1>-->
-            <ul class="breadcrumb">
-                <li><?= Html::a('<span>Home</span>', ['/site/index'], ['class' => '']) ?></li>
-                <li class="active">My Cart</li>
-            </ul>
+           
         </div>
     </div>
     <div class="container">
@@ -28,15 +34,16 @@ $this->title = 'Shopping Cart';
                             <form action="" method="post">
 
                                 <input type="hidden" id="cart_count" value="<?= count($cart_items); ?>">
-                                <table class="shop_table cart" cellspacing="0">
+                                <table width="100%" cellspacing="0" class="shop_table cart">
                                     <thead>
                                         <tr>
-                                            <th class="product-remove">&nbsp;</th>
-                                            <th class="product-thumbnail">&nbsp;</th>
-                                            <th class="product-name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product-quantity">Quantity</th>
-                                            <th class="product-subtotal">Total</th>
+                                           
+                                            <th width="42" class="product-thumbnail">&nbsp;</th>
+                                            <th width="185" class="product-name">Product</th>
+                                            <th width="136" class="product-price">Price</th>
+                                            <th width="295" class="product-quantity">Quantity</th>
+                                            <th width="157" class="product-subtotal">Total</th>
+                                             <th width="107" class="product-subtotal">Remove</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -57,9 +64,7 @@ $this->title = 'Shopping Cart';
                                             ?>
                                             <tr class="cart_item tr_<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_item->id); ?>">
 
-                                                <td class="product-remove">
-                                                    <a class="remove remove_cart" title="Remove this item" data-product_id="<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_item->id); ?>">×</a>
-                                                </td>
+                                                
 
                                                 <td class="product-thumbnail">
                                                     <a href="<?= Yii::$app->homeUrl . 'product-detail/' . $product_details->canonical_name ?>"><?= $image ?></a>
@@ -87,6 +92,10 @@ $this->title = 'Shopping Cart';
                                                 <td class="product-subtotal">
                                                     <?php $total = $price * $cart_item->quantity; ?>
                                                     <span class="amount" id="total_<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_item->id) ?>">AED <?= sprintf("%0.2f", $total) ?></span> </td>
+                                                    
+                                                    <td class="product-remove">
+                                                    <a class="remove remove_cart" title="Remove this item" data-product_id="<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_item->id); ?>">×</a>
+                                                </td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>

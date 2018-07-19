@@ -15,43 +15,42 @@ use Yii;
  * @property string $DOU
  * @property integer $status
  */
-class Brand extends \yii\db\ActiveRecord
-{
-    /**
-     * @inheritdoc
-     */
-    public static function tableName()
-    {
-        return 'brand';
-    }
+class Brand extends \yii\db\ActiveRecord {
 
-    /**
-     * @inheritdoc
-     */
-    public function rules()
-    {
-        return [
-            [['brand'], 'required'],
-            [['brand'], 'unique'],
-            [['CB', 'UB', 'status'], 'integer'],
-            [['DOC', 'DOU'], 'safe'],
-            [['brand'], 'string', 'max' => 200],
-        ];
-    }
+        /**
+         * @inheritdoc
+         */
+        public static function tableName() {
+                return 'brand';
+        }
 
-    /**
-     * @inheritdoc
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'brand' => 'Brand',
-            'CB' => 'Cb',
-            'UB' => 'Ub',
-            'DOC' => 'Doc',
-            'DOU' => 'Dou',
-            'status' => 'Status',
-        ];
-    }
+        /**
+         * @inheritdoc
+         */
+        public function rules() {
+                return [
+                        [['brand'], 'required'],
+                        [['brand'], 'unique'],
+                        [['CB', 'UB', 'status'], 'integer'],
+                        [['DOC', 'DOU', 'canonical_name', 'banner_image'], 'safe'],
+                        [['brand'], 'string', 'max' => 200],
+                        [['banner_image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
+                ];
+        }
+
+        /**
+         * @inheritdoc
+         */
+        public function attributeLabels() {
+                return [
+                    'id' => 'ID',
+                    'brand' => 'Collection',
+                    'CB' => 'Cb',
+                    'UB' => 'Ub',
+                    'DOC' => 'Doc',
+                    'DOU' => 'Dou',
+                    'status' => 'Status',
+                ];
+        }
+
 }

@@ -23,25 +23,25 @@ use common\models\Product;
 
 class ProductLinksWidget extends Widget {
 
-    public $id;
-    public $first;
-    public $div_id;
+        public $id;
+        public $first;
+        public $div_id;
 
-    public function init() {
-        parent::init();
-        if ($this->id === null) {
-            return '';
+        public function init() {
+                parent::init();
+                if ($this->id === null) {
+                        return '';
+                }
         }
-    }
 
-    public function run() {
+        public function run() {
 //        echo 'class'.$this->first;exit;
 
-        $model = Product::findOne($this->id);
-        if ($model->stock > 0) {
-            return $this->render('product-links', ['product_details' => $model]);
+                $model = Product::findOne($this->id);
+                if ($model->stock > 0) {
+                        return $this->render('product-links', ['product_details' => $model]);
+                }
         }
-    }
 
 }
 
