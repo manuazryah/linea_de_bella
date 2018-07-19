@@ -19,11 +19,8 @@ use Yii;
 use yii\base\Widget;
 use yii\helpers\Html;
 use yii\web\NotFoundHttpException;
-use common\models\Cart;
 
-//use common\models\RecentlyViewed;
-
-class CartDetailWidget extends Widget {
+class AlertMessageWidget extends Widget {
 
 //    public $id;
 
@@ -35,11 +32,7 @@ class CartDetailWidget extends Widget {
     }
 
     public function run() {
-        $condition = Cart::usercheck();
-        $cart_contents = Cart::find()->where($condition)->all();
-        return $this->render('cart_detail'
-                ,['condition' => $condition, 'cart_contents' => $cart_contents]
-        );
+        return $this->render('alert_message_widget');
     }
 
 }

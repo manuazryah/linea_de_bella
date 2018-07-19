@@ -17,7 +17,7 @@ return [
     'check-out' => 'checkout/checkout',
     'confirm-order' => 'checkout/confirm',
     'my-account' => 'myaccounts/user/index',
-    'my-orders' => 'myaccounts/my-orders/index',
+    'my-orders' => 'myaccounts/user/my-orders',
     'my-reviews' => 'myaccounts/user/my-reviews',
     'personal-info' => 'myaccounts/user/personal-info',
     'change-password' => 'myaccounts/user/change-password',

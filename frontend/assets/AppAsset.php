@@ -22,7 +22,7 @@ class AppAsset extends AssetBundle {
             'css/magiczoom.css',
         ];
         public $js = [
-            'js/jquery-min.js',
+//            'js/jquery-min.js',
             'js/popper.min.js',
             'js/bootstrap.min.js',
             'js/grayscale.js',

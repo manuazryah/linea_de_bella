@@ -59,7 +59,7 @@ class User extends ActiveRecord implements IdentityInterface {
         return [
             [['country', 'gender', 'status', 'created_at', 'updated_at', 'email_verification'], 'integer'],
             [['dob'], 'safe'],
-            [['email', 'email', 'first_name', 'mobile_no'], 'required'],
+            [['email', 'last_name', 'first_name', 'mobile_no'], 'required'],
             [['first_name', 'last_name'], 'string', 'max' => 50],
             [['mobile_no'], 'safe'],
             //[['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
