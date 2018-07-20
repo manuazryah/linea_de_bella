@@ -1225,6 +1225,7 @@ a:focus {
     margin-top:15px;
     background:#c7a24b;
     color:#FFF;
+    margin-bottom: 15px;
 }
 .mobile-view-cart-section .bottom-item-total .item-left-head{
     font-size:15px;
@@ -2182,4 +2183,23 @@ button.green2 {
 }
 .cart-box .cont-box a{
     color:#212529;
+}
+a {
+    color: #212529;
+}
+a:hover {
+    color: #212529;
+}
+.avail-qty{
+    color: #cfa33f;
+}
+.mobile-view-cart-section .close-button a {
+    float: right;
+    background: #333;
+    border: none;
+    color: #FFF;
+    padding: 3px 4px;
+}
+.mobile-view-cart-section .close-button a:hover {
+    color: #FFF;
 }

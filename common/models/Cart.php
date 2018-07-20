@@ -94,27 +94,19 @@ class Cart extends \yii\db\ActiveRecord {
         if (!empty($cart_contents)) {
             $cart_content = Cart::content($cart_contents);
             $cart_total = Cart::total($cart_contents);
-            echo '<div class="cart-info"> <span class="count">2 item(s)</span>
-                  <span class="price"><span class="amount"><span class="Price-currencySymbol">&#36;</span>0.00</span>
-                  </span></div>
-                  <input type="hidden" value="0" id="cart_number">
-                  <div  class="blockcart">
-                   <ul>' . $cart_content .
-            '</ul>
-                    <div class="price_content">
-
-                      <div class="cart-total price_inline">
-                        <span class="label">Total</span>
-                        <span class="value">AED ' . sprintf("%0.2f", $cart_total) . '</span>
-                      </div>
-                    </div>
-                    <div class="checkout">
-                        <a href="' . Yii::$app->homeUrl . 'cart/mycart" class="btn btn-primary">View Cart</a>
-                    </div>
-                    <div class="checkout">
-                        <a href="' . Yii::$app->homeUrl . 'cart/proceed" class="btn btn-primary">Checkout</a>
-                    </div>
-                  </div>';
+            echo '<ul class="dropdown-menu  animated2 fadeInUp">'
+            . $cart_content .
+            '<li>
+            <div class="row">
+                <div class="col-md-6">
+                   <a href="' . Yii::$app->homeUrl . 'cart/mycart" class="check-out">view cart</a>
+                </div>
+                <div class="col-md-6">
+                <a href="' . Yii::$app->homeUrl . 'cart/proceed" class="check-out">check out</a>
+                </div>
+            </div>
+        </li>
+    </ul>  ';
         }
     }
 
@@ -143,23 +135,30 @@ class Cart extends \yii\db\ActiveRecord {
             } else {
                 $str = $product_name;
             }
-            $content .= '<li><div class="img_content">
-                <a href="' . Yii::$app->homeUrl . 'product-detail/' . $prod_details->canonical_name . '" title="' . $product_name . '">' . $image . '</a>
-
-                         <span class="product-quantity">' . $cart_content->quantity . 'x</span>
-                         </div>
-                        <div class="right_block">
-                        <a href="' . Yii::$app->homeUrl . 'product-detail/' . $prod_details->canonical_name . '" title="' . $product_name . '"><span class="product-name">' . $str . '</span></a>
-
-                        <span class="product-price">AED ' . sprintf("%0.2f", $price) . '</span>
-                        <a class="remove-from-cart remove_cart_product" rel="nofollow" href="" data-product_id="' . yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_content->id) . '" data-link-action="remove-from-cart" title="Remove from cart">
-                        <i class="fa fa-remove"></i>
-                        </a>
-                            <div class="attributes_content">
-                            <span><strong>Size</strong>: ' . $prod_details->size . ' ' . $unit . '</span><br>
+            $content .= '<li>
+                <div class="cart-box">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="img-box">
+                                <a href="' . Yii::$app->homeUrl . 'product-detail/' . $prod_details->canonical_name . '" title="' . $product_name . '">' . $image . '</a>
                             </div>
                         </div>
-                     </li>';
+                        <div class="col-8">
+                            <div class="cont-box">
+                                <h4 class="head">
+                                    <a href="' . Yii::$app->homeUrl . 'product-detail/' . $prod_details->canonical_name . '" title="' . $product_name . '"><span class="product-name">' . $str . '</span></a>
+                                </h4>
+                                <h5 class="price">AED ' . sprintf("%0.2f", $price) . '</h5>
+                                <h6 class="Quantity">Size: ' . $prod_details->size . ' ' . $unit . '</h6>
+                                <h5 class="Quantity">Quantity: ' . $cart_content->quantity . '</h5>
+                                <a class="remove-from-cart remove_cart_product close" rel="nofollow" href="" data-product_id="' . yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_content->id) . '" data-link-action="remove-from-cart" title="Remove from cart">
+                                    <i class="far fa-times-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>';
         }
         return $content;
     }

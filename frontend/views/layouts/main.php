@@ -11,6 +11,8 @@ use common\widgets\Alert;
 
 AppAsset::register($this);
 $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
+$params = $parameters = \yii::$app->getRequest()->getQueryParams();
+$cart_count = common\components\Cartcount::Count();
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -23,6 +25,9 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
         <link rel="shortcut icon" href="<?= Yii::$app->homeUrl ?>favicon/icon.png">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <?= Html::csrfMetaTags() ?>
+        <script>
+            var homeUrl = '<?= yii::$app->homeUrl; ?>';
+        </script>
         <title><?= Html::encode($this->title) ?></title>
         <script src="<?= yii::$app->homeUrl; ?>js/jquery-min.js"></script>
         <?php $this->head() ?>
@@ -52,7 +57,7 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
                             <div class="top-cart"><!--top-cart-->
                                 <div class="dropdown">
                                     <button  type="button" class="cart-bag" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-                                        <span class="cart-num cart_count"><?= $cart_count != '' ? $cart_count : '00' ?></span> </button>
+                                        <span class="cart-num cart_count"><?= $cart_count != '' ? sprintf("%02d", $cart_count) : '00' ?></span> </button>
                                     <div class="widget_shopping_cart_content shop-cart">
                                         <?= common\components\CartDetailWidget::widget() ?>
                                     </div>

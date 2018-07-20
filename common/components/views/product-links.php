@@ -13,8 +13,11 @@ use yii\helpers\Url;
                 $image_src = Yii::$app->homeUrl . 'uploads/product/gallery_dummy.png';
         }
         ?>
-        <div class="image-box"> <img src="<?= $image_src ?>" class="img-fluid" alt="" title=""></a>
-                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
+        <div class="image-box"> <img src="<?= $image_src ?>" class="img-fluid" alt="" title="">
+                <div class="add-to-cart">
+                    <a href="" data-product-id="<?= $product_details->id ?>"  class="button add-cart" pro_id="<?= $product_details->canonical_name ?>">add to cart</a>
+                    <!--<a href="#" class="button">add to cart</a>-->
+                </div>
         </div>
         <div class="cont-box">
                 <a href="<?= Url::to(['/product/product-detail', 'product' => $product_details->canonical_name]) ?>">

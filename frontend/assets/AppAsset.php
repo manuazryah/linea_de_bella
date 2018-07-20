@@ -29,6 +29,7 @@ class AppAsset extends AssetBundle {
             'js/slick.js',
             'js/scripts.js',
             'js/magiczoom.js',
+            'js/custom.js',
         ];
         public $depends = [
             'yii\web\YiiAsset',

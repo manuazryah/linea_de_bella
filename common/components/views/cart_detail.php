@@ -49,6 +49,7 @@ if (!empty($cart_contents)) {
                                 </h4>
                                 <h5 class="price">AED <?= sprintf("%0.2f", $price) ?></h5>
                                 <h6 class="Quantity">Size: <?= $prod_details->size ?> <?= $unit ?></h6>
+                                <h6 class="Quantity">Quantity: <?= $cart_content->quantity ?></h6>
                                 <a class="remove-from-cart remove_cart_product close" rel="nofollow" href="" data-product_id="<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_content->id) ?>" data-link-action="remove-from-cart" title="Remove from cart">
                                     <i class="far fa-times-circle"></i>
                                 </a>
@@ -61,7 +62,14 @@ if (!empty($cart_contents)) {
         }
         ?>
         <li>
-            <?= Html::a('check out', ['cart/proceed'], ['class' => 'check-out']) ?>
+            <div class="row">
+                <div class="col-md-6">
+                    <?= Html::a('view cart', ['cart/mycart'], ['class' => 'check-out']) ?>
+                </div>
+                <div class="col-md-6">
+                    <?= Html::a('check out', ['cart/proceed'], ['class' => 'check-out']) ?>
+                </div>
+            </div>
         </li>
     </ul>   
     <?php

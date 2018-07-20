@@ -15,42 +15,71 @@ jQuery(document).ready(function () {
             jQuery('#quantity_' + id).val('1');
         }
     });
-    jQuery(".add-cart").click(function () {
-        showLoader();
-        jQuery('.alert-success').addClass('hide');
-
-//         $(".shopping-cart").fadeToggle("slow");
-//        jQuery('.shop-cart').fadeToggle("slow");
+//    jQuery(".add-cart").click(function () {
+//        showLoader();
+//        jQuery('.alert-success').addClass('hide');
+//
+////         $(".shopping-cart").fadeToggle("slow");
+////        jQuery('.shop-cart').fadeToggle("slow");
+//        var canname = jQuery(this).attr('pro_id');
+//        var list_id = jQuery(this).attr('data-val');
+//        var qty = '1';
+////        var qty = $('#quantity').val();
+//        jQuery.ajax({
+//            type: "POST",
+//            url: homeUrl + 'cart/buynow',
+//            data: {product: canname, qty: qty}
+//        }).done(function (data) {
+//            if (data === 9) {
+//
+//                $('.option_errors').html('<p>Invalid Product.Please try again</p>').show();
+//            } else {
+//                jQuery('.alert_' + canname).removeClass('hide');
+//                jQuery('.shop-cart').html('').html(data);
+//                getcartcount();
+//                if (list_id) {
+//                    removewishlist(list_id, canname);
+//                }
+//                jQuery("html, body").animate({
+//                    scrollTop: 0
+//                }, 1500);
+////                $('.dropdown-menu').css('visibility', 'visible');
+////                $('.dropdown-menu').css('transform', 'scale(.95)');
+////                setTimeout(function () {
+////                   $('.dropdown-menu').css('visibility', 'hidden');
+////                }, 3000);
+//
+//            }
+//            hideLoader();
+//        });
+//    });
+    jQuery(".add-cart").click(function (e) {
         var canname = jQuery(this).attr('pro_id');
         var list_id = jQuery(this).attr('data-val');
         var qty = '1';
-//        var qty = $('#quantity').val();
+        e.preventDefault();
         jQuery.ajax({
-            type: "POST",
+            type: 'POST',
+            cache: false,
+            async: false,
+            data: {product: canname, qty: qty},
             url: homeUrl + 'cart/buynow',
-            data: {product: canname, qty: qty}
-        }).done(function (data) {
-            if (data === 9) {
+            success: function (data) {
+                if (data === 9) {
+                    $('.option_errors').html('<p>Invalid Product.Please try again</p>').show();
+                } else {
+                    jQuery('.alert_' + canname).removeClass('hide');
+                    jQuery('.shop-cart').html('').html(data);
+                    getcartcount();
+                    if (list_id) {
+                        removewishlist(list_id, canname);
+                    }
+                    jQuery("html, body").animate({
+                        scrollTop: 0
+                    }, 1500);
 
-                $('.option_errors').html('<p>Invalid Product.Please try again</p>').show();
-            } else {
-                jQuery('.alert_' + canname).removeClass('hide');
-                jQuery('.shop-cart').html('').html(data);
-                getcartcount();
-                if (list_id) {
-                    removewishlist(list_id, canname);
                 }
-                jQuery("html, body").animate({
-                    scrollTop: 0
-                }, 1500);
-//                $('.dropdown-menu').css('visibility', 'visible');
-//                $('.dropdown-menu').css('transform', 'scale(.95)');
-//                setTimeout(function () {
-//                   $('.dropdown-menu').css('visibility', 'hidden');
-//                }, 3000);
-
             }
-            hideLoader();
         });
     });
     jQuery(".buy_now").click(function () {
