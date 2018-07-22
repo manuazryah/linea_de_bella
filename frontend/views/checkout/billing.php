@@ -8,138 +8,133 @@ use yii\helpers\ArrayHelper;
 
 $this->title = 'Checkout';
 ?>
-
-<section class="main-breadcrumb">
+<!--banner-->
+<section class="in-breadcrumb-section"><!--in-breadcrumb-section-->
     <div class="container">
-        <ul class="breadcrumb">
-            <li><?= Html::a('<span>Home</span>', ['/site/index'], ['class' => '']) ?></li>
-                <li class="active">Checkout</li>
-        </ul>
+        <div class="main-breadcrumb"><a href="index.html">Home</a><i>//</i><span>Check Out</span> </div>
     </div>
 </section>
-<div class="cart-page pbtm40  anyflexbox woocommerce-cart">
-    <div class="content_breadcum" style="background-position: 50% 0px;"></div>
-    <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid  vc_custom_ vc_row-has-fill   vc_hidden" style="position: relative; left: 0px; box-sizing: border-box; width: 1349px; padding-left: 0px; padding-right: 0px; margin: 0 auto; margin-bottom: 35px; margin-top: 15px; background: #1a1a1a; opacity: 1; ">
-        <div class="container">
-            <!--<h1 class="page-title">Contact Us</h1>-->
-           
-        </div>
-    </div>
-    <div id="checkout" class="my-account">
-        <div class="container">
-            <div class="col-lg-7 col-md-7 col-sm-12 left-accordation checkout-billing">
+<!--in-breadcrumb-section-->
+<section class="in-check-out-section"><!--in-orders-section-->
+    <div class="container">
 
-                <h3>Billing Address</h3>
-                <div class="horizontal-line"></div>
-                <div class="content lit-blue">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <?php $form = ActiveForm::begin(); ?>
-                        <div class="form-group col-lg-12 col-md-8 col-sm-8 col-xs-12 address-field">
-                            <label for="usr">Billing Address*</label>
-                            <select class="form-control" id="billing" name="UserAddress[billing]">
-                                <option value=''>Select</option>
-                                <?php foreach ($addresses as $address) { ?>
-                                    <option value="<?= $address->id ?>" ><?= $address->address . ', ' . $address->landmark . ', ' . $address->location ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
+        <div class="row">
 
-                        <div>OR ADD NEW</div>
+            <div class="col-lg-7">
 
-                        <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-12 address-field">
-                            <label for="usr">Name</label>
-                            <?= $form->field($model, 'name')->textInput(['class' => 'form-control billing'])->label(FALSE) ?>
-                        </div>
-                        <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-12 address-field">
-                            <label for="usr">Address</label>
-                            <?= $form->field($model, 'address')->textInput(['class' => 'form-control billing'])->label(FALSE) ?>
-                        </div>
-                        <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <label for="usr">Landmark</label>
-                            <?= $form->field($model, 'landmark')->textInput(['class' => 'form-control billing'])->label(FALSE) ?>
-                        </div>
-                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12 location-field">
-                            <label for="usr">Location</label>
-                            <?= $form->field($model, 'location')->textInput(['class' => 'form-control billing'])->label(FALSE) ?>
-                        </div>
-                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12 emirate-field">
-                            <label for="pwd">Emirate</label>
-                            <?= $form->field($model, 'emirate')->dropDownList(ArrayHelper::map(Emirates::find()->all(), 'id', 'name'), ['prompt' => 'select'])->label(FALSE); ?>
-                        </div>
-
-                        <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-12 number-field">
-                            <label for="pwd">Mobile Number</label>
-                            <div class="date-dropdowns" style="padding-right: 15px;">
+                <div class="check-out-box-left">
+                    <?php
+                    $form = ActiveForm::begin(['options' => [
+                                    'class' => 'in-main-form'
+                    ]]);
+                    ?>
+                    <h2 class="head">Billing address</h2>
+                    <div class="form-group">
+                        <label>Billing Address*</label>
+                        <select class="form-control" id="billing" name="UserAddress[billing]">
+                            <option value=''>Select</option>
+                            <?php foreach ($addresses as $address) { ?>
+                                <option value="<?= $address->id ?>" ><?= $address->address . ', ' . $address->landmark . ', ' . $address->location ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="new-adders">OR ADD A NEW ADDRESS</div>
+                    <h2 class="head">Address</h2>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <?= $form->field($model, 'name')->textInput(['class' => 'form-control billing'])->label(FALSE) ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <?= $form->field($model, 'address')->textInput(['class' => 'form-control billing'])->label(FALSE) ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Landmark</label>
+                        <?= $form->field($model, 'landmark')->textInput(['class' => 'form-control billing'])->label(FALSE) ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Location</label>
+                        <?= $form->field($model, 'location')->textInput(['class' => 'form-control billing'])->label(FALSE) ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Emirate</label>
+                        <?= $form->field($model, 'emirate')->dropDownList(ArrayHelper::map(Emirates::find()->all(), 'id', 'name'), ['prompt' => 'select'])->label(FALSE); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <div class="row">
+                            <div class="col-md-1">
                                 <select class="day" style="position: absolute;border-right: 1px solid #d1d2d0;height: 33px;" id="useraddress-country_code" name="UserAddress[country_code]">
-                                <!--<select id="signupform-day" class="day" name="SignupForm[day]">-->
                                     <?php foreach ($country_codes as $country_code) { ?>
                                         <option value="<?= $country_code ?>" <?= $country_code == $model->country_code ? ' selected' : '' ?>><?= $country_code ?></option>
                                     <?php }
                                     ?>
                                 </select>
+                            </div>
+                            <div class="col-md-11">
                                 <?= $form->field($model, 'mobile_number')->textInput(['class' => 'form-control billing mobile', 'style' => 'padding-left: 70px'])->label(FALSE) ?>
-                                <!--<input style="padding-left: 70px;" type="phone" id="user-mobile_number" class="form-control" name="UserAddress[mobile_number]" value="<?= $model->mobile_number ?>" maxlength="15" aria-invalid="false" data-format="+1 (ddd) ddd-dddd">-->
                             </div>
                         </div>
-                        
                     </div>
-                </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 lit-blue" style="padding: 0 30px;padding-right: 55px; padding-bottom: 30px; margin-bottom: 5px;">
-                    <!--<a href="delivery-details.php"> <button class="green2">continue</button></a>-->
-                    <?= Html::submitButton('continue', ['class' => 'green2']) ?>
-                </div>
-                <?php ActiveForm::end(); ?>
-                
-            </div>
 
-            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 product-summery">
-                <?= CartSummaryWidget::widget(); ?>
-            </div>
 
+                    <div class="form-group">
+                        <?= Html::submitButton('continue', ['class' => 'submit']) ?>
+                    </div>
+
+                    <?php ActiveForm::end(); ?>
+                </div>
+
+            </div>
+            <div class="col-lg-5">
+                <div class="check-out-list-produuct-right">
+                    <?= CartSummaryWidget::widget(); ?>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section><!--in-orders-section-->
 <script>
-        jQuery('#billing').on('change', function () {
-                var id = jQuery(this).val();
-                if (id === '') {
-                        jQuery('.billing').prop('readonly', false);
-                        jQuery('#useraddress-emirate').prop('disabled', false);
-                        jQuery('#useraddress-country_code').prop('disabled', false);
-                } else {
-                        jQuery('.billing').prop('readonly', true);
-                        jQuery('#useraddress-emirate').prop('disabled', true);
-                        jQuery('#useraddress-country_code').prop('disabled', true);
-                }
-                changeaddress('useraddress', id);
-        });
-
-        function changeaddress(formclass, id) {
-                jQuery.ajax({
-                        type: "POST",
-                        cache: 'false',
-                        async: false,
-                        url: homeUrl + 'checkout/getadress',
-                        data: {id: id}
-                }).done(function (data) {
-                        var $data = JSON.parse(data);
-                        if ($data.rslt === "success") {
-                                jQuery('#' + formclass + '-name').val($data.name);
-                                jQuery('#' + formclass + '-address').val($data.address);
-                                jQuery('#' + formclass + '-landmark').val($data.landmark);
-                                jQuery('#' + formclass + '-location').val($data.location);
-                                jQuery('#' + formclass + '-emirate').val($data.emirate);
-                                jQuery('#' + formclass + '-mobile_number').val($data.mobile_number);
-                                jQuery('#' + formclass + '-country_code').val($data.country_code);
-
-                        } else {
-                                jQuery('#' + formclass + '-name').val('');
-                                jQuery('#' + formclass + '-address').val('');
-                                jQuery('#' + formclass + '-landmark').val('');
-                                jQuery('#' + formclass + '-location').val('');
-                                jQuery('#' + formclass + '-emirate').val('1');
-                                jQuery('#' + formclass + '-mobile_number').val('');
-                        }
-                });
+    jQuery('#billing').on('change', function () {
+        var id = jQuery(this).val();
+        if (id === '') {
+            jQuery('.billing').prop('readonly', false);
+            jQuery('#useraddress-emirate').prop('disabled', false);
+            jQuery('#useraddress-country_code').prop('disabled', false);
+        } else {
+            jQuery('.billing').prop('readonly', true);
+            jQuery('#useraddress-emirate').prop('disabled', true);
+            jQuery('#useraddress-country_code').prop('disabled', true);
         }
+        changeaddress('useraddress', id);
+    });
+
+    function changeaddress(formclass, id) {
+        jQuery.ajax({
+            type: "POST",
+            cache: 'false',
+            async: false,
+            url: homeUrl + 'checkout/getadress',
+            data: {id: id}
+        }).done(function (data) {
+            var $data = JSON.parse(data);
+            if ($data.rslt === "success") {
+                jQuery('#' + formclass + '-name').val($data.name);
+                jQuery('#' + formclass + '-address').val($data.address);
+                jQuery('#' + formclass + '-landmark').val($data.landmark);
+                jQuery('#' + formclass + '-location').val($data.location);
+                jQuery('#' + formclass + '-emirate').val($data.emirate);
+                jQuery('#' + formclass + '-mobile_number').val($data.mobile_number);
+                jQuery('#' + formclass + '-country_code').val($data.country_code);
+
+            } else {
+                jQuery('#' + formclass + '-name').val('');
+                jQuery('#' + formclass + '-address').val('');
+                jQuery('#' + formclass + '-landmark').val('');
+                jQuery('#' + formclass + '-location').val('');
+                jQuery('#' + formclass + '-emirate').val('1');
+                jQuery('#' + formclass + '-mobile_number').val('');
+            }
+        });
+    }
 </script>
