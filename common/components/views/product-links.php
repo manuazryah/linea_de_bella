@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 ?>
 
-<div class="products-box">
+<div class="products-box <?= $class ?>">
         <?php
         $product_image = Yii::$app->basePath . '/../uploads/product/' . $product_details->id . '/profile/' . $product_details->canonical_name . '_big.' . $product_details->profile;
         if (file_exists($product_image)) {
@@ -15,8 +15,8 @@ use yii\helpers\Url;
         ?>
         <div class="image-box"> <img src="<?= $image_src ?>" class="img-fluid" alt="" title="">
                 <div class="add-to-cart">
-                    <a href="" data-product-id="<?= $product_details->id ?>"  class="button add-cart" pro_id="<?= $product_details->canonical_name ?>">add to cart</a>
-                    <!--<a href="#" class="button">add to cart</a>-->
+                        <a href="" data-product-id="<?= $product_details->id ?>"  class="button add-cart" pro_id="<?= $product_details->canonical_name ?>">add to cart</a>
+                        <!--<a href="#" class="button">add to cart</a>-->
                 </div>
         </div>
         <div class="cont-box">

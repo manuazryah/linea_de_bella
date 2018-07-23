@@ -24,6 +24,7 @@ use common\models\Product;
 class ProductLinksWidget extends Widget {
 
         public $id;
+        public $class;
         public $first;
         public $div_id;
 

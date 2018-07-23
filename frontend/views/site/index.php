@@ -1,6 +1,8 @@
 <?php
 /* @var $this yii\web\View */
 
+use common\components\ProductLinksWidget;
+
 if (isset($meta_title) && $meta_title != '')
         $this->title = $meta_title;
 else
@@ -10,7 +12,7 @@ else
 <section class="banner">
         <div id="demo" class="carousel slide" data-ride="carousel">
                 <!-- The slideshow -->
-                     <div class="carousel-inner">
+                <div class="carousel-inner">
                         <?php
                         if (!empty($sliders)) {
                                 $i = 0;
@@ -62,78 +64,30 @@ else
         </div>
 </section>
 <!--home-page-welcome-->
-<section class="home-prduct-section home-collection"><!--home-prduct-section-->
-        <div class="container">
-                <div class="main-heading">
-                        <h2 class="head-one">Our Collection</h2>
-                        <h3 class="head-small">Linea De Belle</h3>
-                </div>
-                <div class="content">
-                        <div class="slider lazy-product">
-                                <div class="products-box">
-                                        <div class="image-box"> <img src="<?= Yii::$app->homeUrl ?>images/product/product1.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                       
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="products-box">
-                                        <div class="image-box"> <img src="<?= Yii::$app->homeUrl ?>images/product/product4.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                        
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="products-box">
-                                        <div class="image-box"> <img src="<?= Yii::$app->homeUrl ?>images/product/product3.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                        
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="products-box">
-                                        <div class="image-box"> <img src="<?= Yii::$app->homeUrl ?>images/product/product5.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                        
-                                                </div>
-                                        </div>
+<?php if (isset($home_datas_1->product_id)) { ?>
+        <section class="home-prduct-section home-collection"><!--home-prduct-section-->
+                <div class="container">
+                        <div class="main-heading">
+                                <h2 class="head-one"><?= $home_datas_1->tittle ?></h2>
+                                <h3 class="head-small">Linea De Belle</h3>
+                        </div>
+                        <div class="content">
+                                <div class="slider lazy-product">
+                                        <?php
+                                        $products = explode(',', $home_datas_1->product_id);
+                                        foreach ($products as $top_categorie) {
+                                                ?>
+                                                <?= ProductLinksWidget::widget(['id' => $top_categorie]) ?>
+                                                <?php
+                                        }
+                                        ?>
+
+
                                 </div>
                         </div>
                 </div>
-        </div>
-</section>
+        </section>
+<?php } ?>
 <!--home-prduct-section-->
 <section class="home-set-off-products-section"><!--home-set-off-Products-->
         <div class="container">
@@ -164,209 +118,81 @@ else
         </div>
 </section>
 <!--home-set-off-Products-->
-<section class="home-prduct-section"><!--home-prduct-section-->
-        <div class="container">
-                <div class="main-heading">
-                        <h2 class="head-one">Premium Products</h2>
-                        <h3 class="head-small">Linea De Belle</h3>
-                </div>
-                <div class="content">
-                        <div class="slider lazy-product">
-                                <div class="products-box">
-                                        <div class="image-box"> <img src="<?= Yii::$app->homeUrl ?>images/product/product1.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                        
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="products-box">
-                                        <div class="image-box"> <img src="<?= Yii::$app->homeUrl ?>images/product/product4.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                        
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="products-box">
-                                        <div class="image-box"> <img src="<?= Yii::$app->homeUrl ?>images/product/product3.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                        
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="products-box">
-                                        <div class="image-box"> <img src="<?= Yii::$app->homeUrl ?>images/product/product5.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                        
-                                                </div>
-                                        </div>
+
+<?php if (isset($home_datas_2->product_id)) { ?>
+        <section class="home-prduct-section"><!--home-prduct-section-->
+                <div class="container">
+                        <div class="main-heading">
+                                <h2 class="head-one"><?= $home_datas_2->tittle ?></h2>
+                                <h3 class="head-small">Linea De Belle</h3>
+                        </div>
+                        <div class="content">
+                                <div class="slider lazy-product">
+                                        <?php
+                                        $products_2 = explode(',', $home_datas_2->product_id);
+                                        foreach ($products_2 as $product) {
+                                                ?>
+                                                <?= ProductLinksWidget::widget(['id' => $product]) ?>
+                                                <?php
+                                        }
+                                        ?>
+
+
                                 </div>
                         </div>
                 </div>
-        </div>
-</section>
+        </section>
+<?php } ?>
 <!--home-prduct-section-->
-<section class="home-prduct-section home-coming-soon"><!--home-prduct-section-->
-        <div class="container">
-                <div class="main-heading">
-                        <h2 class="head-one color-white">Coming Soon</h2>
-                        <h3 class="head-small">Linea De Belle</h3>
-                </div>
-                <div class="content">
-                        <div class="slider lazy-product">
-                                <div class="products-box">
-                                        <div class="image-box blur"> <img src="<?= Yii::$app->homeUrl ?>images/product/product1.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box blur"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                        
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="products-box">
-                                        <div class="image-box blur"> <img src="<?= Yii::$app->homeUrl ?>images/product/product4.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box blur"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                        
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="products-box blur">
-                                        <div class="image-box"> <img src="<?= Yii::$app->homeUrl ?>images/product/product3.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box blur"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                       
-                                                </div>
-                                        </div>
+<?php if (isset($home_datas_3->product_id)) { ?>
+        <section class="home-prduct-section home-coming-soon"><!--home-prduct-section-->
+                <div class="container">
+                        <div class="main-heading">
+                                <h2 class="head-one color-white">Coming Soon</h2>
+                                <h3 class="head-small">Linea De Belle</h3>
+                        </div>
+                        <div class="content">
+                                <div class="slider lazy-product">
+                                        <?php
+                                        $products_3 = explode(',', $home_datas_3->product_id);
+                                        foreach ($products_3 as $product3) {
+                                                ?>
+                                                <?= ProductLinksWidget::widget(['id' => $product3]) ?>
+                                                <?php
+                                        }
+                                        ?>
+
+
                                 </div>
                         </div>
                 </div>
-        </div>
-</section>
+        </section>
+<?php } ?>
 <!--home-prduct-section-->
-<section class="home-prduct-section"><!--home-prduct-section-->
-        <div class="container">
-                <div class="main-heading">
-                        <h2 class="head-one">Travel with Linea De Bella</h2>
-                        <h3 class="head-small">Linea De Belle</h3>
-                </div>
-                <div class="content">
-                        <div class="slider lazy-product">
-                                <div class="products-box">
-                                        <div class="image-box"> <img src="<?= Yii::$app->homeUrl ?>images/product/set-product01.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                        
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="products-box">
-                                        <div class="image-box"> <img src="<?= Yii::$app->homeUrl ?>images/product/set-product02.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                       
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="products-box">
-                                        <div class="image-box"> <img src="<?= Yii::$app->homeUrl ?>images/product/set-product03.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                        
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="products-box">
-                                        <div class="image-box"> <img src="<?= Yii::$app->homeUrl ?>images/product/product1.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="add-to-cart"><a href="#" class="button">add to cart</a></div>
-                                        </div>
-                                        <div class="cont-box"> <a href="#">
-                                                        <div class="head-text">
-                                                                <h2 class="sub-link">VERSACE POUR HOMME BY VERSACE </h2>
-                                                                <small class="small">Linea De Belle</small> </div>
-                                                </a>
-                                                <div class="price-box">
-                                                        <h3 class="head">AED 63.00</h3>
-                                                        
-                                                </div>
-                                        </div>
+<?php if (isset($home_datas_4->product_id)) { ?>
+        <section class="home-prduct-section"><!--home-prduct-section-->
+                <div class="container">
+                        <div class="main-heading">
+                                <h2 class="head-one">Travel with Linea De Bella</h2>
+                                <h3 class="head-small">Linea De Belle</h3>
+                        </div>
+                        <div class="content">
+                                <div class="slider lazy-product">
+                                        <?php
+                                        $products_4 = explode(',', $home_datas_4->product_id);
+                                        foreach ($products_4 as $product4) {
+                                                ?>
+                                                <?= ProductLinksWidget::widget(['id' => $product4]) ?>
+                                                <?php
+                                        }
+                                        ?>
+
+
                                 </div>
                         </div>
                 </div>
-        </div>
-</section>
+        </section>
+<?php } ?>
 <!--home-prduct-section-->
 <section class="home-founder-section"><!--home-founder-section-->
         <div class="container">
