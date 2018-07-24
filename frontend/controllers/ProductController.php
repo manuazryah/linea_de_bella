@@ -36,8 +36,8 @@ class ProductController extends \yii\web\Controller {
 
                 if (!empty($id) && $id != null) {
                         $collection = Brand::find()->where(['canonical_name' => $id])->one();
-                        if(!empty($collection))
-                          $dataProvider->query->andWhere(['brand' => $collection->id]);
+                        if (!empty($collection))
+                                $dataProvider->query->andWhere(['brand' => $collection->id]);
                 } else {
                         $collection = "";
                 }
@@ -49,9 +49,9 @@ class ProductController extends \yii\web\Controller {
                         $catag = "";
                 }
 //
-//                if (isset($keyword) && $keyword != '') {
-//                        $this->Search($keyword, $dataProvider);
-//                }
+                if (isset($keyword) && $keyword != '') {
+                        $this->Search($keyword, $dataProvider);
+                }
 //
 //                if (!empty($category)) {
 //                        if ($category == "exclusive-brands")

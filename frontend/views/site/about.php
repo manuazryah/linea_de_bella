@@ -21,7 +21,7 @@ else
                         <div class="col-lg-7">
                                 <div class="cont-box">
                                         <h1 class="head">Linea De Bella</h1>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est lorem ipsum dolor sit amet consectetur. Quam vulputate dignissim suspendisse in est ante. Proin fermentum leo vel orci porta non pulvinar neque. Accumsan tortor posuere ac ut consequat semper viverra. Est lorem ipsum dolor sit amet consectetur. Ac felis donec et odio pellentesque diam volutpat commodo sed. Quam pellentesque nec nam aliquam sem et tortor consequat id. Fermentum posuere urna nec tincidunt praesent semper feugiat nibh sed. Ullamcorper eget nulla facilisi etiam dignissim diam quis enim. In cursus turpis massa tincidunt dui. Platea dictumst quisque sagittis purus sit amet volutpat.</p>
+                                        <p>Our company was established in………… We have successfully served customers from diverse backgrounds and spread smiles sans delay. Our meritorious track-record has been driven by positive reviews of customers. The journey has allowed us to fill fragrances in the lives of people from all walks of lives. We have always derived strength from our unique perfumes that fit all fabrics, suit all occasions, come in attractive colors and instill sturdy self-belief in you. Enjoy the aromatic journey with us. </p>
                                         <h2 class="head-sub">You Look for Perfume</h2>
                                         <h3 class="head-sub2">Linea De Bella</h3>
                                         <h4 class="head-sub3">good quality perfume</h4>

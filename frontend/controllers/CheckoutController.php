@@ -103,6 +103,7 @@ class CheckoutController extends \yii\web\Controller {
 
                                 $model->status = 4;
                                 $model->payment_status = 1;
+
                                 if ($model->save()) {
                                         $subject = 'Order Confirmation';
                                         $mail = \common\models\User::findOne(Yii::$app->user->identity->id)->email;

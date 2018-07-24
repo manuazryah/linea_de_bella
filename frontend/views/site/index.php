@@ -52,8 +52,8 @@ else
                         </div>
                         <div class="col-lg-4">
                                 <div class="cont-box">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo cons..</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo cons.. </p>
+                                        <p>Linea De Bella offers a wide range of perfumes capable of transporting you into an ethereal world of bliss. Our products touch the soul at multiple levels and allow you to relish the heavenly ecstasy, while passerbies marvel at you.</p>
+                                        <p>Pick from the vast array of perfumes and get infused with soulful fragrances that come in vivid colors, evoke sweet emotions, give out ultra-positive vibes and send your confidence sky-rocketing.  Come, have a tryst with  Linea De Bella and savor the out of the world experience! </p>
                                 </div>
                         </div>
                 </div>
