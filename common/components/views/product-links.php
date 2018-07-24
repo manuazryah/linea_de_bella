@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 ?>
 
-<div class="products-box <?= $class ?>">
+<div class="products-box <?= isset($class) && $class != '' ? 'blur' : '' ?>">
         <?php
         $product_image = Yii::$app->basePath . '/../uploads/product/' . $product_details->id . '/profile/' . $product_details->canonical_name . '_big.' . $product_details->profile;
         if (file_exists($product_image)) {

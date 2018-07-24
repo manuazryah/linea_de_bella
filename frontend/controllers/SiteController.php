@@ -103,6 +103,7 @@ class SiteController extends Controller {
                 $home_datas_2 = \common\models\HomeManagement::findOne(2);
                 $home_datas_3 = \common\models\HomeManagement::findOne(3);
                 $home_datas_4 = \common\models\HomeManagement::findOne(4);
+                $set_off_products = \common\models\ShopByCategory::find()->all();
                 return $this->render('index', [
                             'sliders' => $sliders,
                             'our_collections' => $our_collections,
@@ -112,6 +113,7 @@ class SiteController extends Controller {
                             'home_datas_2' => $home_datas_2,
                             'home_datas_3' => $home_datas_3,
                             'home_datas_4' => $home_datas_4,
+                            'set_off_products' => $set_off_products,
                 ]);
         }
 

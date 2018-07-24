@@ -88,6 +88,7 @@ else
                 </div>
         </section>
 <?php } ?>
+
 <!--home-prduct-section-->
 <section class="home-set-off-products-section"><!--home-set-off-Products-->
         <div class="container">
@@ -96,24 +97,17 @@ else
                         <h3 class="head-small">New Products</h3>
                 </div>
                 <div class="row">
-                        <div class="col-sm-6">
-                                <div class="set-off-products-box">
-                                        <div class="img-box"> <a href="#"><img src="<?= Yii::$app->homeUrl ?>images/product/set-product1.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="border-line-right"></div>
-                                                <div class="border-line-left"></div>
-                                        </div>
-                                        <h3 class="head">MOONLIGHT IN HEAVEN, CROISIERE</h3>
-                                        <a href="#" class="link">Shop Now</a> </div>
-                        </div>
-                        <div class="col-sm-6">
-                                <div class="set-off-products-box">
-                                        <div class="img-box"> <a href="#"><img src="<?= Yii::$app->homeUrl ?>images/product/set-product2.jpg" class="img-fluid" alt="" title=""></a>
-                                                <div class="border-line-right"></div>
-                                                <div class="border-line-left"></div>
-                                        </div>
-                                        <h3 class="head">FROM DUSK TILL DAWN</h3>
-                                        <a href="#" class="link">Shop Now</a> </div>
-                        </div>
+                        <?php foreach ($set_off_products as $set_off_product) { ?>
+                                <div class="col-sm-6">
+                                        <div class="set-off-products-box">
+                                                <div class="img-box"> <a href="/<?= $set_off_product->link ?>"><img src="<?= Yii::$app->homeUrl ?>uploads/cms/our_collections/<?= $set_off_product->id ?>/large.<?= $set_off_product->image ?>" class="img-fluid" alt="" title=""></a>
+                                                        <div class="border-line-right"></div>
+                                                        <div class="border-line-left"></div>
+                                                </div>
+                                                <h3 class="head"><?= $set_off_product->title ?></h3>
+                                                <a href="<?= $set_off_product->link ?>" class="link">Shop Now</a> </div>
+                                </div>
+                        <?php } ?>
                 </div>
         </div>
 </section>
@@ -148,7 +142,7 @@ else
         <section class="home-prduct-section home-coming-soon"><!--home-prduct-section-->
                 <div class="container">
                         <div class="main-heading">
-                                <h2 class="head-one color-white">Coming Soon</h2>
+                                <h2 class="head-one color-white"><?= $home_datas_3->tittle ?></h2>
                                 <h3 class="head-small">Linea De Belle</h3>
                         </div>
                         <div class="content">
@@ -157,7 +151,7 @@ else
                                         $products_3 = explode(',', $home_datas_3->product_id);
                                         foreach ($products_3 as $product3) {
                                                 ?>
-                                                <?= ProductLinksWidget::widget(['id' => $product3]) ?>
+                                                <?= ProductLinksWidget::widget(['id' => $product3, 'first' => 2]) ?>
                                                 <?php
                                         }
                                         ?>
@@ -173,7 +167,7 @@ else
         <section class="home-prduct-section"><!--home-prduct-section-->
                 <div class="container">
                         <div class="main-heading">
-                                <h2 class="head-one">Travel with Linea De Bella</h2>
+                                <h2 class="head-one"><?= $home_datas_4->tittle ?></h2>
                                 <h3 class="head-small">Linea De Belle</h3>
                         </div>
                         <div class="content">

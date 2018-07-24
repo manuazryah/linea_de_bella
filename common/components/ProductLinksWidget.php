@@ -37,10 +37,10 @@ class ProductLinksWidget extends Widget {
 
         public function run() {
 //        echo 'class'.$this->first;exit;
-
+                echo $this->class;
                 $model = Product::findOne($this->id);
                 if ($model->stock > 0) {
-                        return $this->render('product-links', ['product_details' => $model]);
+                        return $this->render('product-links', ['product_details' => $model, 'class' => $this->first]);
                 }
         }
 
