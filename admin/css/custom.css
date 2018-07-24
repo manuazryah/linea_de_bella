@@ -12,10 +12,8 @@ a {
 }
 
 .panel{
-    /*	background-color: #ffffd9;*/
     background-color: #f9f9f9;
-    border-top: 3px solid #bababa;
-    /* border-top: 3px solid #ffba00; */
+    border-top: 3px solid #b6913d;
     border-radius: 5px;
 }
 .panel .panel-heading>.panel-title {
@@ -239,7 +237,7 @@ table.table tr td:last-child a {
 }
 .page-title {
     border-radius: 5px!important;
-    border-top: 3px solid #bababa!important;
+    border-top: 3px solid #b6913d !important;
     background: #f8f8f8!important;
     margin: 0px!important;
     margin-bottom: 30px!important;
@@ -278,22 +276,22 @@ table.table tr td:last-child a {
 }
 /****************** Navigation Bar $ Side Bar *************************************************/
 .user-info-navbar {
-    background-color: #d0d0d0;
+    background-color: #101010;
 }
 .sidebar-menu {
     width: 205px;
-    background: #d0d0d0;
-    border-right: 1px solid #a1a5a9;
+    background: #101010;
+    border-right: 1px solid #4a3a12;
 }
 .user-info-navbar .user-info-menu>li {
-    border: 1px solid #d0d0d0;
+        border: none;
 }
 .sidebar-menu .logo-env {
     padding: 6px 50px;
-    border-bottom: 1px solid #a1a5a9;
+    border-bottom: 1px solid #4a3a12;
 }
 nav.navbar {
-    border-bottom: 1px solid #a1a5a9;
+       border-bottom: 1px solid #4a3a12;
 }
 .user-info-navbar .user-info-menu>li>a {
     padding: 15px 20px;
@@ -302,16 +300,26 @@ nav.navbar {
 }
 .user-info-navbar .user-info-menu>li>a {
     padding: 15px 20px;
-    color: #2c2e2f;
+    color: #dcdcdc;
     border-bottom: 1px solid #bbb;
 }
 .sidebar-menu .main-menu a {
-    color: #2c2e2f;
-    border-bottom: 1px solid #bbbbbb;
+    color: #b9b9b9;
+    border-bottom: 1px solid #4a3a12;
+}
+.sidebar-menu .main-menu li.has-sub>a:before {
+    color: #b9b9b9;
 }
 .sidebar-menu .main-menu {
-    padding-left: 20px;
-    padding-right: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.sidebar-menu .main-menu ul {
+    background: #292929;
+}
+.sidebar-menu .main-menu a:hover {
+    color: #fff;
+    background: #4c4c4c;
 }
 .user-info-navbar .user-info-menu>li>a .badge {
     top: 0px;
@@ -334,7 +342,7 @@ nav.navbar {
     border-bottom: none;
 }
 .sidebar-menu.collapsed .main-menu>li>ul {
-    background: #bbbbbb;
+    background: #292929;
     width: 250px;
 }
 .user-info-navbar .user-info-menu>li>a {
@@ -389,7 +397,7 @@ nav.navbar {
 /************************* Login Page Start **********************************/
 
 .login-page {
-    background: #d0d0d0;
+    background: #101010;
 }
 .login-page .login-form .form-group .form-control {
     background: #9b9b9c;
@@ -400,13 +408,19 @@ nav.navbar {
     color: #f7ffff;
 }
 .login-page .login-form .form-group .form-control.input-dark {
-    background: #585a5a;
-    border: 1px solid transparent;
-    color: #fff;
+    background: #fff;
+    border: 1px solid #b8933d;
+    color: #0e0e0e;
 }
 .login-page .login-form .form-group .btn.btn-dark {
-    border-color: rgba(55,57,58,.9);
-    background-color: #585a5a;
-    color: #fff;
+    border: 1px solid #c7a34c;
+    padding: 12px 30px;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-right: 30px;
+    background: #282828;
+}
+.login-page .login-form .form-group .btn.btn-dark:hover {
+    background-color: #282828;
 }
 /************************* Login Page End **********************************/
