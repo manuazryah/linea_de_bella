@@ -25,8 +25,8 @@ AppAsset::register($this);
         <?php $this->head() ?>
         <style>
             .log-frm {
-                border: 1px solid #c5c5c5;
-                background: #c5c5c5;
+                border: 1px solid #4a3a12;
+                background: #4a3a12;
                 padding: 0px 10px 0px 10px;
             }
             .login-page .login-form .login-header p {

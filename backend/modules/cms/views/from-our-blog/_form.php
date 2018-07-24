@@ -12,65 +12,84 @@ use dosamigos\ckeditor\CKEditor;
 
 <div class="from-our-blog-form form-inline">
 
-	<?php $form = ActiveForm::begin(); ?>
-
-        <div class='col-md-12 col-sm-6 col-xs-12 left_padd'>    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <?php $form = ActiveForm::begin(); ?>
+    <div class="row">
+        <div class='col-md-3 col-sm-6 col-xs-12 left_padd'>    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
         </div>
-    <div class='col-md-12 col-sm-6 col-xs-12 left_padd'>    <?= $form->field($model, 'canonical_name')->textInput(['maxlength' => true, 'readOnly' => true]) ?>
+        <div class='col-md-3 col-sm-6 col-xs-12 left_padd'>    <?= $form->field($model, 'canonical_name')->textInput(['maxlength' => true, 'readOnly' => true]) ?>
 
+        </div>
+        <div class='col-md-3 col-sm-6 col-xs-12 left_padd'>    <?=
+            $form->field($model, 'blog_date')->widget(DatePicker::className(), [
+                'dateFormat' => 'dd-MM-yyyy',
+                'options' => ['class' => 'form-control']
+            ])
+            ?>
+        </div>
+        <div class='col-md-3 col-sm-6 col-xs-12 left_padd'>    
+            <?= $form->field($model, 'meta_title')->textInput(['maxlength' => true]) ?>
+
+        </div>
     </div>
-	<div class='col-md-12 col-sm-6 col-xs-12 left_padd'>    <?= $form->field($model, 'meta_title')->textInput(['maxlength' => true]) ?>
-
-	</div><div class='col-md-12 col-sm-6 col-xs-12 left_padd'>    <?= $form->field($model, 'meta_description')->textarea(['rows' => 6]) ?>
-
-	</div><div class='col-md-12 col-sm-6 col-xs-12 left_padd'>    <?= $form->field($model, 'meta_keyword')->textarea(['rows' => 6]) ?>
-
-	</div>
-	<div class='col-md-12 col-sm-6 col-xs-12 left_padd'>    <?=
-		$form->field($model, 'blog_date')->widget(DatePicker::className(), [
-		    'dateFormat' => 'dd-MM-yyyy',
-		    'options' => ['class' => 'form-control']
-		])
-		?>
-
-
+    <div class="row">
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>   
+            <?= $form->field($model, 'meta_description')->textarea(['rows' =>4]) ?>
 
         </div>
-        <div class='col-md-12 col-sm-6 col-xs-12 left_padd'>
-        <?=
-        $form->field($model, 'content')->widget(CKEditor::className(), [
-            'options' => ['rows' => 6],
-            'preset' => 'custom'
-        ])
-        ?>
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>   
+            <?= $form->field($model, 'meta_keyword')->textarea(['rows' => 4]) ?>
 
         </div>
-          <div class='col-md-12 col-sm-6 col-xs-12 left_padd'>    <?= $form->field($model, 'image')->fileInput() ?>
-
-		<?php
-		if (!empty($model->image)) {
-			?>
-
-			<img src="<?= Yii::$app->homeUrl ?>../uploads/cms/from-blog/<?= $model->id ?>/small.<?= $model->image; ?>" />
-			<?php
-		}
-		?>
-
-        </div><div class='col-md-12 col-sm-6 col-xs-12 left_padd'>     <?= $form->field($model, 'status')->dropDownList(['1' => 'Enable', '0' => 'Disable']) ?>
+    </div>
+    <div class="row">
+        <div class='col-md-12 col-sm-12 col-xs-12 left_padd'>
+             <?= $form->field($model, 'content_for_home_page')->textarea(['rows' => 2]) ?>
 
         </div>
-        <div class='col-md-4 col-sm-6 col-xs-12' style="float:right;">
-                <div class="form-group" style="float: right;">
-			<?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'margin-top: 18px; height: 36px; width:100px;']) ?>
-                </div>
-        </div>
+    </div>
+    <div class="row">
+        <div class='col-md-12 col-sm-12 col-xs-12 left_padd'>
+            <?=
+            $form->field($model, 'content')->widget(CKEditor::className(), [
+                'options' => ['rows' => 6],
+                'preset' => 'custom'
+            ])
+            ?>
 
-	<?php ActiveForm::end(); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class='col-md-4 col-sm-6 col-xs-12 left_padd'>   
+            <?= $form->field($model, 'image')->fileInput() ?>
+
+            <?php
+            if (!empty($model->image)) {
+                ?>
+
+                <img src="<?= Yii::$app->homeUrl ?>../uploads/cms/from-blog/<?= $model->id ?>/small.<?= $model->image; ?>" />
+                <?php
+            }
+            ?>
+
+        </div>
+        <div class='col-md-4 col-sm-6 col-xs-12 left_padd'>    
+            <?= $form->field($model, 'status')->dropDownList(['1' => 'Enable', '0' => 'Disable']) ?>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class='col-md-12 col-sm-12 col-xs-12'>
+            <div class="form-group">
+                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'float:right;']) ?>
+            </div>
+        </div>
+    </div>
+    <?php ActiveForm::end(); ?>
 
 </div>
 <script>
-$(document).ready(function () {
+    $(document).ready(function () {
         $('#fromourblog-title').keyup(function () {
             var name = slug($(this).val());
 //            var size= slug($('#product-size').val());
@@ -78,7 +97,7 @@ $(document).ready(function () {
 //            $('#product-canonical_name').val(canonical);
             $('#fromourblog-canonical_name').val(slug($(this).val()));
         });
-        });
+    });
 
     var slug = function (str) {
         var $slug = '';

@@ -3,8 +3,9 @@
 return [
     '' => 'site/index',
     'about' => 'site/about',
-    'coral' => 'site/contact',
+    'feedback' => 'site/contact',
     'forgot-password' => 'site/forgot',
+    'blog' => 'site/blog',
     'login-signup' => 'site/login-signup',
     'terms-condition' => 'site/terms-condition',
     'privacy-policy' => 'site/privacy-policy',

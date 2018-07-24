@@ -35,10 +35,11 @@ class FromOurBlog extends \yii\db\ActiveRecord {
 	 */
 	public function rules() {
 		return [
-			[['title', 'content', 'blog_date'], 'required'],
+			[['title', 'content', 'blog_date','content_for_home_page','meta_description', 'meta_keyword','meta_title'], 'required'],
 			[['blog_date', 'DOC', 'DOU'], 'safe'],
 			[['content'], 'string'],
 			[['status', 'CB', 'UB'], 'integer'],
+			[['content_for_home_page'], 'string', 'max' => 100],
 			[['title', 'image', 'canonical_name'], 'string', 'max' => 250],
 			[['image'], 'file', 'extensions' => 'png, jpg, jpeg'],
 			[['meta_description', 'meta_keyword', 'content'], 'string'],
@@ -60,7 +61,7 @@ class FromOurBlog extends \yii\db\ActiveRecord {
 		    'meta_keyword' => 'Meta Keyword',
 		    'blog_date' => 'Date',
 		    'content' => 'Content',
-		    'image' => 'Image (350 * 235)',
+		    'image' => 'Image (750 * 574)',
 		    'status' => 'Status',
 		    'CB' => 'Cb',
 		    'UB' => 'Ub',
