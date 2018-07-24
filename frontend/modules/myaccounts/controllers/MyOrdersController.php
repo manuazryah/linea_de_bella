@@ -53,6 +53,7 @@ class MyOrdersController extends Controller {
      */
 
     public function actionCancelOrder($id) {
+        $id = yii::$app->EncryptDecrypt->Encrypt('decrypt', $id);
         $order_master = OrderMaster::find()->where(['order_id' => $id])->one();
         $order_master->status = 5;
         $order_master->admin_status= 5;
@@ -66,7 +67,7 @@ class MyOrdersController extends Controller {
 
                         
                 }
-        return $this->redirect('index');
+        return $this->redirect(['user/my-orders']);
     }
 
 }
