@@ -42,7 +42,7 @@ $home_page_common = \common\models\HomePageContent::findOne(1);
                         <div class="top-Search">
                             <?= Html::beginForm(['/product/index'], 'get', ['id' => 'serach-formm']) ?>
                             <div class="input-group">
-                                <div class="input-group-addon">
+                                <div class="input-group-addon search-form-add-on">
                                     <input name="search_keyword-send" type="submit" class="send" id="search-keyword-submit">
                                 </div>
                                 <input type="text" class="form-control search-keyword"  placeholder="Search Products"  autocomplete="off" name="keyword" required value="<?php
@@ -376,7 +376,7 @@ $home_page_common = \common\models\HomePageContent::findOne(1);
                 });
                 $(document).on('submit', '#email-subscription', function (e) {
                     e.preventDefault();
-                    alert('dfhj');
+                    
                     $.ajax({
                         type: "POST",
                         url: '<?= Yii::$app->homeUrl; ?>site/subscribe-mail',
@@ -384,11 +384,12 @@ $home_page_common = \common\models\HomePageContent::findOne(1);
                         success: function (data)
                         {
                             if (data == 0) {
-                                $('#newsletter-email').after('<div class="mail-alert" id="email-alert">This Email is Already Subscribed</div>');
+                                $('#newsletter-email').after('<div id="email-alert">This Email is Already Subscribed</div>');
                             } else {
-                                $('#newsletter-email').after('<div class="mail-alert" id="email-alert">Your Email Subscription Send Successfully</div>');
+                                $('#newsletter-email').after('<div id="email-alert">Your Email Subscription Send Successfully</div>');
                             }
-                            $('#email-alert').delay(2000).fadeOut('slow');
+                            $('#newsletter-email').val('');
+                            $('#email-alert').delay(000).fadeOut('slow');
                         }
                     });
                 });

@@ -2247,3 +2247,15 @@ a:hover {
     font-weight: 600;
     font-size: 15px;
 }
+#email-alert{
+    position: absolute;
+    bottom: -40px;
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+    background: #e0ac2a;
+    padding: 8px 30px;
+    border-radius: 18px;
+}

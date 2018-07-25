@@ -614,7 +614,6 @@ class SiteController extends Controller {
     }
 
     public function actionContactSubmit() {
-        $model = User::findOne(Yii::$app->user->identity->id);
         if (Yii::$app->request->post()) {
             $name = $_POST['name'];
             $email = $_POST['email'];
@@ -640,7 +639,7 @@ class SiteController extends Controller {
 //     */
     public function sendContactMail($model) {
 
-        $subject = $model->subject;
+        $subject = 'Enquiry From Website';
         $to = "manu@azryah.com";
         $message = $this->renderPartial('contact-mail', ['model' => $model,]);
         $headers = "MIME-Version: 1.0" . "\r\n";
@@ -654,19 +653,19 @@ class SiteController extends Controller {
         if (Yii::$app->request->isAjax) {
             $email = $_POST['email'];
             if (!empty($email)) {
-                $model = new \common\models\EmailSubscription();
+                $model = new \common\models\Subscribe();
                 $model->email = $email;
                 $model->date = date('Y-m-d');
-                $exist = \common\models\EmailSubscription::find()->where(['email' => $email])->one();
+                $exist = \common\models\Subscribe::find()->where(['email' => $email])->one();
                 if (empty($exist)) {
                     if ($model->save()) {
-//                        $subject = 'Newsletter Subscription Enquiry From Linea De Bella';
-//                        $to = "manu@azryah.com";
-//                        $message = $this->renderPartial('subscribe-mail', ['email' => $email,]);
-//                        $headers = "MIME-Version: 1.0" . "\r\n";
-//                        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-//                        $headers .= 'From: <info@coralepitome.com>' . "\r\n";
-//                        mail($to, $subject, $message, $headers);
+                        $subject = 'Newsletter Subscription Enquiry From Linea De Bella';
+                        $to = "manu@azryah.com";
+                        $message = $this->renderPartial('subscribe-mail', ['email' => $email,]);
+                        $headers = "MIME-Version: 1.0" . "\r\n";
+                        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                        $headers .= 'From: <info@coralepitome.com>' . "\r\n";
+                        mail($to, $subject, $message, $headers);
                         echo 1;
                         exit;
                     }
