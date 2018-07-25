@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\ContactUs */
 
-$this->title = $model->id;
+$this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Contact uses', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -37,13 +37,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 'model' => $model,
                                                 'attributes' => [
                                                             'id',
-            'first_name',
-            'last_name',
+            'name',
             'email:email',
-            'country_code',
-            'mobile_no',
-            'country',
-            'reason',
+            'phone',
+            'message:ntext',
             'date',
                                                 ],
                                                 ]) ?>

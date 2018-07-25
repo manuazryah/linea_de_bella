@@ -30,7 +30,7 @@ a {
     background: 0 0;
     font-size: 17px;
     padding-bottom: 15px;
-    border-bottom: 3px solid rgba(39, 41, 42, 0.46);
+    border-bottom: 3px solid #8a6f30;
 }
 table{
     font-size: 14px;
@@ -352,7 +352,7 @@ nav.navbar {
     height: 155px;
     padding: 10px;
     text-align: center;
-    background: #05364b;
+    background: #4a3a12;
 }
 .user-info-navbar .user-info-menu>li .dropdown-menu.user-profile-menu li a, .navbar.horizontal-menu .navbar-inner>.nav>li .dropdown-menu.user-profile-menu li a {
     display: block;
@@ -422,5 +422,9 @@ nav.navbar {
 }
 .login-page .login-form .form-group .btn.btn-dark:hover {
     background-color: #282828;
+}
+.alert {
+    padding: 5px;
+    border-radius: 5px;
 }
 /************************* Login Page End **********************************/

@@ -17,21 +17,23 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'map') ?>
+    <?= $form->field($model, 'address') ?>
 
-    <?= $form->field($model, 'content') ?>
+    <?= $form->field($model, 'phone') ?>
 
-    <?= $form->field($model, 'accounts_info') ?>
+    <?= $form->field($model, 'fax') ?>
 
-    <?= $form->field($model, 'administration_info') ?>
+    <?= $form->field($model, 'email') ?>
 
-    <?php // echo $form->field($model, 'marketing_info') ?>
+    <?php // echo $form->field($model, 'status') ?>
 
-    <?php // echo $form->field($model, 'business_info') ?>
+    <?php // echo $form->field($model, 'CB') ?>
 
-    <?php // echo $form->field($model, 'marketing_address') ?>
+    <?php // echo $form->field($model, 'UB') ?>
 
-    <?php // echo $form->field($model, 'date_1') ?>
+    <?php // echo $form->field($model, 'DOC') ?>
+
+    <?php // echo $form->field($model, 'DOU') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

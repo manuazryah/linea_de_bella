@@ -52,13 +52,12 @@ else
             </div>
             <div class="col-lg-4">
                 <div class="cont-box">
-                    <p>Linea De Bella offers a wide range of perfumes capable of transporting you into an ethereal world of bliss. Our products touch the soul at multiple levels and allow you to relish the heavenly ecstasy, while passerbies marvel at you.</p>
-                    <p>Pick from the vast array of perfumes and get infused with soulful fragrances that come in vivid colors, evoke sweet emotions, give out ultra-positive vibes and send your confidence sky-rocketing.  Come, have a tryst with  Linea De Bella and savor the out of the world experience! </p>
+                    <?= $home_page_contents->welcome_content ?>
                 </div>
             </div>
         </div>
         <div class="years-experience">
-            <h4 class="sub-head">10</h4>
+            <h4 class="sub-head"><?= $home_page_contents->year_of_experience ?></h4>
             <h5 class="sub-head2">years experience</h5>
         </div>
     </div>
@@ -199,8 +198,7 @@ else
                     <h3 class="head">Linea De Bella</h3>
                     <h4 class="sub-head">THE FOUNDER</h4>
                     <div class="text">
-                        <p>Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur</p>
+                        <p><?= $home_page_contents->founder_message ?></p>
                     </div>
                     <a href="#" class="link"> FIND OUT MORE </a> </div>
             </div>

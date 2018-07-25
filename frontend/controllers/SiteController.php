@@ -103,6 +103,7 @@ class SiteController extends Controller {
         $home_datas_2 = \common\models\HomeManagement::findOne(2);
         $home_datas_3 = \common\models\HomeManagement::findOne(3);
         $home_datas_4 = \common\models\HomeManagement::findOne(4);
+        $home_page_contents = \common\models\HomePageContent::findOne(1);
         $set_off_products = \common\models\ShopByCategory::find()->all();
         $blog_datas = FromOurBlog::find()->where(['status' => 1])->orderBy(['blog_date' => SORT_DESC])->limit(3)->all();
         return $this->render('index', [
@@ -115,6 +116,7 @@ class SiteController extends Controller {
                     'home_datas_3' => $home_datas_3,
                     'home_datas_4' => $home_datas_4,
                     'set_off_products' => $set_off_products,
+                    'home_page_contents' => $home_page_contents,
                     'blog_datas' => $blog_datas,
         ]);
     }
@@ -132,7 +134,10 @@ class SiteController extends Controller {
     }
 
     public function actionContact() {
-        return $this->render('contact');
+        $contact_info = ContactPage::findOne(1);
+        return $this->render('contact', [
+                    'contact_info' => $contact_info,
+        ]);
     }
 
     public function actionLoginSignup($go = NULL) {
@@ -335,64 +340,6 @@ class SiteController extends Controller {
         Yii::$app->user->logout();
         Yii::$app->session['orderid'] = '';
         return $this->goHome();
-    }
-
-    /**
-     * This function send contact message to admin.
-     */
-    public function sendContactMail($model) {
-
-        $subject = "Enquiry From Coral Perfume";
-        $to = "info@coralperfumes.com";
-
-        $message = "<html>
-<head>
-
-</head>
-<body>
-<p><b>Enquiry Received From Website</b></p>
-<table>
-<tr>
-<th>Name</th>
-<th>:-</th>
-
-<td>" . $model->first_name . ' ' . $model->last_name . "</td>
-</tr>
-
-<tr>
-<tr>
-<th>Contact Number</th>
-<th>:-</th>
-
-<td>" . $model->country_code . $model->mobile_no . "</td>
-</tr>
-
-<tr>
-
-<th>Email Id</th>
-<th>:-</th>
-<td>" . $model->email . "</td>
-</tr>
-<tr>
-
-<th>Reason for Contact</th>
-<th>:-</th>
-<td>" . $model->reason . "</td>
-</tr>
-<tr>
-
-
-<tr>
-
-
-</table>
-</body>
-</html>
-";
-        $headers = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n" .
-                "From: no-replay@coralperfumes.com";
-        mail($to, $subject, $message, $headers);
     }
 
     /**
@@ -643,7 +590,7 @@ class SiteController extends Controller {
 
     public function actionBlogDetail($id) {
         $id = yii::$app->EncryptDecrypt->Encrypt('decrypt', $id);
-        $recent_blogs= FromOurBlog::find()->where(['status'=>1])->andWhere(['!=','id',$id])->orderBy(['blog_date'=>SORT_DESC])->all();
+        $recent_blogs = FromOurBlog::find()->where(['status' => 1])->andWhere(['!=', 'id', $id])->orderBy(['blog_date' => SORT_DESC])->all();
         $blog_details = FromOurBlog::findOne($id);
         \Yii::$app->view->registerMetaTag(['name' => 'keywords', 'content' => $blog_details->meta_keyword]);
         \Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => $blog_details->meta_description]);
@@ -664,6 +611,71 @@ class SiteController extends Controller {
 
     public function actionProductDetail() {
         return $this->render('product-detail');
+    }
+
+    public function actionContactSubmit() {
+        $model = User::findOne(Yii::$app->user->identity->id);
+        if (Yii::$app->request->post()) {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $message = $_POST['message'];
+            $model = new ContactUs();
+            $model->name = $name;
+            $model->email = $email;
+            $model->phone = $phone;
+            $model->message = $message;
+            $model->date = date('Y-m-d');
+            if ($model->save()) {
+                $this->sendContactMail($model);
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    }
+    
+    //    /**
+//     * This function send contact message to admin.
+//     */
+    public function sendContactMail($model) {
+
+        $subject = $model->subject;
+        $to = "manu@azryah.com";
+        $message = $this->renderPartial('contact-mail', ['model' => $model,]);
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= 'From: <info@coralepitome.com>' . "\r\n";
+        mail($to, $subject, $message, $headers);
+        return;
+    }
+
+    public function actionSubscribeMail() {
+        if (Yii::$app->request->isAjax) {
+            $email = $_POST['email'];
+            if (!empty($email)) {
+                $model = new \common\models\EmailSubscription();
+                $model->email = $email;
+                $model->date = date('Y-m-d');
+                $exist = \common\models\EmailSubscription::find()->where(['email' => $email])->one();
+                if (empty($exist)) {
+                    if ($model->save()) {
+//                        $subject = 'Newsletter Subscription Enquiry From Linea De Bella';
+//                        $to = "manu@azryah.com";
+//                        $message = $this->renderPartial('subscribe-mail', ['email' => $email,]);
+//                        $headers = "MIME-Version: 1.0" . "\r\n";
+//                        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+//                        $headers .= 'From: <info@coralepitome.com>' . "\r\n";
+//                        mail($to, $subject, $message, $headers);
+                        echo 1;
+                        exit;
+                    }
+                } else {
+                    echo 0;
+                    exit;
+                }
+            }
+        }
     }
 
 }

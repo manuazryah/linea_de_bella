@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\CharactersSearch */
+/* @var $model common\models\HomePageContentSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="characters-search">
+<div class="home-page-content-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,13 +17,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'gender') ?>
+    <?= $form->field($model, 'welcome_content') ?>
 
-    <?= $form->field($model, 'name') ?>
+    <?= $form->field($model, 'year_of_experience') ?>
 
-    <?= $form->field($model, 'price') ?>
+    <?= $form->field($model, 'founder_message') ?>
 
-    <?= $form->field($model, 'img') ?>
+    <?= $form->field($model, 'address') ?>
+
+    <?php // echo $form->field($model, 'phone') ?>
+
+    <?php // echo $form->field($model, 'email') ?>
 
     <?php // echo $form->field($model, 'status') ?>
 

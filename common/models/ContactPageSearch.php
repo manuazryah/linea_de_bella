@@ -18,8 +18,8 @@ class ContactPageSearch extends ContactPage
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['map', 'content', 'accounts_info', 'administration_info', 'marketing_info', 'business_info', 'marketing_address', 'date_1'], 'safe'],
+            [['id', 'status', 'CB', 'UB'], 'integer'],
+            [['address', 'phone', 'fax', 'email', 'DOC', 'DOU'], 'safe'],
         ];
     }
 
@@ -60,16 +60,17 @@ class ContactPageSearch extends ContactPage
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'status' => $this->status,
+            'CB' => $this->CB,
+            'UB' => $this->UB,
+            'DOC' => $this->DOC,
+            'DOU' => $this->DOU,
         ]);
 
-        $query->andFilterWhere(['like', 'map', $this->map])
-            ->andFilterWhere(['like', 'content', $this->content])
-            ->andFilterWhere(['like', 'accounts_info', $this->accounts_info])
-            ->andFilterWhere(['like', 'administration_info', $this->administration_info])
-            ->andFilterWhere(['like', 'marketing_info', $this->marketing_info])
-            ->andFilterWhere(['like', 'business_info', $this->business_info])
-            ->andFilterWhere(['like', 'marketing_address', $this->marketing_address])
-            ->andFilterWhere(['like', 'date_1', $this->date_1]);
+        $query->andFilterWhere(['like', 'address', $this->address])
+            ->andFilterWhere(['like', 'phone', $this->phone])
+            ->andFilterWhere(['like', 'fax', $this->fax])
+            ->andFilterWhere(['like', 'email', $this->email]);
 
         return $dataProvider;
     }

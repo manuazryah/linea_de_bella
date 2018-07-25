@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Notes */
+/* @var $model common\models\HomePageContent */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Notes', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Home Page Contents', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
@@ -20,8 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         </div>
                         <div class="panel-body">
-                                <?=  Html::a('<i class="fa-th-list"></i><span> Manage Notes</span>', ['index'], ['class' => 'btn btn-warning  btn-icon btn-icon-standalone']) ?>
-                                <div class="panel-body"><div class="notes-view">
+                                <?=  Html::a('<i class="fa-th-list"></i><span> Manage Home Page Content</span>', ['index'], ['class' => 'btn btn-warning  btn-icon btn-icon-standalone']) ?>
+                                <div class="panel-body"><div class="home-page-content-view">
                                                 <p>
                                                         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
                                                         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
@@ -37,12 +37,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 'model' => $model,
                                                 'attributes' => [
                                                             'id',
-            'scent_id',
-            'notes',
-            'price',
-            'main_img',
-            'description:ntext',
-            'sub_img',
+            'welcome_content:ntext',
+            'year_of_experience',
+            'founder_message:ntext',
+            'address:ntext',
+            'phone',
+            'email:email',
             'status',
             'CB',
             'UB',

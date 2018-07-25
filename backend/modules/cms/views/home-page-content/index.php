@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\ContactUsSearch */
+/* @var $searchModel common\models\HomePageContentSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Contact uses';
+$this->title = 'Home Page Contents';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="contact-us-index">
+<div class="home-page-content-index">
 
     <div class="row">
         <div class="col-md-12">
@@ -28,23 +28,30 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
+                    <?= Html::a('<i class="fa-th-list"></i><span> Create Home Page Content</span>', ['create'], ['class' => 'btn btn-warning  btn-icon btn-icon-standalone']) ?>
+                    <button class="btn btn-white" id="search-option" style="float: right;">
+                        <i class="linecons-search"></i>
+                        <span>Search</span>
+                    </button>
                     <div class="table-responsive" style="border: none">
-                        <button class="btn btn-white" id="search-option" style="float: right;">
-                            <i class="linecons-search"></i>
-                            <span>Search</span>
-                        </button>
                         <?=
                         GridView::widget([
                             'dataProvider' => $dataProvider,
                             'filterModel' => $searchModel,
                             'columns' => [
                                 ['class' => 'yii\grid\SerialColumn'],
-//                                        'id',
-                                'name',
-                                'email:email',
-                                'phone',
-                                'message:ntext',
-                                // 'date',
+                                'id',
+                                'welcome_content:ntext',
+                                'year_of_experience',
+                                'founder_message:ntext',
+                                'address:ntext',
+                                // 'phone',
+                                // 'email:email',
+                                // 'status',
+                                // 'CB',
+                                // 'UB',
+                                // 'DOC',
+                                // 'DOU',
                                 ['class' => 'yii\grid\ActionColumn'],
                             ],
                         ]);

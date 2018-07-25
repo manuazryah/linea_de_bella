@@ -5,12 +5,12 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\ContactUs;
+use common\models\HomePageContent;
 
 /**
- * ContactUsSearch represents the model behind the search form about `common\models\ContactUs`.
+ * HomePageContentSearch represents the model behind the search form about `common\models\HomePageContent`.
  */
-class ContactUsSearch extends ContactUs
+class HomePageContentSearch extends HomePageContent
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class ContactUsSearch extends ContactUs
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['name', 'email', 'phone', 'message', 'date'], 'safe'],
+            [['id', 'year_of_experience', 'status', 'CB', 'UB'], 'integer'],
+            [['welcome_content', 'founder_message', 'address', 'phone', 'email', 'DOC', 'DOU'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class ContactUsSearch extends ContactUs
      */
     public function search($params)
     {
-        $query = ContactUs::find();
+        $query = HomePageContent::find();
 
         // add conditions that should always apply here
 
@@ -60,13 +60,19 @@ class ContactUsSearch extends ContactUs
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'date' => $this->date,
+            'year_of_experience' => $this->year_of_experience,
+            'status' => $this->status,
+            'CB' => $this->CB,
+            'UB' => $this->UB,
+            'DOC' => $this->DOC,
+            'DOU' => $this->DOU,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'email', $this->email])
+        $query->andFilterWhere(['like', 'welcome_content', $this->welcome_content])
+            ->andFilterWhere(['like', 'founder_message', $this->founder_message])
+            ->andFilterWhere(['like', 'address', $this->address])
             ->andFilterWhere(['like', 'phone', $this->phone])
-            ->andFilterWhere(['like', 'message', $this->message]);
+            ->andFilterWhere(['like', 'email', $this->email]);
 
         return $dataProvider;
     }

@@ -37,14 +37,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 'model' => $model,
                                                 'attributes' => [
                                                             'id',
-            'map',
-            'content:ntext',
-            'accounts_info:ntext',
-            'administration_info:ntext',
-            'marketing_info:ntext',
-            'business_info:ntext',
-            'marketing_address:ntext',
-            'date_1:ntext',
+            'address:ntext',
+            'phone',
+            'fax',
+            'email:email',
+            'status',
+            'CB',
+            'UB',
+            'DOC',
+            'DOU',
                                                 ],
                                                 ]) ?>
 </div>

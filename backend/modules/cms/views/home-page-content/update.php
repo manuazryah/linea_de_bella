@@ -3,10 +3,10 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\CreateYourOwn */
+/* @var $model common\models\HomePageContent */
 
-$this->title = 'Update Create Your Own: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Create Your Owns', 'url' => ['index']];
+$this->title = 'Update Home Page Content';
+$this->params['breadcrumbs'][] = ['label' => 'Home Page Contents', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
@@ -20,8 +20,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
                         </div>
                         <div class="panel-body">
-				<?=  Html::a('<i class="fa-th-list"></i><span> Manage Create Your Own</span>', ['index'], ['class' => 'btn btn-warning  btn-icon btn-icon-standalone']) ?>
-                                <div class="panel-body"><div class="create-your-own-create">
+                                <div class="panel-body"><div class="home-page-content-create">
 						<?= $this->render('_form', [
                                                 'model' => $model,
                                                 ]) ?>
