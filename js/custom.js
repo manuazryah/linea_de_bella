@@ -704,7 +704,7 @@ jQuery(document).on('keydown', '.search-keyword', function (e) {
         jQuery(".search-dropdown").scrollTop(jQuery('.search-selected:first').offset().top - jQuery(".search-dropdown").height())
 });
 
-jQuery('.input-group-addon').click(function () {
+jQuery('.search-form-add-on').click(function () {
         if ($('#search-keyword-value').val() != '') {
                 jQuery('form#serach-formm').submit();
         }

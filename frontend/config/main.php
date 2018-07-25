@@ -68,7 +68,7 @@ return [
             'rules' =>
             require(__DIR__ . '/url_rules.php'),
         ],
-         'assetManager' => [
+        'assetManager' => [
             'bundles' => [
                 'yii\web\JqueryAsset' => [
                     'js' => []
