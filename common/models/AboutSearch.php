@@ -18,8 +18,8 @@ class AboutSearch extends About
     public function rules()
     {
         return [
-            [['id', 'CB', 'UB'], 'integer'],
-            [['index_title', 'index_content', 'about_title', 'about_content', 'chairman_image', 'chairman_name', 'chairman_position', 'chairman_message', 'about_image', 'DOC', 'DOU'], 'safe'],
+            [['id', 'status', 'CB', 'UB'], 'integer'],
+            [['about_content', 'history', 'our_vision', 'our_mission', 'DOC', 'DOU'], 'safe'],
         ];
     }
 
@@ -60,21 +60,17 @@ class AboutSearch extends About
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'status' => $this->status,
             'CB' => $this->CB,
             'UB' => $this->UB,
             'DOC' => $this->DOC,
             'DOU' => $this->DOU,
         ]);
 
-        $query->andFilterWhere(['like', 'index_title', $this->index_title])
-            ->andFilterWhere(['like', 'index_content', $this->index_content])
-            ->andFilterWhere(['like', 'about_title', $this->about_title])
-            ->andFilterWhere(['like', 'about_content', $this->about_content])
-            ->andFilterWhere(['like', 'chairman_image', $this->chairman_image])
-            ->andFilterWhere(['like', 'chairman_name', $this->chairman_name])
-            ->andFilterWhere(['like', 'chairman_position', $this->chairman_position])
-            ->andFilterWhere(['like', 'chairman_message', $this->chairman_message])
-            ->andFilterWhere(['like', 'about_image', $this->about_image]);
+        $query->andFilterWhere(['like', 'about_content', $this->about_content])
+            ->andFilterWhere(['like', 'history', $this->history])
+            ->andFilterWhere(['like', 'our_vision', $this->our_vision])
+            ->andFilterWhere(['like', 'our_mission', $this->our_mission]);
 
         return $dataProvider;
     }

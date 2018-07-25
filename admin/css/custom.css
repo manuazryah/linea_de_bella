@@ -428,3 +428,6 @@ nav.navbar {
     border-radius: 5px;
 }
 /************************* Login Page End **********************************/
+#yii-debug-toolbar{
+    display:none !important;
+}

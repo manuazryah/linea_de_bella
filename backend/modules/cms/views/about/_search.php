@@ -17,23 +17,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'index_title') ?>
-
-    <?= $form->field($model, 'index_content') ?>
-
-    <?= $form->field($model, 'about_title') ?>
-
     <?= $form->field($model, 'about_content') ?>
 
-    <?php // echo $form->field($model, 'chairman_image') ?>
+    <?= $form->field($model, 'history') ?>
 
-    <?php // echo $form->field($model, 'chairman_name') ?>
+    <?= $form->field($model, 'our_vision') ?>
 
-    <?php // echo $form->field($model, 'chairman_position') ?>
+    <?= $form->field($model, 'our_mission') ?>
 
-    <?php // echo $form->field($model, 'chairman_message') ?>
-
-    <?php // echo $form->field($model, 'about_image') ?>
+    <?php // echo $form->field($model, 'status') ?>
 
     <?php // echo $form->field($model, 'CB') ?>
 
