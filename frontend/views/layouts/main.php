@@ -214,19 +214,24 @@ $home_page_common = \common\models\HomePageContent::findOne(1);
                                     <ul class="dropdown-menu main-maenu-dropdown animated2 fadeInUp">
                                         <div class="col-lg-12"><?= Html::a('All COLLECTIONS', ['product/index/'], ['class' => 'all-link-menu']) ?></div>
                                         <div class="row">
-                                            <div class="col-md-9">
+                                            <div class="col-md-9 image-collection">
                                                 <?php
                                                 $collections = \common\models\Brand::find()->where(['status' => 1])->orderBy(['brand' => SORT_ASC])->all();
                                                 $c = 0;
                                                 foreach ($collections as $collection) {
                                                     $c++;
+                                                    if ($collection->collection_image != '') {
+                                                        $link = Yii::$app->homeUrl . 'uploads/cms/collections/' . $collection->id . '/large.' . $collection->collection_image;
+                                                    } else {
+                                                        $link = '';
+                                                    }
                                                     ?>
-                                                    <li><?= Html::a($collection->brand, ['product/index/', 'id' => $collection->canonical_name], ['class' => 'dropdown-item']) ?></li>
+                                                    <li class="collection_images" data-val="<?= $link ?>"><?= Html::a($collection->brand, ['product/index/', 'id' => $collection->canonical_name], ['class' => 'dropdown-item']) ?></li>
                                                 <?php } ?>
 
                                             </div>
                                             <div class="col-md-3">
-                                                <div class="img-box"><img src="<?= Yii::$app->homeUrl ?>images/product/product1.jpg" class="img-fluid" alt="" title=""></div>
+                                                <div class="img-box"><img id="collection-image" src="<?= Yii::$app->homeUrl ?>images/product/product1.jpg" class="img-fluid" alt="" title=""></div>
 
                                             </div>
                                         </div>
@@ -376,7 +381,7 @@ $home_page_common = \common\models\HomePageContent::findOne(1);
                 });
                 $(document).on('submit', '#email-subscription', function (e) {
                     e.preventDefault();
-                    
+
                     $.ajax({
                         type: "POST",
                         url: '<?= Yii::$app->homeUrl; ?>site/subscribe-mail',
@@ -393,6 +398,17 @@ $home_page_common = \common\models\HomePageContent::findOne(1);
                         }
                     });
                 });
+
+                $(".image-collection li").hover(function () {
+                    var src_value = $(this).attr('data-val');
+                    if (src_value == '') {
+                        src_value = '/linea_de_bella/images/product/product1.jpg';
+                    }
+                    $('#collection-image').attr('src', src_value);
+                }, function () {
+                    var src_value = '/linea_de_bella/images/product/product1.jpg';
+                    $('#collection-image').attr('src', src_value);
+                })
 
             });
         </script>

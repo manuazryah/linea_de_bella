@@ -72,15 +72,22 @@ class BrandController extends Controller {
 
         public function SetExtension($model, $id) {
                 $image = UploadedFile::getInstance($model, 'banner_image');
+                $collection_image = UploadedFile::getInstance($model, 'collection_image');
                 if (!empty($id)) {
                         $update = Brand::findOne($id);
-                        
-                        if (!empty($image))
+                        if (!empty($image)){
                                 $model->banner_image = $image->extension;
-                        else
+                        }else{
                                 $model->banner_image = $update->banner_image;
+                        }
+                        if (!empty($collection_image)){
+                                $model->collection_image = $collection_image->extension;
+                        }else{
+                                $model->collection_image = $update->collection_image;
+                        }
                 } else {
                         $model->banner_image = $image->extension;
+                        $model->collection_image = $collection_image->extension;
                 }
 
                 return TRUE;
@@ -92,13 +99,21 @@ class BrandController extends Controller {
          */
         public function SaveUpload($model) {
                 $image = UploadedFile::getInstance($model, 'banner_image');
+                $collection_image = UploadedFile::getInstance($model, 'collection_image');
                 $path = Yii::$app->basePath . '/../uploads/cms/brand';
+                $path1 = Yii::$app->basePath . '/../uploads/cms/collections';
                 $size = [
                         ['width' => 300, 'height' => 75, 'name' => 'small'],
+                ];
+                $size1 = [
+                        ['width' => 100, 'height' => 100, 'name' => 'small'],
                 ];
 
                 if (!empty($image)) {
                         Yii::$app->UploadFile->UploadFile($model, $image, $path . '/' . $model->id, $size);
+                }
+                if (!empty($collection_image)) {
+                        Yii::$app->UploadFile->UploadFile($model, $collection_image, $path1 . '/' . $model->id, $size1);
                 }
                 return TRUE;
         }
