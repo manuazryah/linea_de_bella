@@ -32,9 +32,9 @@ class Brand extends \yii\db\ActiveRecord {
                         [['brand'], 'required'],
                         [['brand'], 'unique'],
                         [['CB', 'UB', 'status'], 'integer'],
-                        [['DOC', 'DOU', 'canonical_name', 'banner_image','collection_image'], 'safe'],
+                        [['DOC', 'DOU', 'canonical_name', 'banner_image'], 'safe'],
                         [['brand'], 'string', 'max' => 200],
-                        [['banner_image','collection_image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
+                        [['banner_image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
                 ];
         }
 

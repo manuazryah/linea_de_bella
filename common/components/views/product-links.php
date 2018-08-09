@@ -13,7 +13,7 @@ use yii\helpers\Url;
                 $image_src = Yii::$app->homeUrl . 'uploads/product/gallery_dummy.png';
         }
         ?>
-        <div class="image-box"> <img src="<?= $image_src ?>" class="img-fluid" alt="" title="">
+        <div class="image-box"> <?= Html::a('<img  class="img-fluid" src="' . $image_src . '" alt="' . $product_details->canonical_name . '" />', ['product/product-detail', 'product' => $product_details->canonical_name], ['title' => $product_details->product_name]) ?>
                 <div class="add-to-cart">
                         <a href="" data-product-id="<?= $product_details->id ?>"  class="button add-cart" pro_id="<?= $product_details->canonical_name ?>">add to cart</a>
                         <!--<a href="#" class="button">add to cart</a>-->
@@ -31,10 +31,10 @@ use yii\helpers\Url;
                         if ($product_details->offer_price != "0" && isset($product_details->offer_price)) {
                                 $percentage = round(100 - (($product_details->offer_price / $product_details->price) * 100));
                                 ?>
-                                <h3 class="head">AED <?= $product_details->offer_price; ?></h3>
-                                <h4 class="off-price">AED <?= $product_details->price; ?></h4>
+                                <h3 class="head">USD <?= $product_details->offer_price; ?></h3>
+                                <h4 class="off-price">USD <?= $product_details->price; ?></h4>
                         <?php } else { ?>
-                                <h3 class="head">AED <?= $product_details->price; ?></h3>
+                                <h3 class="head">USD <?= $product_details->price; ?></h3>
                         <?php } ?>
                 </div>
         </div>

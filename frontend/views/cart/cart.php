@@ -70,7 +70,7 @@ $this->title = 'Shopping Cart';
                                                         <div class="input-group number-spinner"> <span class="input-group-btn">
                                                                         <button class="btn" data-dir="dwn"><span class="fas fa-minus"></span></button>
                                                                 </span>
-                                                                <input type="number" min="1" max="<?= $prod_details->stock ?>" step="1" value="<?= $cart_item->quantity ?>" id="quantity_<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_item->id); ?>" class="cart_quantity">
+                                                                <input type="number" min="1" max="<?= $prod_details->stock ?>" step="1" value="<?= $cart_item->quantity ?>" id="quantity_<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $cart_item->id); ?>" class="cart_quantity text-center">
                                                                 <span class="input-group-btn">
                                                                         <button class="btn" data-dir="up"><span class="fas fa-plus"></span></button>
                                                                 </span>

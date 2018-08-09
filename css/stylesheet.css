@@ -2259,3 +2259,18 @@ a:hover {
     padding: 8px 30px;
     border-radius: 18px;
 }
+#hdr_ifr {
+    display:none !important;
+}
+#chk_frame {
+    display:none !important;
+}
+.alert-msg{
+    border: 1px solid #2f250f;
+    color: #b8933d;
+    padding: 10px 0px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 13px;
+    display: none;
+}

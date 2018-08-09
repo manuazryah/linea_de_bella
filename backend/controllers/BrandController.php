@@ -75,19 +75,21 @@ class BrandController extends Controller {
                 $collection_image = UploadedFile::getInstance($model, 'collection_image');
                 if (!empty($id)) {
                         $update = Brand::findOne($id);
-                        if (!empty($image)){
+                        if (!empty($image)) {
                                 $model->banner_image = $image->extension;
-                        }else{
+                        } else {
                                 $model->banner_image = $update->banner_image;
                         }
-                        if (!empty($collection_image)){
+                        if (!empty($collection_image)) {
                                 $model->collection_image = $collection_image->extension;
-                        }else{
+                        } else {
                                 $model->collection_image = $update->collection_image;
                         }
                 } else {
-                        $model->banner_image = $image->extension;
-                        $model->collection_image = $collection_image->extension;
+                        if (!empty($image))
+                                $model->banner_image = $image->extension;
+                        if (!empty($collection_image))
+                                $model->collection_image = $collection_image->extension;
                 }
 
                 return TRUE;

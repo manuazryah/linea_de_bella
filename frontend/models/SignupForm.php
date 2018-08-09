@@ -40,7 +40,7 @@ class SignupForm extends Model {
             ['password', 'string', 'min' => 6],
 //            [['country', 'gender','mobile_no'], 'integer'],
             [['first_name', 'last_name'], 'string', 'max' => 50],
-            [['first_name', 'last_name', 'mobile_no','dob'], 'required'],
+            [['first_name', 'last_name', 'mobile_no', 'dob'], 'required'],
 //            ['rules', 'required', 'requiredValue' => 1, 'message' => 'Please agree the terms and conditions'],
             ['password_repeat', 'compare', 'compareAttribute' => 'password', 'message' => "Passwords don't match"],
 //            ['rules', 'required', 'requiredValue' => 1, 'message' => 'Please agree the terms and conditions'],
@@ -75,7 +75,7 @@ class SignupForm extends Model {
             $user->last_name = $this->last_name;
             $user->country = $this->country;
             $user->gender = $this->gender;
-            $user->dob = date("d-m-Y", strtotime($this->dob));
+            $user->dob = date("Y-m-d", strtotime($this->dob));
             $user->country_code = $this->country_code;
             $user->mobile_no = $this->mobile_no;
             $user->email = $this->email;
@@ -83,8 +83,8 @@ class SignupForm extends Model {
             $user->setPassword($this->password);
             $user->generateAuthKey();
             if ($user->save()) {
-
-            } 
+                
+            }
 
             return $user->save() ? $user : null;
         }

@@ -1,5 +1,6 @@
 <?php
 /* @var $this yii\web\View */
+
 use yii\helpers\Html;
 use common\components\ProductLinksWidget;
 
@@ -63,25 +64,36 @@ else
     </div>
 </section>
 <!--home-page-welcome-->
-<?php if (isset($home_datas_1->product_id)) { ?>
+<?php if (!empty($our_top_collections)) { ?>
     <section class="home-prduct-section home-collection"><!--home-prduct-section-->
         <div class="container">
             <div class="main-heading">
-                <h2 class="head-one"><?= $home_datas_1->tittle ?></h2>
+                <h2 class="head-one">Our Top Collections</h2>
                 <h3 class="head-small">Linea De Belle</h3>
             </div>
             <div class="content">
                 <div class="slider lazy-product">
                     <?php
-                    $products = explode(',', $home_datas_1->product_id);
-                    foreach ($products as $top_categorie) {
-                        ?>
-                        <?= ProductLinksWidget::widget(['id' => $top_categorie]) ?>
-                        <?php
+                    foreach ($our_top_collections as $our_top_collection) {
+                        if (!empty($our_top_collection)) {
+                            $collection_data = \common\models\Brand::find()->where(['id' => $our_top_collection->collection])->one();
+                            ?>
+                            <div class="products-box">
+                                <?php
+                                $product_image = Yii::$app->basePath . '/../uploads/cms/our_top_collection/' . $our_top_collection->id . '/large.' . $our_top_collection->image;
+                                if (file_exists($product_image)) {
+                                    $image_src = Yii::$app->homeUrl . 'uploads/cms/our_top_collection/' . $our_top_collection->id . '/large.' . $our_top_collection->image;
+                                } else {
+                                    $image_src = Yii::$app->homeUrl . 'uploads/product/gallery_dummy.png';
+                                }
+                                ?>
+                                <div class="image-box"> <?= Html::a('<img  class="img-fluid" src="' . $image_src . '" alt="' . $collection_data->canonical_name . '" />', ['product/index/', 'id' => $collection_data->canonical_name], ['title' => $collection_data->brand]) ?>
+                                </div>
+                            </div>
+                            <?php
+                        }
                     }
                     ?>
-
-
                 </div>
             </div>
         </div>
@@ -162,20 +174,19 @@ else
     </section>
 <?php } ?>
 <!--home-prduct-section-->
-<?php if (isset($home_datas_4->product_id)) { ?>
+<?php if (!empty($travel_with_products)) { ?>
     <section class="home-prduct-section"><!--home-prduct-section-->
         <div class="container">
             <div class="main-heading">
-                <h2 class="head-one"><?= $home_datas_4->tittle ?></h2>
+                <h2 class="head-one">Travel With Linea De Bella</h2>
                 <h3 class="head-small">Linea De Belle</h3>
             </div>
             <div class="content">
                 <div class="slider lazy-product">
                     <?php
-                    $products_4 = explode(',', $home_datas_4->product_id);
-                    foreach ($products_4 as $product4) {
+                    foreach ($travel_with_products as $travel_with_product) {
                         ?>
-                        <?= ProductLinksWidget::widget(['id' => $product4]) ?>
+                        <?= ProductLinksWidget::widget(['id' => $travel_with_product->id]) ?>
                         <?php
                     }
                     ?>
@@ -187,7 +198,7 @@ else
     </section>
 <?php } ?>
 <!--home-prduct-section-->
-<section class="home-founder-section"><!--home-founder-section-->
+<!--<section class="home-founder-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-5 col-md-4">
@@ -204,12 +215,12 @@ else
             </div>
         </div>
     </div>
-</section>
+</section>-->
 <!--home-founder-section-->
 <section class="home-blog-section"><!--home-blog-section-->
     <div class="container">
         <div class="main-heading">
-            <h2 class="head-one">Our Blog</h2>
+            <h2 class="head-one">Our Stories</h2>
             <h3 class="head-small">Linea De Belle</h3>
         </div>
         <div class="row">

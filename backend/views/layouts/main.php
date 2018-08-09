@@ -181,6 +181,9 @@ AppAsset::register($this);
                                     </a>
                                     <ul>
                                         <li>
+                                            <?= Html::a('Our Top Collections', ['/cms/our-top-collection/index'], ['class' => 'title']) ?>
+                                        </li>
+                                        <li>
                                             <?= Html::a('Set Off Products', ['/cms/shop-by-category/index'], ['class' => 'title']) ?>
                                         </li>
 

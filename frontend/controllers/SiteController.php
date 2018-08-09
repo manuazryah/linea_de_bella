@@ -94,15 +94,18 @@ class SiteController extends Controller {
      * @return mixed
      */
     public function actionIndex() {
+        $arr_data = [2, 6];
         Yii::$app->session['orderid'] = '';
         $sliders = Slider::find()->where(['status' => 1])->all();
         $our_collections = \common\models\ShopByCategory::find()->all();
+        $our_top_collections = \common\models\OurTopCollection::find()->all();
         $latest_updates = LatestUpdates::find()->orderBy(['id' => SORT_DESC])->limit(2)->all();
         $shop_collections = \common\models\ShopCollections::find()->all();
-        $home_datas_1 = \common\models\HomeManagement::findOne(1);
+//        $home_datas_1 = \common\models\HomeManagement::findOne(1);
         $home_datas_2 = \common\models\HomeManagement::findOne(2);
         $home_datas_3 = \common\models\HomeManagement::findOne(3);
-        $home_datas_4 = \common\models\HomeManagement::findOne(4);
+//        $home_datas_4 = \common\models\HomeManagement::findOne(4);
+        $travel_with_products = Product::find()->where(['status' => 1])->andWhere(['brand' => $arr_data])->all();
         $home_page_contents = \common\models\HomePageContent::findOne(1);
         $set_off_products = \common\models\ShopByCategory::find()->all();
         $blog_datas = FromOurBlog::find()->where(['status' => 1])->orderBy(['blog_date' => SORT_DESC])->limit(3)->all();
@@ -111,13 +114,14 @@ class SiteController extends Controller {
                     'our_collections' => $our_collections,
                     'latest_updates' => $latest_updates,
                     'shop_collections' => $shop_collections,
-                    'home_datas_1' => $home_datas_1,
+//                    'home_datas_1' => $home_datas_1,
                     'home_datas_2' => $home_datas_2,
                     'home_datas_3' => $home_datas_3,
-                    'home_datas_4' => $home_datas_4,
+                    'travel_with_products' => $travel_with_products,
                     'set_off_products' => $set_off_products,
                     'home_page_contents' => $home_page_contents,
                     'blog_datas' => $blog_datas,
+                    'our_top_collections' => $our_top_collections,
         ]);
     }
 
@@ -513,17 +517,18 @@ class SiteController extends Controller {
     }
 
     public function sendMail($val, $model) {
+        $subject = 'Change Password';
+        $to = $model->email;
         $message = $this->renderPartial('forgot_mail', [
             'model' => $model,
             'val' => $val,
         ]);
         echo $message;
         exit;
-        $message = Yii::$app->mailer->compose('forgot_mail', ['model' => $model, 'val' => $val]) // a view rendering result becomes the message body here
-                ->setFrom('no-replay@coralperfumes.com')
-                ->setTo($model->email)
-                ->setSubject('Change Password');
-        $message->send();
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= 'From: <info@coralepitome.com>' . "\r\n";
+        mail($to, $subject, $message, $headers);
         return TRUE;
     }
 
@@ -633,7 +638,7 @@ class SiteController extends Controller {
             }
         }
     }
-    
+
     //    /**
 //     * This function send contact message to admin.
 //     */

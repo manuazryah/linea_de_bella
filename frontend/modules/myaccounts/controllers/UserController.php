@@ -57,8 +57,11 @@ class UserController extends Controller {
     public function actionIndex() {
         $id = Yii::$app->user->identity->id;
         $model = User::find()->where(['id' => $id])->one();
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
-
+        if ($model->load(Yii::$app->request->post())) {
+            $model->dob = date("Y-m-d", strtotime($model->dob));
+            if ($model->validate() && $model->save()) {
+                
+            }
         }
         return $this->render('index', [
                     'model' => $model,
@@ -70,7 +73,7 @@ class UserController extends Controller {
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->query->andWhere(['user_id' => Yii::$app->user->identity->id]);
         $dataProvider->query->andWhere(['shipping_status' => 0]);
-        $dataProvider->query->andWhere(['<>','status', '5']);
+        $dataProvider->query->andWhere(['<>', 'status', '5']);
         $dataProvider->pagination->pageSize = 10;
         return $this->render('my-orders', [
                     'searchModel' => $searchModel,

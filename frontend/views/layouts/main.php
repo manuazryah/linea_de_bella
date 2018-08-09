@@ -75,14 +75,14 @@ $home_page_common = \common\models\HomePageContent::findOne(1);
                                 <div class="dropdown">
                                     <button  type="button" class="login-top" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <?php if (!empty(Yii::$app->user->identity)) { ?>
-                                            <small>Select</small><span><?= Yii::$app->user->identity->first_name ?> </span>
+                                            <small>Welcome</small><span><?= Yii::$app->user->identity->first_name ?> </span>
                                         <?php } else { ?>
                                             <small>Select</small><span>Login </span>
                                         <?php } ?>
                                     </button>
                                     <ul class="dropdown-menu  animated2 fadeInUp">
                                         <?php if (!empty(Yii::$app->user->identity)) { ?>
-                                            <li><?= Html::a('My Account', ['/myaccounts/user/index'], ['class' => 'dropdown-item']) ?></li>
+                                            <li><?= Html::a('My Account', ['/myaccounts/user/my-orders'], ['class' => 'dropdown-item']) ?></li>
                                             <?php
                                             echo '<li>'
                                             . Html::beginForm(['/site/logout'], 'post') . '<a class="dropdown-item">'
@@ -209,8 +209,14 @@ $home_page_common = \common\models\HomePageContent::findOne(1);
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li><?= Html::a('Home', ['/site/index'], ['class' => $action == 'site/index' ? 'active' : '']) ?></li>
-                                <li><?= Html::a('BRAND', ['/site/about'], ['class' => $action == 'site/about' ? 'active' : '']) ?></li>
-                                <li class="dropdown"> <a href="#"  data-toggle="dropdown">COLLECTIONS</a>
+                                <li><?= Html::a('About the brand', ['/site/about'], ['class' => $action == 'site/about' ? 'active' : '']) ?></li>
+                                <?php
+                                $aclass = '';
+                                if ((isset($params['id']))) {
+                                    $aclass = 'active';
+                                }
+                                ?>
+                                <li class="dropdown"> <a href="#" class="<?= $aclass ?>"  data-toggle="dropdown">COLLECTIONS</a>
                                     <ul class="dropdown-menu main-maenu-dropdown animated2 fadeInUp">
                                         <div class="col-lg-12"><?= Html::a('All COLLECTIONS', ['product/index/'], ['class' => 'all-link-menu']) ?></div>
                                         <div class="row">
@@ -226,20 +232,26 @@ $home_page_common = \common\models\HomePageContent::findOne(1);
                                                         $link = '';
                                                     }
                                                     ?>
-                                                    <li class="collection_images" data-val="<?= $link ?>"><?= Html::a($collection->brand, ['product/index/', 'id' => $collection->canonical_name], ['class' => 'dropdown-item']) ?></li>
+                                                    <li class="collection_images" id="<?= $collection->id ?>" data-val="<?= $link ?>"><?= Html::a($collection->brand, ['product/index/', 'id' => $collection->canonical_name], ['class' => 'dropdown-item']) ?></li>
                                                 <?php } ?>
 
                                             </div>
                                             <div class="col-md-3">
-                                                <div class="img-box"><img id="collection-image" src="<?= Yii::$app->homeUrl ?>images/product/product1.jpg" class="img-fluid" alt="" title=""></div>
+                                                <div class="img-box">
+                                                    <img id="collection-image" src="<?= Yii::$app->homeUrl ?>images/product/product1.jpg" class="img-fluid" alt="" title="">
+                                                    <?php foreach ($collections as $collection_img) { ?>
+                                                        <img id="img_<?= $collection_img->id ?>" src="<?= Yii::$app->homeUrl ?>uploads/cms/collections/<?= $collection_img->id ?>/large.<?= $collection_img->collection_image ?>" class="img-fluid" alt="" title="" style="display:none">
+                                                    <?php } ?>
+                                                </div>
 
                                             </div>
                                         </div>
                                     </ul>
                                 </li>
-                                <li><?= Html::a('Travel Collections', ['/product/index', 'category' => 'travel-collections'], ['class' => $action == 'site/blog' ? 'active' : '']) ?></li>
-                                <li><?= Html::a('Gift Sets', ['/product/index', 'category' => 'gift-sets'], ['class' => $action == 'site/blog' ? 'active' : '']) ?></li>
-                                <li><?= Html::a('BLOG', ['/site/blog'], ['class' => $action == 'site/blog' ? 'active' : '']) ?></li>
+                                <li><?= Html::a('Products', ['/product/index', 'category' => 'products'], ['class' => isset($params['category']) && $params['category'] == 'products' ? 'active' : '']) ?></li>
+                                <li><?= Html::a('Travel Collections', ['/product/index', 'category' => 'travel-collections'], ['class' => isset($params['category']) && $params['category'] == 'travel-collections' ? 'active' : '']) ?></li>
+                                <li><?= Html::a('Gift Sets', ['/product/index', 'category' => 'gift-sets'], ['class' => isset($params['category']) && $params['category'] == 'gift-sets' ? 'active' : '']) ?></li>
+                                <li><?= Html::a('Our Stories', ['/site/blog'], ['class' => $action == 'site/blog' ? 'active' : '']) ?></li>
                                 <li><?= Html::a('Feedback', ['/site/contact'], ['class' => $action == 'site/contact' ? 'active' : '']) ?></li>
                             </ul>
                         </div>
@@ -308,12 +320,13 @@ $home_page_common = \common\models\HomePageContent::findOne(1);
                         <div class="col-md-3 col-sm-3 col-6">
                             <h5 class="f-head">Main menu</h5>
                             <ul class="f-list">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Our Products</a></li>
-                                <li><a href="#">Our Brands</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">FAQs</a></li>
+                                <li><?= Html::a('Home', ['/site/index']) ?></li>
+                                <li><?= Html::a('About the Brand', ['/site/about']) ?></li>
+                                <li><?= Html::a('Products', ['/product/index', 'category' => 'products']) ?></li>
+                                <li><?= Html::a('Travel Collections', ['/product/index', 'category' => 'travel-collections']) ?></li>
+                                <li><?= Html::a('Gift Sets', ['/product/index', 'category' => 'gift-sets']) ?></li>
+                                <li><?= Html::a('Our Stories', ['/site/blog']) ?></li>
+                                <li><?= Html::a('Feedback', ['/site/contact']) ?></li>
                             </ul>
                         </div>
                         <div class="col-md-3 col-sm-3 col-6">
@@ -401,14 +414,19 @@ $home_page_common = \common\models\HomePageContent::findOne(1);
 
                 $(".image-collection li").hover(function () {
                     var src_value = $(this).attr('data-val');
+                    var id = $(this).attr('id');
                     if (src_value == '') {
-                        src_value = '/linea_de_bella/images/product/product1.jpg';
+
+                        $(".img-box img").hide();
+                        $('#collection-image').show();
+                    } else {
+                        $(".img-box img").hide();
+                        $('#img_' + id).show();
                     }
-                    $('#collection-image').attr('src', src_value);
-                }, function () {
-                    var src_value = '/linea_de_bella/images/product/product1.jpg';
-                    $('#collection-image').attr('src', src_value);
-                })
+
+
+
+                });
 
             });
         </script>
