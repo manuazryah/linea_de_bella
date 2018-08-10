@@ -488,7 +488,7 @@ class Cart extends \yii\db\ActiveRecord {
         $model->landmark = $data['UserAddress']['landmark'];
         $model->location = $data['UserAddress']['location'];
         $model->emirate = $data['UserAddress']['emirate'];
-        $model->post_code = $data['UserAddress']['post_code'];
+//        $model->post_code = $data['UserAddress']['post_code'];
         $model->country_code = $data['UserAddress']['country_code'];
         $model->mobile_number = $data['UserAddress']['mobile_number'];
         if ($model->save()) {

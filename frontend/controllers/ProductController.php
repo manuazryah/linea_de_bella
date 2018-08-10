@@ -28,7 +28,6 @@ class ProductController extends \yii\web\Controller {
      * @return mixed
      */
     public function actionIndex($id = null, $type = null, $category = null, $featured = null, $keyword = null) {
-
         $searchModel = new ProductSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->pagination->pageSize = 42;
@@ -47,6 +46,9 @@ class ProductController extends \yii\web\Controller {
             if ($category == 'travel-collections') {
                 $catag = "";
                 $dataProvider->query->andWhere(['brand' => $arr_data]);
+            } elseif ($category == 'gift-sets') {
+                $catag = "";
+                $dataProvider->query->andWhere(new Expression('FIND_IN_SET(:search_tag, search_tag)'))->addParams([':search_tag' => 76]);
             } else {
                 $catag = Category::find()->where(['category_code' => $category])->one();
                 $dataProvider->query->andWhere(['category' => $catag->id]);

@@ -225,6 +225,7 @@ class SiteController extends Controller {
             $model_login->password = '';
             return $this->render('login-signup', [
                         'model_login' => $model_login,
+                        'go' => $go,
             ]);
         }
     }
@@ -241,7 +242,7 @@ class SiteController extends Controller {
                 //$this->sendResponseMail($model);
                 if (Yii::$app->getUser()->login($user)) {
                     $this->Emailregister($user);
-                    $this->Emailverification($user);
+//                    $this->Emailverification($user);
                     if ($go) {
                         return $this->redirect($go);
                     } else {
@@ -275,7 +276,7 @@ class SiteController extends Controller {
         $val = base64_encode($token);
 
         $message = Yii::$app->mailer->compose('email_varification', ['model' => $user, 'val' => $val]) // a view rendering result becomes the message body here
-                ->setFrom('no-replay@coralperfumes.com')
+                ->setFrom('no-replay@lineadebella.com')
                 ->setTo($user->email, $val)
                 ->setSubject('Email Verification');
         $message->send();
@@ -283,11 +284,16 @@ class SiteController extends Controller {
     }
 
     public function Emailregister($user) {
-        $message = Yii::$app->mailer->compose('new_registration', ['user' => $user])
-                ->setFrom('operations@coralperfumes.com')
-                ->setTo(Yii::$app->params['adminEmail'])
-                ->setSubject('New User Registration');
-        $message->send();
+        $subject = 'New User Registration';
+        $to = $user->email;
+        $message = $this->renderPartial('new_registration', [
+            'user' => $user,
+        ]);
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= 'From: <info@coralepitome.com>' . "\r\n";
+        mail($to, $subject, $message, $headers);
+        return TRUE;
     }
 
     public function Emailregister1($user) {
@@ -523,8 +529,6 @@ class SiteController extends Controller {
             'model' => $model,
             'val' => $val,
         ]);
-        echo $message;
-        exit;
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $headers .= 'From: <info@coralepitome.com>' . "\r\n";
@@ -546,7 +550,7 @@ class SiteController extends Controller {
 //                   echo $model->password_hash;exit;
                     $model->update();
                     $token_exist->delete();
-                    $this->redirect('index');
+                    $this->redirect('login');
                 } else {
                     Yii::$app->getSession()->setFlash('error', 'password mismatch  ');
                 }

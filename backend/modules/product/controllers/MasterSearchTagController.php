@@ -8,6 +8,7 @@ use common\models\MasterSearchTagSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\db\Expression;
 
 /**
  * MasterSearchTagController implements the CRUD actions for MasterSearchTag model.
@@ -121,8 +122,14 @@ class MasterSearchTagController extends Controller {
      * @return mixed
      */
     public function actionDelete($id) {
-        $this->findModel($id)->delete();
-
+        $model = $this->findModel($id);
+        $products = \common\models\Product::find()->where(new Expression('FIND_IN_SET(:search_tag, search_tag)'))->addParams([':search_tag' => 76])->all();
+        if (empty($products)) {
+            $model->delete();
+            Yii::$app->getSession()->setFlash('success', 'Removed Successfully');
+        } else {
+            Yii::$app->getSession()->setFlash('error', "Can't remove. Because this tag is already used in products.");
+        }
         return $this->redirect(['index']);
     }
 
